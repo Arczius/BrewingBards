@@ -1,1 +1,5 @@
 # BrewingBards
+---
+```Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum ante a sem interdum ullamcorper. Nullam nulla justo, cursus ut leo in, gravida maximus diam. Fusce quis bibendum quam, eu mattis felis. Sed pulvinar nulla eu metus pharetra, nec fringilla justo maximus. Nam eros neque, suscipit feugiat placerat non, rhoncus a erat. Nunc id velit consequat, ornare velit ac, blandit nulla. Integer porttitor ipsum metus, eget elementum odio posuere id. Suspendisse id nunc elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Praesent et placerat risus, eget ornare arcu. Ut diam risus, volutpat in molestie vel, rhoncus eget urna. Nulla at metus non est consectetur molestie a sed urna. Suspendisse in leo a orci condimentum euismod id rutrum enim. Ut ut finibus ex. Curabitur iaculis odio nisl, id pharetra mi aliquet dignissim.```
+---
+dit is een repository voor het project van de Brewing Bards
