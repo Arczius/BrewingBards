@@ -10,7 +10,7 @@ class Classes extends Migration
     {
         $this->forge->addField([
 
-            'id' => [
+            'ID' => [
                 'type' => 'INT',
                 'constraint' => '11',
                 'unsigned' => true,
