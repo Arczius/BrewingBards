@@ -23,7 +23,7 @@ class Classes extends Migration
             ],
         ]);
 
-        $this->forge->addKey('id', true, true);
+        $this->forge->addKey('ID', true, true);
         $this->forge->createTable('Classes');
     }
 
