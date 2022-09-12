@@ -26,6 +26,9 @@ class UsersClasses extends Migration
                 'constraint' => '11'
             ],
         ]); 
+
+        $this->forge->addKey('ID', true, true);
+        $this->forge->createTable('UsersClasses');
     }
 
     public function down()
