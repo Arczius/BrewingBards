@@ -16,12 +16,12 @@ class UserThemes extends Migration
                 'auto_increment' => true,
             ],
 
-            'ClassID' => [
+            'UserID' => [
                 'type' => 'INT',
                 'constraint' => '11',
             ],
 
-            'LearningPathID' => [
+            'ThemeID' => [
                 'type' => 'INT',
                 'constraint' => '11',
             ],
