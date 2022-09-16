@@ -1,0 +1,28 @@
+/// list styling
+ol, ul {
+    list-style-type: none;
+    padding-left: 0;
+        li {
+            padding: 0;
+      }
+    }
+    
+    ol {
+        counter-reset: item;
+        li {
+            &:before {
+                content: counter(item) ".";
+                counter-increment: item;
+                margin-right: 5px;
+              }
+        }
+    }
+    ul {
+        li {
+            &::before {
+                content: "\2027";
+                margin-right: 5px;
+            }
+        }
+    }
+    

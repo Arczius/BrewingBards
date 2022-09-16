@@ -1,0 +1,21 @@
+/// Fonts
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+$font_main: "Noto Sans JP", sans-serif; /// noto sans jp
+
+// colors
+
+$color_main: #c20114; ///venetian Red
+$color_second: #323031; ///Jet gray
+$color_accent: #fcdc4d; ///Mustard yellow
+
+$color_alert: $color_main; ///red
+$color_warning: $color_second; ///orange
+$color_succes: #697a21; ///avacado green
+$color_info: #77af9c; ///sheen blue
+
+/// text colors
+
+$txt_main: $color_second; ///Dark text
+$txt_second: $color_accent; ///Light text
+$txt_accent: $color_main; ///accent text
