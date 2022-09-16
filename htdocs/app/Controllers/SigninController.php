@@ -13,33 +13,37 @@ class SigninController extends Controller
   
     public function loginAuth()
     {
+        
         $session = session();
         $userModel = new UserModel();
-        $email = $this->request->getVar('email');
-        $password = $this->request->getVar('password');
+        $Mail = $this->request->getVar('Mail');
+        $Password = $this->request->getVar('Password');
         
-        $data = $userModel->where('email', $email)->first();
+        $data = $userModel->where('Mail', $Mail)->first();
         
         if($data){
-            $pass = $data['password'];
-            $authenticatePassword = password_verify($password, $pass);
+            $pass = $data['Password'];
+            $authenticatePassword = Password_verify($Password, $pass);
+            
             if($authenticatePassword){
                 $ses_data = [
-                    'id' => $data['id'],
-                    'name' => $data['name'],
-                    'email' => $data['email'],
+                    'id' => $data['ID'],
+                    'name' => $data['Name'],
+                    'email' => $data['Mail'],
+                    'SchoolUserName' => $data['SchoolUserName'],
+                    'PermissionLevel' => $data['PermissionLevel'],
                     'isLoggedIn' => TRUE
                 ];
+                
                 $session->set($ses_data);
                 return redirect()->to('/profile');
-            
             }else{
                 $session->setFlashdata('msg', 'Password is incorrect.');
-                return redirect()->to('/signin');
+                return redirect()->to('/');
             }
         }else{
-            $session->setFlashdata('msg', 'Email does not exist.');
-            return redirect()->to('/signin');
+            $session->setFlashdata('msg', 'Mail does not exist.');
+            return redirect()->to('/');
         }
     }
 }
