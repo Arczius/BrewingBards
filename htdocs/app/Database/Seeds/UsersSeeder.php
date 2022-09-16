@@ -17,6 +17,38 @@ class UsersSeeder extends Seeder
                 // Admin permission level
                 'PermissionLevel' => "3",
             ],
+            [
+                'Name' => "Airto Van Vugt",
+                'Password' => "GayFishKoekje",
+                'Mail' => "99063870@mydavinci.nl",
+                'SchoolUserName' => "99063870",
+                // Moderator permission level
+                'PermissionLevel' => "2",
+            ],
+            [
+                'Name' => "Rowin Bodegom",
+                'Password' => "pizza123",
+                'Mail' => "99056991@mydavinci.nl",
+                'SchoolUserName' => "99056991",
+                // Moderator permission level
+                'PermissionLevel' => "2",
+            ],
+            [
+                'Name' => "Joran Schrievers",
+                'Password' => "VoetbalBoy123",
+                'Mail' => "99062987@mydavinci.nl",
+                'SchoolUserName' => "99062987",
+                // User permission level
+                'PermissionLevel' => "1",
+            ],
+            [
+                'Name' => "Sven de Ruijter",
+                'Password' => "BlondieBoy69",
+                'Mail' => "99063753@mydavinci.nl",
+                'SchoolUserName' => "99063753",
+                // User permission level
+                'PermissionLevel' => "1",
+            ],
         ];
 
         foreach($data as $item){
