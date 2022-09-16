@@ -3,15 +3,15 @@ namespace App\Models;
 use CodeIgniter\Model;
   
 class UserModel extends Model{
-    protected $table = 'users';
+    protected $table = 'Users';
     
     protected $allowedFields = [
-        'id',
-        'name',
-        'email',
-        'password',
-        'schoolUserName',
-        'permissionLevel'
+        'ID',
+        'Name',
+        'Mail',
+        'Password',
+        'SchoolUserName',
+        'PermissionLevel'
     ];
 }
 ?>
