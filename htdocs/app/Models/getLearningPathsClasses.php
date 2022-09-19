@@ -10,3 +10,4 @@ class getLearningPathsClasses extends Model{
     protected $returnType = "array";
     protected $allowedFields = ['ClassID', 'LearningPathID'];
 }
+
