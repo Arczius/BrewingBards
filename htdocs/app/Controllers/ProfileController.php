@@ -8,6 +8,6 @@ class ProfileController extends Controller
     {
         $session = session();
         echo "Hello : ".$session->get('name');
-        return redirect()->to('/home');
+        return redirect()->to('/Home');
     }
 }
