@@ -464,3 +464,4 @@ class App extends BaseConfig
      */
     public $CSPEnabled = false;
 }
+?>

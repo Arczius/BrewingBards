@@ -28,10 +28,6 @@ class SigninController extends Controller
             if($authenticatePassword == true){
                 $ses_data = [
                     'id' => $data['ID'],
-                    'name' => $data['Name'],
-                    'email' => $data['Mail'],
-                    'SchoolUserName' => $data['SchoolUserName'],
-                    'PermissionLevel' => $data['PermissionLevel'],
                     'isLoggedIn' => TRUE
                 ];
                 
@@ -47,3 +43,4 @@ class SigninController extends Controller
         }
     }
 }
+?>
