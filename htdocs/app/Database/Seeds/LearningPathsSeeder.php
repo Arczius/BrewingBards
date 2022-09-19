@@ -3,7 +3,6 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
-use PDO;
 
 class LearningPathsSeeder extends Seeder
 {
