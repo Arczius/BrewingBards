@@ -1,0 +1,50 @@
+/// template mixin
+
+@mixin template_block(
+  $mix_bg: white,
+  $mix_txt: $txt_main,
+  $mix_accent: $txt_accent
+) {
+  background-color: $mix_bg;
+  padding: 25px 25px;
+  * {
+    text-decoration: none;
+    color: $mix_txt;
+  }
+  a {
+    color: $mix_accent;
+    transition: 0.5s;
+    &:hover,
+    &:active {
+      color: $mix_txt;
+    }
+  }
+  .btn_default {
+    padding: 5px 10px;
+    
+    color: $mix_bg;
+    background-color: $mix_txt;
+    border: $mix_txt solid 2px;
+    transition: 0.5s;
+    border-radius: 5px;
+    &:hover,
+    &:active {
+      color: $mix_txt;
+      background-color: transparent;
+    }
+  }
+  .btn_second {
+    padding: 5px 10px;
+    //font-weight: bold;
+    color: $mix_bg;
+    background-color: $mix_accent;
+    border: $mix_accent solid 2px;
+    transition: 0.5s;
+    border-radius: 5px;
+    &:hover,
+    &:active {
+      color: $mix_accent;
+      background-color: transparent;
+    }
+  }
+}

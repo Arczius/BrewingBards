@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+ol, ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+ol li, ul li {
+  padding: 0;
+}
+
+ol {
+  counter-reset: item;
+}
+ol li:before {
+  content: counter(item) ".";
+  counter-increment: item;
+  margin-right: 5px;
+}
+
+ul li::before {
+  content: "‧";
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */
