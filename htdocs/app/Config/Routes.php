@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -35,8 +35,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/signin', 'SigninController::index');
+$routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController::loginAuth');
+$routes->add('/profile', 'ProfileController::index');
+$routes->get('/Home', 'Home::homepage');
 
+$routes->get('/AdminHome','AdminController::index');
+$routes->get('/ModHome', 'ModCOntroller::index');
+$routes->get('/UserHome','UserController::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

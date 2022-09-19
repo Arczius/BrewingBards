@@ -53,7 +53,7 @@ class UsersSeeder extends Seeder
 
         foreach($data as $item){
             $Name = $item['Name'];
-            $Password = password_hash($item['Password'], PASSWORD_BCRYPT);
+            $Password = password_hash($item['Password'], PASSWORD_DEFAULT);
             $Mail = $item['Mail'];
             $SchoolUserName = $item['SchoolUserName'];
             $PermLevel = $item['PermissionLevel'];
