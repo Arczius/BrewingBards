@@ -15,4 +15,3 @@ class UserModel extends \CodeIgniter\Model{
         'PermissionLevel'
     ];
 }
-?>
