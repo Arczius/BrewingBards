@@ -4,8 +4,8 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class getLearningPaths extends Model{
-    protected $table = "LearningPaths";
+class getThemes extends Model{
+    protected $table = "Themes";
     protected $returnType = "array";
     protected $allowedFields = ['Name'];
 }

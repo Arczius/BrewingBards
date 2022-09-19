@@ -8,4 +8,3 @@ class getUserLogin extends Model{
     protected $returnType = "array";
     protected $allowedFields = ['Name', 'Password', 'Mail', 'SchoolUserName', 'PermissionLevel'];
 }
-?>

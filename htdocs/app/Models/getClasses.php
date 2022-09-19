@@ -8,4 +8,3 @@ class getClasses extends Model{
     protected $returnType = "array";
     protected $allowedFields = ['Name'];
 }
-?>
