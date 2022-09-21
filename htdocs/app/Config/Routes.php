@@ -41,8 +41,11 @@ $routes->add('/profile', 'ProfileController::index');
 $routes->get('/Home', 'Home::homepage');
 
 $routes->get('/AdminHome','AdminController::index');
-$routes->get('/ModHome', 'ModCOntroller::index');
+$routes->get('/ModHome', 'ModController::index');
 $routes->get('/UserHome','UserController::index');
+
+$routes->get('/StudentCreate','StudentCreateController::index');
+$routes->get('/ClassCreate','ClassCreateController::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
