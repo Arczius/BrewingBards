@@ -44,7 +44,7 @@ $routes->get('/AdminHome','AdminController::index');
 $routes->get('/ModHome', 'ModController::index');
 $routes->get('/UserHome','UserController::index');
 
-$routes->get('/StudentCreate','StudentCreateController::index');
+$routes->get('/StudentCreate/(:alphanum)','StudentCreateController::index/$1');
 $routes->get('/ClassCreate','ClassCreateController::index');
 /*
  * --------------------------------------------------------------------

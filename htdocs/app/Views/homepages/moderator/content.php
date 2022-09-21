@@ -6,7 +6,7 @@
             <a href="./classes/<?php echo $class['ID'] ?>">
                 <?php echo $class['Name']; ?> 
             </a>
-            <a href="./StudentCreate">Studenten toevoegen</a>
+            <a href="./StudentCreate/<?php echo $class['ID'] ?>">Studenten toevoegen</a>
         </div>
 
         <?php
