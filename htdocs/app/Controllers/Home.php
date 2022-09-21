@@ -18,7 +18,7 @@ class Home extends BaseController
         $session = session()->get();
         echo $session["id"];
         if($session["isLoggedIn"] == true){
-            $holdUser = current_user();
+            $holdUser = rememberUser();
             switch ($holdUser["PermissionLevel"]){
                 case 1:
                     return redirect()->to("/UserHome");

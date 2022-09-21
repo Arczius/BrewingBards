@@ -1,6 +1,6 @@
 <?php
 
-function current_user(){
+function rememberUser(){
     $model = new \App\Models\UserModel;
 
     return $model->where("ID", session()->get("id"))
