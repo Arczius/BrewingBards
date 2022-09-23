@@ -57,13 +57,11 @@ class StudentCreateController extends Controller
                 $mail = $data["1"]."@mydavinci.nl";
                 $completeMail = preg_replace('/\s+/', '', $mail);
                 $UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
+                var_dump("naam: ".$data["0"]." ,Email: ".$completeMail." ,Wachtwoord: ".$genPassword."\n");
             }
             else{
-                return view('homepages/moderator/StudentExists');
-                die();
+                echo $data["0"]." bestaat al en zijn daarvoor niet aangemaakt<br>";
             }
         }
-
-        return view('Home');
     }
 }
