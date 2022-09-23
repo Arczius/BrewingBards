@@ -94,26 +94,28 @@
 
 ///form
 @mixin form($mix_bg: white, $mix_txt: $txt_main, $mix_accent: $txt_accent) {
-  input[type="text"], textarea {
+  input[type="text"],
+  textarea {
     background: $mix_bg;
     border: $mix_txt 2px solid;
     color: $mix_txt;
     padding: 5px 10px;
     outline: none;
-    transition: .3s;
-    &:hover, &:focus{
+    transition: 0.3s;
+    &:hover,
+    &:focus {
       -webkit-box-shadow: inset 4px 0px 0px 0px $mix_txt;
       box-shadow: inset 4px 0px 0px 0px $mix_txt;
     }
-    &::placeholder{
+    &::placeholder {
       color: $mix_txt;
-      opacity: .8;
+      opacity: 0.8;
     }
     &:focus {
       border: $mix_txt 2px solid;
     }
   }
-  textarea{
+  textarea {
     resize: vertical;
     min-height: 200px;
   }

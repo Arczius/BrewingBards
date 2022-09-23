@@ -3,46 +3,45 @@
 $font_main: "Noto Sans JP", sans-serif; /// noto sans jp
 
 /// list styling
-ol, ul {
-    list-style-type: none;
-    padding-left: 0;
-        li {
-            padding: 0;
-      }
-    }
-    
-    ol {
-        counter-reset: item;
-        li {
-            &:before {
-                content: counter(item) ".";
-                counter-increment: item;
-                margin-right: 5px;
-              }
-        }
-    }
-    ul {
-        li {
-            &::before {
-                content: "\2027";
-                margin-right: 5px;
-            }
-        }
-    }
-    
-///buttons
-.btn_success{
-    padding: 5px 10px;
-    display: inline-block;
-    color: white!important;
-    background-color: $color_succes;
-    border: $color_succes solid 2px;
-    transition: 0.5s;
-    border-radius: 5px;
-    &:hover,
-    &:active {
-      background-color: rgba($color_succes, .8);
-      
-    }
+ol,
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    padding: 0;
+  }
+}
 
+ol {
+  counter-reset: item;
+  li {
+    &:before {
+      content: counter(item) ".";
+      counter-increment: item;
+      margin-right: 5px;
+    }
+  }
+}
+ul {
+  li {
+    &::before {
+      content: "\2027";
+      margin-right: 5px;
+    }
+  }
+}
+
+///buttons
+.btn_success {
+  padding: 5px 10px;
+  display: inline-block;
+  color: white !important;
+  background-color: $color_succes;
+  border: $color_succes solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  &:hover,
+  &:active {
+    background-color: rgba($color_succes, 0.8);
+  }
 }
