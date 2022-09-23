@@ -74,7 +74,7 @@ class StudentCreateController extends Controller
                 $completeMail = preg_replace('/\s+/', '', $mail);
                 //user naar database sturen
                 $UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
-                echo"naam: ".$data["0"]." ,Email: ".$completeMail." ,Wachtwoord: ".$genPassword."<br>";
+                echo"naam: ".$data["0"].", Email: ".$completeMail.", Wachtwoord: ".$genPassword."<br>";
                 //user opnieuw ophalen voor het gegenereerde id optehalen
                 $Student = $UserModel->where("SchoolUserName", $data["1"])->findall();
                 //student aan hun klas linken
@@ -82,7 +82,7 @@ class StudentCreateController extends Controller
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
-                echo $data["0"]." bestaat al en zijn daarvoor niet aangemaakt<br>";
+                echo $data["0"]." bestaat al en is daarvoor niet aangemaakt<br>";
             }
         }
         echo "<a href='./back'>terug naar pagina</a>";
