@@ -5,6 +5,10 @@
   $mix_txt: $txt_main,
   $mix_accent: $txt_accent
 ) {
+  $background: $mix_bg;
+  $text: $mix_txt;
+  $accent: $mix_accent;
+
   background-color: $mix_bg;
   padding: 25px 25px;
   * {
@@ -21,7 +25,7 @@
   }
   .btn_default {
     padding: 5px 10px;
-    
+    display: inline-block;
     color: $mix_bg;
     background-color: $mix_txt;
     border: $mix_txt solid 2px;
@@ -41,10 +45,45 @@
     border: $mix_accent solid 2px;
     transition: 0.5s;
     border-radius: 5px;
+    display: inline-block;
     &:hover,
     &:active {
       color: $mix_accent;
       background-color: transparent;
+    }
+  }
+}
+
+/// table mixin
+@mixin table($mix_bg: $color_accent, $mix_txt: $color_second, $mix_accent: $color_main) {
+  .table__item {
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba($mix_bg, 0.2);
+    border-bottom: 2px solid $mix_txt;
+    &__col {
+      padding: 5px 5px;
+      color: $mix_txt!important;
+      border-right: 2px solid $mix_txt;
+
+      &:nth-child(odd) {
+        background: $mix_bg;
+      }
+
+      &:last-child{
+        border-right: none;
+      }
+
+      &.link-item {
+        //color: $mix_accent!important;
+        &:hover {
+          color: $mix_accent!important;
+        }
+      }
+    }
+
+    &:last-child{
+      border-bottom: none;
     }
   }
 }

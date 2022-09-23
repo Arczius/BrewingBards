@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
 ol, ul {
   list-style-type: none;
   padding-left: 0;
@@ -20,6 +21,153 @@ ol li:before {
 ul li::before {
   content: "‧";
   margin-right: 5px;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.no-pad-top {
+  padding-top: 0 !important;
+}
+
+.block--accent {
+  background-color: #323031;
+  padding: 25px 25px;
+}
+.block--accent * {
+  text-decoration: none;
+  color: #fcdc4d;
+}
+.block--accent a {
+  color: white;
+  transition: 0.5s;
+}
+.block--accent a:hover, .block--accent a:active {
+  color: #fcdc4d;
+}
+.block--accent .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #323031;
+  background-color: #fcdc4d;
+  border: #fcdc4d solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--accent .btn_default:hover, .block--accent .btn_default:active {
+  color: #fcdc4d;
+  background-color: transparent;
+}
+.block--accent .btn_second {
+  padding: 5px 10px;
+  color: #323031;
+  background-color: white;
+  border: white solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--accent .btn_second:hover, .block--accent .btn_second:active {
+  color: white;
+  background-color: transparent;
+}
+
+.block {
+  background-color: white;
+  padding: 25px 25px;
+}
+.block * {
+  text-decoration: none;
+  color: #323031;
+}
+.block a {
+  color: #c20114;
+  transition: 0.5s;
+}
+.block a:hover, .block a:active {
+  color: #323031;
+}
+.block .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: white;
+  background-color: #323031;
+  border: #323031 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block .btn_default:hover, .block .btn_default:active {
+  color: #323031;
+  background-color: transparent;
+}
+.block .btn_second {
+  padding: 5px 10px;
+  color: white;
+  background-color: #c20114;
+  border: #c20114 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block .btn_second:hover, .block .btn_second:active {
+  color: #c20114;
+  background-color: transparent;
+}
+
+.table--dark {
+  margin: 0 0 20px 0;
+}
+.table--dark .table__item {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(50, 48, 49, 0.2);
+  border-bottom: 2px solid #fcdc4d;
+}
+.table--dark .table__item__col {
+  padding: 5px 5px;
+  color: #fcdc4d !important;
+  border-right: 2px solid #fcdc4d;
+}
+.table--dark .table__item__col:nth-child(odd) {
+  background: #323031;
+}
+.table--dark .table__item__col:last-child {
+  border-right: none;
+}
+.table--dark .table__item__col.link-item:hover {
+  color: white !important;
+}
+.table--dark .table__item:last-child {
+  border-bottom: none;
+}
+.table--dark .table__item {
+  background: rgba(50, 48, 49, 0.8);
+}
+
+.table--rounded .table__item:first-child {
+  border-radius: 5px 5px 0 0;
+}
+.table--rounded .table__item:first-child .table__item__col:first-child {
+  border-radius: 5px 0 0 0;
+}
+.table--rounded .table__item:first-child .table__item__col:last-child {
+  border-radius: 0 5px 0 0;
+}
+.table--rounded .table__item:last-child {
+  border-radius: 0 0 5px 5px;
+}
+.table--rounded .table__item:last-child .table__item__col:first-child {
+  border-radius: 0 0 0 5px;
+}
+.table--rounded .table__item:last-child .table__item__col:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+.mod-tbl-classname {
+  width: 130px;
 }
 
 /*# sourceMappingURL=style.css.map */
