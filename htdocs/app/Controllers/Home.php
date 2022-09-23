@@ -15,10 +15,12 @@ class Home extends BaseController
     }
     public function homepage()
     {
+        //session van de ingelogde persoon wordt opgehaalt
         $session = session()->get();
         echo $session["id"];
         if($session["isLoggedIn"] == true){
             $holdUser = rememberUser();
+            //op basis van welke permissionlevel de user heeft wordt hij naar zijn bestemde pagina gestuurd
             switch ($holdUser["PermissionLevel"]){
                 case 1:
                     return redirect()->to("/UserHome");

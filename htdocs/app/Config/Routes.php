@@ -47,6 +47,7 @@ $routes->get('/UserHome','UserController::index');
 $routes->get('/StudentCreate/(:alphanum)','StudentCreateController::index/$1');
 $routes->get('/ClassCreate','ClassCreateController::index');
 $routes->match(['get', 'post'], 'StudentCreateController/CreateUsers', 'StudentCreateController::CreateUsers');
+$routes->match(['get', 'post'], 'ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
