@@ -8,9 +8,10 @@ class StudentCreateController extends Controller
         helper("randomPasswordGen");
     }
 
-    public function index()
+    public function index($id)
     {
-        return view('homepages/moderator/studentcreate');
+        $data['HoldID'] = $id;
+        return view('homepages/moderator/studentcreate', $data);
     }
     public function CreateUsers()
     {
@@ -44,13 +45,11 @@ class StudentCreateController extends Controller
         // SchoolUserName = 99056991
         // permisionlevel = 1
         $UserModel = new \App\Models\getUserLogin;
-        $email = \Config\Services::email();
-        
+        $UsersClassesModel = new \App\Models\getUsersClasses;        
 
         foreach($newSplitArray as $i => $data){
-            $exist = $UserModel->where("SchoolUserName", $data["1"])
-                               ->get()
-                               ->getResult();
+            $exist = $UserModel->where("SchoolUserName", $data["1"])->get()->getResult();
+
             if(!$exist){
                 $genPassword = randomPasswordGen();
                 $password = password_hash($genPassword, PASSWORD_DEFAULT);
@@ -58,6 +57,10 @@ class StudentCreateController extends Controller
                 $completeMail = preg_replace('/\s+/', '', $mail);
                 $UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
                 echo"naam: ".$data["0"]." ,Email: ".$completeMail." ,Wachtwoord: ".$genPassword."<br>";
+
+                $Student = $UserModel->where("SchoolUserName", $data["1"])->findall();
+
+                $UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student[0]["ID"]]);
             }
             else{
                 echo $data["0"]." bestaat al en zijn daarvoor niet aangemaakt<br>";

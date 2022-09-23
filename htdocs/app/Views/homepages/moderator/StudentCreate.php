@@ -3,7 +3,7 @@
         <textarea name="text" id="" cols="30" rows="10"></textarea>
     </div>
     <div>
-        <input type="class" name="class" placeholder="class" class="form-control" >
+        <input type="hidden" name="class" value="<?php echo $HoldID?>" class="form-control" >
     </div>
     
     <div>
