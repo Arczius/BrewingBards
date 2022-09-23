@@ -94,7 +94,7 @@
 
 ///form
 @mixin form($mix_bg: white, $mix_txt: $txt_main, $mix_accent: $txt_accent) {
-  input[type="text"] {
+  input[type="text"], textarea {
     background: $mix_bg;
     border: $mix_txt 2px solid;
     color: $mix_txt;
@@ -112,5 +112,9 @@
     &:focus {
       border: $mix_txt 2px solid;
     }
+  }
+  textarea{
+    resize: vertical;
+    min-height: 200px;
   }
 }

@@ -9,7 +9,7 @@
 
         <div>
             <br>
-            <button type="submit" class="btn_succes">Aanmaken</button>
+            <button type="submit" class="btn_success">Aanmaken</button>
         </div>
     </form>
 </div>

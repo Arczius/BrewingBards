@@ -75,7 +75,7 @@ width: 130px;
 }
 
 .form--rounded{
-    input[type="text"]{
+    input[type="text"], textarea{
         border-radius: 5px;
     }
 }
