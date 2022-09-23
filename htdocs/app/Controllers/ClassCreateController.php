@@ -1,10 +1,10 @@
 <?php 
-namespace App\Controllers;
+namespace App\Controllers;  
+use CodeIgniter\Controller;
 
 use App\Models\getClasses;
-use CodeIgniter\Controller;
   
-class ModController extends Controller
+class ClassCreateController extends Controller
 {
     private $ClassesModel;
 
@@ -16,33 +16,32 @@ class ModController extends Controller
     public function index()
     {
 
-
         $data = [
-            'title' => "Home - Docent",
+            'title' => "Klas aanmaken",
             'user' => rememberUser(),
-            'classes' => $this->ClassesModel->findAll(),
         ];
 
         $base_view_dir = "homepages/moderator";
 
-
         echo view("basic/head", $data);
+
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
 
         echo view("$base_view_dir/header", $data);
+
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
 
+        return view('homepages/moderator/ClassCreate');
+    }
+    public function CreateClass()
+    {
+        $text = $this->request->getVar('className');
+        
+        $this->ClassesModel->insert(["Name"=>$text]);
 
-        echo view("$base_view_dir/content", $data);
-        // unsetting the classes variable so it cant be accessed after this point
-        $data['classes'];
-
-
-
-
-        $data;
+        return redirect()->to('/profile');
     }
 }

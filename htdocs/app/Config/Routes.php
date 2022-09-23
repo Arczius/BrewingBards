@@ -39,10 +39,16 @@ $routes->get('/signin', 'SigninController::index');
 $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController::loginAuth');
 $routes->add('/profile', 'ProfileController::index');
 $routes->get('/Home', 'Home::homepage');
+$routes->get('/back', 'ProfileController::index');
 
 $routes->get('/AdminHome','AdminController::index');
-$routes->get('/ModHome', 'ModCOntroller::index');
+$routes->get('/ModHome', 'ModController::index');
 $routes->get('/UserHome','UserController::index');
+
+$routes->get('/StudentCreate/(:alphanum)','StudentCreateController::index/$1');
+$routes->get('/ClassCreate','ClassCreateController::index');
+$routes->match(['get', 'post'], 'StudentCreateController/CreateUsers', 'StudentCreateController::CreateUsers');
+$routes->match(['get', 'post'], 'ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

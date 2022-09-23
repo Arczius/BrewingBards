@@ -5,6 +5,11 @@ use App\Models\UserModel;
   
 class SigninController extends Controller
 {
+    private $UserModel;
+    public function __construct()
+    {
+        $this->UserModel = new UserModel();
+    }
     public function index()
     {
         helper(['form']);
@@ -13,19 +18,20 @@ class SigninController extends Controller
   
     public function loginAuth()
     {
-        
         $session = session();
-        $userModel = new UserModel();
+        //data uit de form halen
         $Mail = $this->request->getVar('Mail');
         $Password = $this->request->getVar('Password');
-        
-        $data = $userModel->where('Mail', $Mail)->first();
+        //kijken of de mail bestaat in de database
+        $data = $this->UserModel->where('Mail', $Mail)->first();
         
         if($data){
+            //wachtwoord van database naar een standaard var sturen
             $pass = $data['Password'];
-            
+            //kijken op de wachtworden overeen komen
             $authenticatePassword = Password_verify($Password, $pass);
             if($authenticatePassword == true){
+                //session aanmaken voor de user
                 $ses_data = [
                     'id' => $data['ID'],
                     'isLoggedIn' => TRUE

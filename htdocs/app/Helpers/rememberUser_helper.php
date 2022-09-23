@@ -1,8 +1,9 @@
 <?php
 
-function current_user(){
-    $model = new \App\Models\UserModel;
+use App\Models\UserModel;
 
-    return $model->where("ID", session()->get("id"))
-                ->first();
+function rememberUser(){
+    $model = new UserModel();
+
+    return $model->where("ID", session()->get("id"))->first();
 }

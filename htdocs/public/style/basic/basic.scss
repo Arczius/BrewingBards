@@ -2,6 +2,80 @@
 //   imports  \\
 //\\//\\//\\//\\
 
-@import 'bb_typo';
+@import "bb_typo";
+
+///root
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $font_main;
+}
+
+///basics
+.no-pad {
+  &-top {
+    padding-top: 0 !important;
+  }
+}
 
 ///container
+.block--dark {
+  @include template_block($color_second, $color_accent, white);
+}
+
+.block {
+  @include template_block(white, $color_second, $color_main);
+}
+
+.block--accent {
+  @include template_block($color_accent, $color_second, $color_main);
+}
+
+///tables
+
+.table--dark {
+  margin: 0 0 20px 0;
+  @include table($color_second, $color_accent, white);
+  .table__item {
+    background: rgba($color_second, 0.8);
+  }
+}
+
+.table--rounded {
+  .table__item {
+    &:first-child {
+      border-radius: 5px 5px 0 0;
+      .table__item__col:first-child {
+        border-radius: 5px 0 0 0;
+      }
+      .table__item__col:last-child {
+        border-radius: 0 5px 0 0;
+      }
+    }
+    &:last-child {
+      border-radius: 0 0 5px 5px;
+      .table__item__col:first-child {
+        border-radius: 0 0 0 5px;
+      }
+      .table__item__col:last-child {
+        border-radius: 0 0 5px 0;
+      }
+    }
+  }
+}
+
+.mod-tbl-classname {
+  width: 130px;
+}
+
+///form
+.form--accent {
+  @include form($color_accent, $color_second, white);
+}
+
+.form--rounded {
+  input[type="text"],
+  textarea {
+    border-radius: 5px;
+  }
+}
