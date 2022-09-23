@@ -1,12 +1,21 @@
 <?php 
-namespace App\Controllers;  
+namespace App\Controllers;
+
+use App\Models\getUserLogin;
+use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
   
 class StudentCreateController extends Controller
 {
+
+    private $UserModel;
+    private $UsersClassesModel;
+
     public function __construct(){
         helper("randomPasswordGen");
         helper("rememberUser");
+        $this->UserModel = new getUserLogin();
+        $this->UsersClassesModel = new getUsersClasses();
     }
     
 
@@ -79,12 +88,9 @@ class StudentCreateController extends Controller
             array_push($newTempArray, $tempName, $data[1]);
             array_push($newSplitArray, $newTempArray);
         }
-        //models ophalen
-        $UserModel = new \App\Models\getUserLogin;
-        $UsersClassesModel = new \App\Models\getUsersClasses;        
         //checken op het leerling nummer al bestaat
         foreach($newSplitArray as $i => $data){
-            $exist = $UserModel->where("SchoolUserName", $data["1"])->get()->getResult();
+            $exist = $this->UserModel->where("SchoolUserName", $data["1"])->get()->getResult();
 
             if(!$exist){
                 //random wachtwoord maken en encryptie
@@ -94,12 +100,12 @@ class StudentCreateController extends Controller
                 $mail = $data["1"]."@mydavinci.nl";
                 $completeMail = preg_replace('/\s+/', '', $mail);
                 //user naar database sturen
-                $UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
+                $this->UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
                 echo"naam: ".$data["0"].", Email: ".$completeMail.", Wachtwoord: ".$genPassword."<br>";
                 //user opnieuw ophalen voor het gegenereerde id optehalen
-                $Student = $UserModel->where("SchoolUserName", $data["1"])->findall();
+                $Student = $this->UserModel->where("SchoolUserName", $data["1"])->findall();
                 //student aan hun klas linken
-                $UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student[0]["ID"]]);
+                $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student[0]["ID"]]);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
