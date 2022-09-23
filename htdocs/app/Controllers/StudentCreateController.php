@@ -85,5 +85,9 @@ class StudentCreateController extends Controller
                 echo $data["0"]." bestaat al en zijn daarvoor niet aangemaakt<br>";
             }
         }
+        echo "<a href='./back'>terug naar pagina</a>";
+    }
+    public function Back(){
+        return redirect()->to('/profile');
     }
 }
