@@ -23,6 +23,19 @@ ul li::before {
   margin-right: 5px;
 }
 
+.btn_succes {
+  padding: 5px 10px;
+  display: inline-block;
+  color: white !important;
+  background-color: #697a21;
+  border: #697a21 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.btn_succes:hover, .btn_succes:active {
+  background-color: rgba(105, 122, 33, 0.8);
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -33,22 +46,22 @@ ul li::before {
   padding-top: 0 !important;
 }
 
-.block--accent {
+.block--dark {
   background-color: #323031;
   padding: 25px 25px;
 }
-.block--accent * {
+.block--dark * {
   text-decoration: none;
   color: #fcdc4d;
 }
-.block--accent a {
+.block--dark a {
   color: white;
   transition: 0.5s;
 }
-.block--accent a:hover, .block--accent a:active {
+.block--dark a:hover, .block--dark a:active {
   color: #fcdc4d;
 }
-.block--accent .btn_default {
+.block--dark .btn_default {
   padding: 5px 10px;
   display: inline-block;
   color: #323031;
@@ -57,11 +70,11 @@ ul li::before {
   transition: 0.5s;
   border-radius: 5px;
 }
-.block--accent .btn_default:hover, .block--accent .btn_default:active {
+.block--dark .btn_default:hover, .block--dark .btn_default:active {
   color: #fcdc4d;
   background-color: transparent;
 }
-.block--accent .btn_second {
+.block--dark .btn_second {
   padding: 5px 10px;
   color: #323031;
   background-color: white;
@@ -70,7 +83,7 @@ ul li::before {
   border-radius: 5px;
   display: inline-block;
 }
-.block--accent .btn_second:hover, .block--accent .btn_second:active {
+.block--dark .btn_second:hover, .block--dark .btn_second:active {
   color: white;
   background-color: transparent;
 }
@@ -113,6 +126,48 @@ ul li::before {
   display: inline-block;
 }
 .block .btn_second:hover, .block .btn_second:active {
+  color: #c20114;
+  background-color: transparent;
+}
+
+.block--accent {
+  background-color: #fcdc4d;
+  padding: 25px 25px;
+}
+.block--accent * {
+  text-decoration: none;
+  color: #323031;
+}
+.block--accent a {
+  color: #c20114;
+  transition: 0.5s;
+}
+.block--accent a:hover, .block--accent a:active {
+  color: #323031;
+}
+.block--accent .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #fcdc4d;
+  background-color: #323031;
+  border: #323031 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--accent .btn_default:hover, .block--accent .btn_default:active {
+  color: #323031;
+  background-color: transparent;
+}
+.block--accent .btn_second {
+  padding: 5px 10px;
+  color: #fcdc4d;
+  background-color: #c20114;
+  border: #c20114 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--accent .btn_second:hover, .block--accent .btn_second:active {
   color: #c20114;
   background-color: transparent;
 }
@@ -168,6 +223,30 @@ ul li::before {
 
 .mod-tbl-classname {
   width: 130px;
+}
+
+.form--accent input[type=text] {
+  background: #fcdc4d;
+  border: #323031 2px solid;
+  color: #323031;
+  padding: 5px 10px;
+  outline: none;
+  transition: 0.3s;
+}
+.form--accent input[type=text]:hover, .form--accent input[type=text]:focus {
+  -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
+  box-shadow: inset 4px 0px 0px 0px #323031;
+}
+.form--accent input[type=text]::placeholder {
+  color: #323031;
+  opacity: 0.8;
+}
+.form--accent input[type=text]:focus {
+  border: #323031 2px solid;
+}
+
+.form--rounded input[type=text] {
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
