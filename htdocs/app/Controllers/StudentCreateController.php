@@ -29,8 +29,21 @@ class StudentCreateController extends Controller
 
         //elke array hun leerling nummer scheiden van de naam
         foreach($holdArray as $i => $data){
-            $explode = explode(";", $data);
-            array_push($splitArray, $explode);
+            //checken of er een ; inzit 
+            if(strpos($data,";") !== false){
+                //checken of er een , inzit
+                if(strpos($data,",") !== false){
+                    $explode = explode(";", $data);
+                    array_push($splitArray, $explode);
+                } else{
+                    echo "formating was incorrect";
+                    die();
+                }
+            } else{
+                echo "formating was incorrect";
+                die();
+            }
+            
         }
         //de naam van elke array goed zetten
         foreach($splitArray as $i => $data){
