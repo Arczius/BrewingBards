@@ -1,11 +1,16 @@
 <?php 
 namespace App\Controllers;  
 use CodeIgniter\Controller;
+
+use App\Models\getClasses;
   
 class ClassCreateController extends Controller
 {
+    private $ClassesModel;
+
     public function __construct(){
         helper("rememberUser");
+        $this->ClassesModel = new getClasses();
     }
 
     public function index()
@@ -19,11 +24,13 @@ class ClassCreateController extends Controller
         $base_view_dir = "homepages/moderator";
 
         echo view("basic/head", $data);
+
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
 
         echo view("$base_view_dir/header", $data);
+
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
 
@@ -31,11 +38,9 @@ class ClassCreateController extends Controller
     }
     public function CreateClass()
     {
-        $ClassesModel = new \App\Models\getClasses;
-
         $text = $this->request->getVar('className');
         
-        $ClassesModel->insert(["Name"=>$text]);
+        $this->ClassesModel->insert(["Name"=>$text]);
 
         return redirect()->to('/profile');
     }
