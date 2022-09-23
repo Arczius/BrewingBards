@@ -6,19 +6,21 @@ use CodeIgniter\Controller;
   
 class ModController extends Controller
 {
+    private $ClassesModel;
+
     public function __construct(){
         helper("rememberUser");
+        $this->ClassesModel = new getClasses();
     }
 
     public function index()
     {
 
-        $classes = new getClasses();
 
         $data = [
             'title' => "Home - Docent",
             'user' => rememberUser(),
-            'classes' => $classes->findAll(),
+            'classes' => $this->ClassesModel->findAll(),
         ];
 
         $base_view_dir = "homepages/moderator";
