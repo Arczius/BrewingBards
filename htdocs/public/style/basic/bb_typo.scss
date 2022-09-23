@@ -30,3 +30,19 @@ ol, ul {
         }
     }
     
+///buttons
+.btn_success{
+    padding: 5px 10px;
+    display: inline-block;
+    color: white!important;
+    background-color: $color_succes;
+    border: $color_succes solid 2px;
+    transition: 0.5s;
+    border-radius: 5px;
+    &:hover,
+    &:active {
+      background-color: rgba($color_succes, .8);
+      
+    }
+
+}

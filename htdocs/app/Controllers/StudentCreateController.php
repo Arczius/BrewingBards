@@ -6,12 +6,33 @@ class StudentCreateController extends Controller
 {
     public function __construct(){
         helper("randomPasswordGen");
+        helper("rememberUser");
     }
+    
 
     public function index($id)
     {
+        
+
+        $data = [
+            'title' => "Klas aanmaken",
+            'user' => rememberUser(),
+        ];
+
+        $base_view_dir = "homepages/moderator";
+
+        echo view("basic/head", $data);
+        // unsetting the title variable so it cant be accessed after this point
+        $data['title'];
+
+
+        echo view("$base_view_dir/header", $data);
+        // unsetting the user variable so it cant be accessed after this point
+        $data['user'];
+
         //id ophalen uit url
         $data['HoldID'] = $id;
+
         return view('homepages/moderator/studentcreate', $data);
     }
     public function CreateUsers()

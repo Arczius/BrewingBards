@@ -55,7 +55,11 @@
 }
 
 /// table mixin
-@mixin table($mix_bg: $color_accent, $mix_txt: $color_second, $mix_accent: $color_main) {
+@mixin table(
+  $mix_bg: $color_accent,
+  $mix_txt: $color_second,
+  $mix_accent: $color_main
+) {
   .table__item {
     display: flex;
     flex-wrap: wrap;
@@ -63,27 +67,54 @@
     border-bottom: 2px solid $mix_txt;
     &__col {
       padding: 5px 5px;
-      color: $mix_txt!important;
+      color: $mix_txt !important;
       border-right: 2px solid $mix_txt;
 
       &:nth-child(odd) {
         background: $mix_bg;
       }
 
-      &:last-child{
+      &:last-child {
         border-right: none;
       }
 
       &.link-item {
         //color: $mix_accent!important;
         &:hover {
-          color: $mix_accent!important;
+          color: $mix_accent !important;
         }
       }
     }
 
-    &:last-child{
+    &:last-child {
       border-bottom: none;
     }
+  }
+}
+
+///form
+@mixin form($mix_bg: white, $mix_txt: $txt_main, $mix_accent: $txt_accent) {
+  input[type="text"], textarea {
+    background: $mix_bg;
+    border: $mix_txt 2px solid;
+    color: $mix_txt;
+    padding: 5px 10px;
+    outline: none;
+    transition: .3s;
+    &:hover, &:focus{
+      -webkit-box-shadow: inset 4px 0px 0px 0px $mix_txt;
+      box-shadow: inset 4px 0px 0px 0px $mix_txt;
+    }
+    &::placeholder{
+      color: $mix_txt;
+      opacity: .8;
+    }
+    &:focus {
+      border: $mix_txt 2px solid;
+    }
+  }
+  textarea{
+    resize: vertical;
+    min-height: 200px;
   }
 }
