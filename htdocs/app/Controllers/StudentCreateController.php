@@ -4,6 +4,10 @@ use CodeIgniter\Controller;
   
 class StudentCreateController extends Controller
 {
+    public function __construct(){
+        helper("randomPasswordGen");
+    }
+
     public function index()
     {
         return view('homepages/moderator/studentcreate');
@@ -32,8 +36,34 @@ class StudentCreateController extends Controller
             array_push($newTempArray, $tempName, $data[1]);
             array_push($newSplitArray, $newTempArray);
         }
-        var_dump($newSplitArray);
-        die();
+
+        // id = auto gen
+        // name = Rowin Bodegom
+        // Email = 99056991 + @mydavinci.nl
+        // password = generated en encript
+        // SchoolUserName = 99056991
+        // permisionlevel = 1
+        $UserModel = new \App\Models\getUserLogin;
+        $email = \Config\Services::email();
+        
+
+        foreach($newSplitArray as $i => $data){
+            $exist = $UserModel->where("SchoolUserName", $data["1"])
+                               ->get()
+                               ->getResult();
+            if(!$exist){
+                $genPassword = randomPasswordGen();
+                $password = password_hash($genPassword, PASSWORD_DEFAULT);
+                $mail = $data["1"]."@mydavinci.nl";
+                $completeMail = preg_replace('/\s+/', '', $mail);
+                $UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
+            }
+            else{
+                return view('homepages/moderator/StudentExists');
+                die();
+            }
+        }
+
         return view('Home');
     }
 }
