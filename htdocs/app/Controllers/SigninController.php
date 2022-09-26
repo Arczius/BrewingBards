@@ -52,6 +52,7 @@ class SigninController extends Controller
 
     public function logout()
     {
-        
+        $this->session->destroy();
+        return redirect()->to(base_url());
     }
 }
