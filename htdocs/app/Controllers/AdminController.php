@@ -1,11 +1,42 @@
 <?php 
-namespace App\Controllers;  
+namespace App\Controllers;
+
+use App\Models\getUserLogin;
 use CodeIgniter\Controller;
   
 class AdminController extends Controller
 {
+    private $UsersModel;
+    private $BaseAdminViewDirectory = "homepages/admin";
+
+    public function __construct()
+    {
+        helper("rememberUser");
+        $this->UsersModel = new getUserLogin();
+    }
+
     public function index()
     {
-        return view('/homepages/AdminHome');
+        $data = [
+            'title' => "Home - Administrator",
+            'user' => rememberUser(),
+            //finding all users with the moderator permission level
+            'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
+        ];
+
+        
+
+        echo view("basic/head", $data);
+        $data['title'];
+
+        echo view("$this->BaseAdminViewDirectory/header", $data);
+        $data['user'];
+
+        echo view("$this->BaseAdminViewDirectory/content", $data);
+        
+        $data['moderators'];
+
+
+        $data;
     }
 }
