@@ -42,7 +42,7 @@ class StudentCreateController extends Controller
         //id ophalen uit url
         $data['HoldID'] = $id;
 
-        return view('homepages/moderator/studentcreate', $data);
+        return view('homepages/moderator/StudentCreate', $data);
     }
     public function CreateUsers()
     {
