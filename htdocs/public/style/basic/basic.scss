@@ -18,6 +18,19 @@
   }
 }
 
+.half-block{
+  width: 50%;
+  display: inline-block;
+}
+
+.allign-right{
+  text-align: right;
+}
+
+.float-right{
+  float: right;
+}
+
 ///container
 .block--dark {
   @include template_block($color_second, $color_accent, white);
