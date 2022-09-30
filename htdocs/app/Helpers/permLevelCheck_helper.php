@@ -8,7 +8,8 @@
  * @return void
  */
 function permLevelCheck($user, $permLevel){
-    if($user['PermissionLevel'] !== $permLevel){
+    
+    if($user['PermissionLevel'] !== strval($permLevel)){
         $baseurl = base_url();
         header("location:$baseurl/profile");
         die;
