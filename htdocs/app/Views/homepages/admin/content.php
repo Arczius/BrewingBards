@@ -19,7 +19,7 @@
 
     </div>
     
-        <a class="btn_second" href="#">
+        <a class="btn_second" href="./createModPage">
             nieuwe moderator
         </a>
     

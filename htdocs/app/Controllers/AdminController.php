@@ -39,4 +39,13 @@ class AdminController extends Controller
 
         $data;
     }
+
+    public function createModPage(){
+        return view('homepages/admin/createMod');
+    }
+
+    public function createModerator(){
+        $Password = password_hash($item['Password'], PASSWORD_DEFAULT);
+        echo "Mod has been created";
+        }
 }
