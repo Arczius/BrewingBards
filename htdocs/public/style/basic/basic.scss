@@ -89,8 +89,12 @@
   @include form($color_accent, $color_second, white);
 }
 
+.form--main {
+  @include form(white, $color_second, white);
+}
+
 .form--rounded {
-  input[type="text"],
+  input[type="text"], input[type="email"], input[type="password"],
   textarea {
     border-radius: 5px;
   }
