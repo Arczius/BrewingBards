@@ -6,9 +6,11 @@ use App\Models\UserModel;
 class SigninController extends Controller
 {
     private $UserModel;
+    private $session;
     public function __construct()
     {
         $this->UserModel = new UserModel();
+        $this->session = session();
     }
     public function index()
     {
@@ -18,7 +20,6 @@ class SigninController extends Controller
   
     public function loginAuth()
     {
-        $session = session();
         //data uit de form halen
         $Mail = $this->request->getVar('Mail');
         $Password = $this->request->getVar('Password');
@@ -37,15 +38,21 @@ class SigninController extends Controller
                     'isLoggedIn' => TRUE
                 ];
                 
-                $session->set($ses_data);
+                $this->session->set($ses_data);
                 return redirect()->to('/profile');
             }else{
-                $session->setFlashdata('msg', 'Password is incorrect.');
+                $this->session->setFlashdata('msg', 'Password is incorrect.');
                 return redirect()->to('/');
             }
         }else{
-            $session->setFlashdata('msg', 'Mail does not exist.');
+            $this->session->setFlashdata('msg', 'Mail does not exist.');
             return redirect()->to('/');
         }
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to(base_url());
     }
 }
