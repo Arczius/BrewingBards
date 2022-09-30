@@ -68,6 +68,10 @@
   width: 130px;
 }
 
+.mod-tbl-200{
+  width: 200px;
+}
+
 ///form
 .form--accent {
   @include form($color_accent, $color_second, white);

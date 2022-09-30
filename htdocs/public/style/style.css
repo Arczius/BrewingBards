@@ -1,11 +1,13 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
-ol, ul {
+ol,
+ul {
   list-style-type: none;
   padding-left: 0;
 }
-ol li, ul li {
+ol li,
+ul li {
   padding: 0;
 }
 
@@ -225,7 +227,12 @@ ul li::before {
   width: 130px;
 }
 
-.form--accent input[type=text], .form--accent textarea {
+.mod-tbl-200 {
+  width: 200px;
+}
+
+.form--accent input[type=text],
+.form--accent textarea {
   background: #fcdc4d;
   border: #323031 2px solid;
   color: #323031;
@@ -233,15 +240,19 @@ ul li::before {
   outline: none;
   transition: 0.3s;
 }
-.form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent textarea:hover, .form--accent textarea:focus {
+.form--accent input[type=text]:hover, .form--accent input[type=text]:focus,
+.form--accent textarea:hover,
+.form--accent textarea:focus {
   -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
 }
-.form--accent input[type=text]::placeholder, .form--accent textarea::placeholder {
+.form--accent input[type=text]::placeholder,
+.form--accent textarea::placeholder {
   color: #323031;
   opacity: 0.8;
 }
-.form--accent input[type=text]:focus, .form--accent textarea:focus {
+.form--accent input[type=text]:focus,
+.form--accent textarea:focus {
   border: #323031 2px solid;
 }
 .form--accent textarea {
@@ -249,7 +260,8 @@ ul li::before {
   min-height: 200px;
 }
 
-.form--rounded input[type=text], .form--rounded textarea {
+.form--rounded input[type=text],
+.form--rounded textarea {
   border-radius: 5px;
 }
 
