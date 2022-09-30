@@ -11,12 +11,15 @@ class ClassViewController extends BaseController
 
     public function __construct(){
         helper("rememberUser");
+        helper("permLevelCheck");
         $this->UsersClassesModel = new getUsersClasses();
         $this->StudentModel = new getStudents();
     }
 
     public function index($id)
     {
+        permLevelCheck(rememberUser(), 2);
+        
         $holdArray = [];
         $AllStudents = $this->UsersClassesModel->where("ClassID",$id)->findall();
         foreach($AllStudents as $SingleStudent){
