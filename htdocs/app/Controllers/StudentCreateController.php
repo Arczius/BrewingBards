@@ -14,6 +14,7 @@ class StudentCreateController extends Controller
     public function __construct(){
         helper("randomPasswordGen");
         helper("rememberUser");
+        helper("permLevelCheck");
         $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
     }
@@ -22,7 +23,7 @@ class StudentCreateController extends Controller
     public function index($id)
     {
         
-
+        permLevelCheck(rememberUser(), 2);
         $data = [
             'title' => "Klas aanmaken",
             'user' => rememberUser(),
@@ -46,6 +47,8 @@ class StudentCreateController extends Controller
     }
     public function CreateUsers()
     {
+        permLevelCheck(rememberUser(), 2);
+
         //data ophalen uit de forms
         $text = $this->request->getVar('text');
         $class = $this->request->getVar('class');
