@@ -10,12 +10,13 @@ class ModController extends Controller
 
     public function __construct(){
         helper("rememberUser");
+        helper("permLevelCheck");
         $this->ClassesModel = new getClasses();
     }
 
     public function index()
     {
-
+        permLevelCheck(rememberUser(), 2);
 
         $data = [
             'title' => "Home - Docent",
