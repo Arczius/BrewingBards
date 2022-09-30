@@ -55,6 +55,7 @@ $routes->match(['get', 'post'], 'ClassCreateController/CreateClass', 'ClassCreat
 
 $routes->get('/createModPage', 'AdminController::createModPage');
 $routes->post('/createModAccount', 'AdminController::createModerator');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -60,7 +60,14 @@ class AdminController extends Controller
     }
 
     public function createModerator(){
-        $Password = password_hash($item['Password'], PASSWORD_DEFAULT);
-        echo "Mod has been created";
-        }
+        $userModel = new \App\Models\getUserLogin;
+
+        $explode = explode("@", $this->request->getPost("Mail"));
+
+        $Password = password_hash($this->request->getPost("Password"), PASSWORD_DEFAULT);
+
+        $userModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
+
+        return redirect()->to("/AdminHome");
+    }
 }
