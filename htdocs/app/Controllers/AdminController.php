@@ -41,7 +41,22 @@ class AdminController extends Controller
     }
 
     public function createModPage(){
-        return view('homepages/admin/createMod');
+
+        $data = [
+            'title' => "Home - Administrator",
+            'user' => rememberUser(),
+            //finding all users with the moderator permission level
+            'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
+        ];
+
+        echo view("basic/head", $data);
+        $data['title'];
+
+        echo view("$this->BaseAdminViewDirectory/header", $data);
+        $data['user'];
+
+        
+        echo view('homepages/admin/createMod');
     }
 
     public function createModerator(){
