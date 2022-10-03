@@ -1,5 +1,6 @@
 <div class="block">
     <h3>overzicht Klas</h3>
+    <a href="<?php echo base_url(); ?>/AddSingleStudent/<?php echo $classId ?>">Voeg Student Toe</a>
     <br>
     <div class="table--dark table--rounded">
 
@@ -35,7 +36,8 @@
                 <p class="table__item__col  col-3">
                     <?php echo $Student["Mail"]; ?>
                 </p>
-                <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bx-edit-alt'></i> Studenten Aanpassen</a>
+                <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col mod-tbl-200 link-item">&#x2b; Studenten Aanpassen</a>
+                <a href="<?php echo base_url(); ?>/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col mod-tbl-200 link-item">&#x2d; Studenten Verwijderen</a>
             </div>
 
         <?php
