@@ -11,8 +11,31 @@ class UserController extends Controller
     }
     public function index()
     {
-
+        
         permLevelCheck(rememberUser(), 1);
-        return view('/homepages/UserHome');
+        $base_view_dir = "homepages/user";
+        $data = [
+            'title' => "Home - Gebruiker",
+            'user' => rememberUser(),
+            'footerClass' => "block--info",
+        ];
+
+
+
+
+
+        echo view("basic/head", $data);
+        // unsetting the title variable so it cant be accessed after this point
+        $data['title'];
+        
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
+
+        echo view("$base_view_dir/header", $data);
+        // unsetting the user variable so it cant be accessed after this point
+        $data['user'];
+
+        return view('homepages/user/UserHome');
     }
 }
