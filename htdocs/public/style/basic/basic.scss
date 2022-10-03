@@ -24,6 +24,16 @@ body {
   }
 }
 
+
+.half-block{
+  width: 50%;
+  display: inline-block;
+}
+
+.allign-right{
+  text-align: right;
+}
+
 .float-right {
   float: right;
 }
@@ -74,6 +84,7 @@ i.bx {
     opacity: 1;
     visibility: visible;
   }
+
 }
 
 ///container
