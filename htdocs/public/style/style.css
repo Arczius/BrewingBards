@@ -25,7 +25,11 @@ ul li::before {
   margin-right: 5px;
 }
 
-.btn_success {
+.txt_cntr {
+  text-align: center;
+}
+
+.btn_success, .btn_info {
   padding: 5px 10px;
   display: inline-block;
   color: white !important;
@@ -34,8 +38,16 @@ ul li::before {
   transition: 0.5s;
   border-radius: 5px;
 }
-.btn_success:hover, .btn_success:active {
+.btn_success:hover, .btn_info:hover, .btn_success:active, .btn_info:active {
   background-color: rgba(105, 122, 33, 0.8);
+}
+
+.btn_info {
+  background-color: #2da19d;
+  border: #2da19d solid 2px;
+}
+.btn_info:hover, .btn_info:active {
+  background-color: rgba(45, 161, 157, 0.8);
 }
 
 * {
@@ -58,6 +70,10 @@ ul li::before {
 
 i.bx {
   color: inherit;
+}
+
+.centered {
+  margin: 0 auto;
 }
 
 .tooltip {
@@ -260,6 +276,48 @@ i.bx {
   display: inline-block;
 }
 .block--main .btn_second:hover, .block--main .btn_second:active {
+  color: #fcdc4d;
+  background-color: transparent;
+}
+
+.block--info {
+  background-color: #2da19d;
+  padding: 25px 25px;
+}
+.block--info * {
+  text-decoration: none;
+  color: white;
+}
+.block--info a {
+  color: #fcdc4d;
+  transition: 0.5s;
+}
+.block--info a:hover, .block--info a:active {
+  color: white;
+}
+.block--info .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #2da19d;
+  background-color: white;
+  border: white solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--info .btn_default:hover, .block--info .btn_default:active {
+  color: white;
+  background-color: transparent;
+}
+.block--info .btn_second {
+  padding: 5px 10px;
+  color: #2da19d;
+  background-color: #fcdc4d;
+  border: #fcdc4d solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--info .btn_second:hover, .block--info .btn_second:active {
   color: #fcdc4d;
   background-color: transparent;
 }
