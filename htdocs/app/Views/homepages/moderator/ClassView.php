@@ -36,6 +36,7 @@
                     <?php echo $Student["Mail"]; ?>
                 </p>
                 <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col mod-tbl-200 link-item">&#x2b; Studenten Aanpassen</a>
+                <a href="<?php echo base_url(); ?>/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col mod-tbl-200 link-item">&#x2d; Studenten Verwijderen</a>
             </div>
 
         <?php
