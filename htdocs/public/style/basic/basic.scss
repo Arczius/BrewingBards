@@ -18,6 +18,10 @@
   }
 }
 
+i.bx {
+  color: inherit;
+}
+
 ///Tooltip
 .tooltip {
   position: relative;
@@ -123,6 +127,14 @@
 }
 .mod-tbl-amount {
   width: 80px;
+}
+
+//col sizes table
+
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		width: calc((100% / 12) * #{$i});
+	}
 }
 
 ///form

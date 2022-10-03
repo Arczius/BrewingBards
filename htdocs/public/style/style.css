@@ -48,6 +48,10 @@ ul li::before {
   padding-top: 0 !important;
 }
 
+i.bx {
+  color: inherit;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -308,6 +312,9 @@ ul li::before {
 .table--special .table__item__col.link-item:hover {
   color: #c20114 !important;
 }
+.table--special .table__item__col.grow-item {
+  flex-grow: 1;
+}
 .table--special .table__item:last-child {
   border-bottom: none;
 }
@@ -341,11 +348,61 @@ ul li::before {
 .adm-tbl-modname {
   width: 180px;
 }
+
 .mod-tbl-amount {
   width: 80px;
 }
 
-.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password], .form--accent input[type=text], .form--accent textarea {
+.col-1 {
+  width: calc((100% / 12) * 1);
+}
+
+.col-2 {
+  width: calc((100% / 12) * 2);
+}
+
+.col-3 {
+  width: calc((100% / 12) * 3);
+}
+
+.col-4 {
+  width: calc((100% / 12) * 4);
+}
+
+.col-5 {
+  width: calc((100% / 12) * 5);
+}
+
+.col-6 {
+  width: calc((100% / 12) * 6);
+}
+
+.col-7 {
+  width: calc((100% / 12) * 7);
+}
+
+.col-8 {
+  width: calc((100% / 12) * 8);
+}
+
+.col-9 {
+  width: calc((100% / 12) * 9);
+}
+
+.col-10 {
+  width: calc((100% / 12) * 10);
+}
+
+.col-11 {
+  width: calc((100% / 12) * 11);
+}
+
+.col-12 {
+  width: calc((100% / 12) * 12);
+}
+
+.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password],
+.form--accent textarea {
   background: #fcdc4d;
   border: #323031 2px solid;
   color: #323031;
@@ -353,22 +410,18 @@ ul li::before {
   outline: none;
   transition: 0.3s;
 }
-
 .form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent input[type=email]:hover, .form--accent input[type=email]:focus, .form--accent input[type=password]:hover, .form--accent input[type=password]:focus,
-.form--accent input[type=text]:hover, .form--accent input[type=text]:focus,
 .form--accent textarea:hover,
 .form--accent textarea:focus {
   -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
 }
-
-.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder, .form--accent input[type=text]::placeholder, .form--accent textarea::placeholder {
+.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder,
+.form--accent textarea::placeholder {
   color: #323031;
   opacity: 0.8;
 }
-
 .form--accent input[type=text]:focus, .form--accent input[type=email]:focus, .form--accent input[type=password]:focus,
-.form--accent input[type=text]:focus,
 .form--accent textarea:focus {
   border: #323031 2px solid;
 }
@@ -376,7 +429,6 @@ ul li::before {
   resize: vertical;
   min-height: 200px;
 }
-
 
 .form--main input[type=text], .form--main input[type=email], .form--main input[type=password],
 .form--main textarea {
@@ -408,7 +460,6 @@ ul li::before {
 }
 
 .form--rounded input[type=text], .form--rounded input[type=email], .form--rounded input[type=password],
-.form--rounded input[type=text],
 .form--rounded textarea {
   border-radius: 5px;
 }
