@@ -227,10 +227,6 @@ ul li::before {
   width: 130px;
 }
 
-.mod-tbl-200 {
-  width: 200px;
-}
-
 .form--accent input[type=text],
 .form--accent textarea {
   background: #fcdc4d;
