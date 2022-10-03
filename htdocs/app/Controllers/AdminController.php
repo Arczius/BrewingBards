@@ -22,6 +22,7 @@ class AdminController extends Controller
     {
         $data = [
             'title' => "Home - Administrator",
+            'footerClass' => "block--main",
             'user' => rememberUser(),
             //finding all users with the moderator permission level
             'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
@@ -31,6 +32,10 @@ class AdminController extends Controller
 
         echo view("basic/head", $data);
         $data['title'];
+
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$this->BaseAdminViewDirectory/header", $data);
         $data['user'];
@@ -47,6 +52,7 @@ class AdminController extends Controller
 
         $data = [
             'title' => "Home - Administrator",
+            'footerClass' => "block--main",
             'user' => rememberUser(),
             //finding all users with the moderator permission level
             'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
@@ -54,6 +60,10 @@ class AdminController extends Controller
 
         echo view("basic/head", $data);
         $data['title'];
+
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$this->BaseAdminViewDirectory/header", $data);
         $data['user'];

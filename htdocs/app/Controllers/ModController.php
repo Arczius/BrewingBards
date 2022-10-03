@@ -22,6 +22,7 @@ class ModController extends Controller
             'title' => "Home - Docent",
             'user' => rememberUser(),
             'classes' => $this->ClassesModel->findAll(),
+            'footerClass' => "block--dark",
         ];
 
         $base_view_dir = "homepages/moderator";
@@ -30,7 +31,10 @@ class ModController extends Controller
         echo view("basic/head", $data);
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
-
+        
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
@@ -41,6 +45,7 @@ class ModController extends Controller
         // unsetting the classes variable so it cant be accessed after this point
         $data['classes'];
 
+        
 
 
 

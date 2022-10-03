@@ -56,6 +56,12 @@ ul li::before {
   font-family: "Noto Sans JP", sans-serif;
 }
 
+body {
+  position: relative;
+  height: 100vh;
+  padding-bottom: 50px;
+}
+
 .no-pad-top {
   padding-top: 0 !important;
 }
@@ -322,6 +328,13 @@ i.bx {
   background-color: transparent;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 25px !important;
+  width: 100%;
+}
+
 .table--dark {
   margin: 0 0 20px 0;
 }
@@ -525,7 +538,9 @@ i.bx {
   min-height: 200px;
 }
 
-.form--rounded input[type=text], .form--rounded input[type=email], .form--rounded input[type=password],
+.form--rounded input[type=text],
+.form--rounded input[type=email],
+.form--rounded input[type=password],
 .form--rounded textarea {
   border-radius: 5px;
 }
