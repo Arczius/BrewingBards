@@ -377,36 +377,36 @@ footer {
   background: rgba(50, 48, 49, 0.8);
 }
 
-.table--special {
+.table--special, .table {
   margin: 0 0 20px 0;
 }
-.table--special .table__item {
+.table--special .table__item, .table .table__item {
   display: flex;
   flex-wrap: wrap;
   background: rgba(50, 48, 49, 0.2);
   border-bottom: 2px solid #323031;
 }
-.table--special .table__item__col {
+.table--special .table__item__col, .table .table__item__col {
   padding: 5px 5px;
   color: #323031 !important;
   border-right: 2px solid #323031;
 }
-.table--special .table__item__col:nth-child(odd) {
+.table--special .table__item__col:nth-child(odd), .table .table__item__col:nth-child(odd) {
   background: rgba(50, 48, 49, 0.2);
 }
-.table--special .table__item__col:last-child {
+.table--special .table__item__col:last-child, .table .table__item__col:last-child {
   border-right: none;
 }
-.table--special .table__item__col.link-item:hover {
+.table--special .table__item__col.link-item:hover, .table .table__item__col.link-item:hover {
   color: #c20114 !important;
 }
-.table--special .table__item__col.grow-item {
+.table--special .table__item__col.grow-item, .table .table__item__col.grow-item {
   flex-grow: 1;
 }
-.table--special .table__item:last-child {
+.table--special .table__item:last-child, .table .table__item:last-child {
   border-bottom: none;
 }
-.table--special .table__item {
+.table--special .table__item, .table .table__item {
   background: white;
 }
 

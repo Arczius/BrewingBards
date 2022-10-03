@@ -125,13 +125,15 @@ footer {
   }
 }
 
-.table--special {
+.table--special, .table {
   margin: 0 0 20px 0;
   @include table(rgba($color_second, 0.2), $color_second, $color_main);
   .table__item {
     background: white;
   }
 }
+
+
 
 .table--rounded {
   .table__item {
