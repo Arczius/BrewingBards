@@ -11,12 +11,19 @@
   font-family: $font_main;
 }
 
+body {
+  position: relative;
+  height: 100vh;
+  padding-bottom: 50px;
+}
+
 ///basics
 .no-pad {
   &-top {
     padding-top: 0 !important;
   }
 }
+
 
 .half-block{
   width: 50%;
@@ -27,8 +34,57 @@
   text-align: right;
 }
 
-.float-right{
+.float-right {
   float: right;
+}
+
+.linebox {
+  display: inline-block;
+}
+
+i.bx {
+  color: inherit;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+///Tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+  .tooltiptext {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    width: 130px;
+    background-color: $color_second;
+    color: $color_accent;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    margin-left: -60px;
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 100%; /* At the bottom of the tooltip */
+      left: 50%;
+      margin-left: -8px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: $color_second transparent transparent transparent;
+    }
+  }
+  &:hover .tooltiptext {
+    opacity: 1;
+    visibility: visible;
+  }
+
 }
 
 ///container
@@ -44,6 +100,21 @@
   @include template_block($color_accent, $color_second, $color_main);
 }
 
+.block--main {
+  @include template_block($color_main, white, $color_accent);
+}
+
+.block--info {
+  @include template_block($color_info, white, $color_accent);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 25px!important;
+  width: 100%;
+}
+
 ///tables
 
 .table--dark {
@@ -51,6 +122,14 @@
   @include table($color_second, $color_accent, white);
   .table__item {
     background: rgba($color_second, 0.8);
+  }
+}
+
+.table--special {
+  margin: 0 0 20px 0;
+  @include table(rgba($color_second, 0.2), $color_second, $color_main);
+  .table__item {
+    background: white;
   }
 }
 
@@ -81,13 +160,34 @@
   width: 130px;
 }
 
+.adm-tbl-modname {
+  width: 180px;
+}
+.mod-tbl-amount {
+  width: 80px;
+}
+
+//col sizes table
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: calc((100% / 12) * #{$i});
+  }
+}
+
 ///form
 .form--accent {
   @include form($color_accent, $color_second, white);
 }
 
+.form--main {
+  @include form(white, $color_second, white);
+}
+
 .form--rounded {
   input[type="text"],
+  input[type="email"],
+  input[type="password"],
   textarea {
     border-radius: 5px;
   }

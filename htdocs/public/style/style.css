@@ -25,7 +25,11 @@ ul li::before {
   margin-right: 5px;
 }
 
-.btn_success {
+.txt_cntr {
+  text-align: center;
+}
+
+.btn_success, .btn_info {
   padding: 5px 10px;
   display: inline-block;
   color: white !important;
@@ -34,14 +38,28 @@ ul li::before {
   transition: 0.5s;
   border-radius: 5px;
 }
-.btn_success:hover, .btn_success:active {
+.btn_success:hover, .btn_info:hover, .btn_success:active, .btn_info:active {
   background-color: rgba(105, 122, 33, 0.8);
+}
+
+.btn_info {
+  background-color: #2da19d;
+  border: #2da19d solid 2px;
+}
+.btn_info:hover, .btn_info:active {
+  background-color: rgba(45, 161, 157, 0.8);
 }
 
 * {
   margin: 0;
   box-sizing: border-box;
   font-family: "Noto Sans JP", sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  padding-bottom: 50px;
 }
 
 .no-pad-top {
@@ -59,6 +77,54 @@ ul li::before {
 
 .float-right {
   float: right;
+}
+
+.linebox {
+  display: inline-block;
+}
+
+i.bx {
+  color: inherit;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  width: 130px;
+  background-color: #323031;
+  color: #fcdc4d;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  margin-left: -60px;
+}
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #323031 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
 }
 
 .block--dark {
@@ -187,6 +253,97 @@ ul li::before {
   background-color: transparent;
 }
 
+.block--main {
+  background-color: #c20114;
+  padding: 25px 25px;
+}
+.block--main * {
+  text-decoration: none;
+  color: white;
+}
+.block--main a {
+  color: #fcdc4d;
+  transition: 0.5s;
+}
+.block--main a:hover, .block--main a:active {
+  color: white;
+}
+.block--main .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #c20114;
+  background-color: white;
+  border: white solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--main .btn_default:hover, .block--main .btn_default:active {
+  color: white;
+  background-color: transparent;
+}
+.block--main .btn_second {
+  padding: 5px 10px;
+  color: #c20114;
+  background-color: #fcdc4d;
+  border: #fcdc4d solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--main .btn_second:hover, .block--main .btn_second:active {
+  color: #fcdc4d;
+  background-color: transparent;
+}
+
+.block--info {
+  background-color: #2da19d;
+  padding: 25px 25px;
+}
+.block--info * {
+  text-decoration: none;
+  color: white;
+}
+.block--info a {
+  color: #fcdc4d;
+  transition: 0.5s;
+}
+.block--info a:hover, .block--info a:active {
+  color: white;
+}
+.block--info .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #2da19d;
+  background-color: white;
+  border: white solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--info .btn_default:hover, .block--info .btn_default:active {
+  color: white;
+  background-color: transparent;
+}
+.block--info .btn_second {
+  padding: 5px 10px;
+  color: #2da19d;
+  background-color: #fcdc4d;
+  border: #fcdc4d solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--info .btn_second:hover, .block--info .btn_second:active {
+  color: #fcdc4d;
+  background-color: transparent;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 25px !important;
+  width: 100%;
+}
+
 .table--dark {
   margin: 0 0 20px 0;
 }
@@ -210,11 +367,47 @@ ul li::before {
 .table--dark .table__item__col.link-item:hover {
   color: white !important;
 }
+.table--dark .table__item__col.grow-item {
+  flex-grow: 1;
+}
 .table--dark .table__item:last-child {
   border-bottom: none;
 }
 .table--dark .table__item {
   background: rgba(50, 48, 49, 0.8);
+}
+
+.table--special {
+  margin: 0 0 20px 0;
+}
+.table--special .table__item {
+  display: flex;
+  flex-wrap: wrap;
+  background: rgba(50, 48, 49, 0.2);
+  border-bottom: 2px solid #323031;
+}
+.table--special .table__item__col {
+  padding: 5px 5px;
+  color: #323031 !important;
+  border-right: 2px solid #323031;
+}
+.table--special .table__item__col:nth-child(odd) {
+  background: rgba(50, 48, 49, 0.2);
+}
+.table--special .table__item__col:last-child {
+  border-right: none;
+}
+.table--special .table__item__col.link-item:hover {
+  color: #c20114 !important;
+}
+.table--special .table__item__col.grow-item {
+  flex-grow: 1;
+}
+.table--special .table__item:last-child {
+  border-bottom: none;
+}
+.table--special .table__item {
+  background: white;
 }
 
 .table--rounded .table__item:first-child {
@@ -240,7 +433,63 @@ ul li::before {
   width: 130px;
 }
 
-.form--accent input[type=text],
+.adm-tbl-modname {
+  width: 180px;
+}
+
+.mod-tbl-amount {
+  width: 80px;
+}
+
+.col-1 {
+  width: calc((100% / 12) * 1);
+}
+
+.col-2 {
+  width: calc((100% / 12) * 2);
+}
+
+.col-3 {
+  width: calc((100% / 12) * 3);
+}
+
+.col-4 {
+  width: calc((100% / 12) * 4);
+}
+
+.col-5 {
+  width: calc((100% / 12) * 5);
+}
+
+.col-6 {
+  width: calc((100% / 12) * 6);
+}
+
+.col-7 {
+  width: calc((100% / 12) * 7);
+}
+
+.col-8 {
+  width: calc((100% / 12) * 8);
+}
+
+.col-9 {
+  width: calc((100% / 12) * 9);
+}
+
+.col-10 {
+  width: calc((100% / 12) * 10);
+}
+
+.col-11 {
+  width: calc((100% / 12) * 11);
+}
+
+.col-12 {
+  width: calc((100% / 12) * 12);
+}
+
+.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password],
 .form--accent textarea {
   background: #fcdc4d;
   border: #323031 2px solid;
@@ -249,18 +498,18 @@ ul li::before {
   outline: none;
   transition: 0.3s;
 }
-.form--accent input[type=text]:hover, .form--accent input[type=text]:focus,
+.form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent input[type=email]:hover, .form--accent input[type=email]:focus, .form--accent input[type=password]:hover, .form--accent input[type=password]:focus,
 .form--accent textarea:hover,
 .form--accent textarea:focus {
   -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
 }
-.form--accent input[type=text]::placeholder,
+.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder,
 .form--accent textarea::placeholder {
   color: #323031;
   opacity: 0.8;
 }
-.form--accent input[type=text]:focus,
+.form--accent input[type=text]:focus, .form--accent input[type=email]:focus, .form--accent input[type=password]:focus,
 .form--accent textarea:focus {
   border: #323031 2px solid;
 }
@@ -269,7 +518,38 @@ ul li::before {
   min-height: 200px;
 }
 
+.form--main input[type=text], .form--main input[type=email], .form--main input[type=password],
+.form--main textarea {
+  background: white;
+  border: #323031 2px solid;
+  color: #323031;
+  padding: 5px 10px;
+  outline: none;
+  transition: 0.3s;
+}
+.form--main input[type=text]:hover, .form--main input[type=text]:focus, .form--main input[type=email]:hover, .form--main input[type=email]:focus, .form--main input[type=password]:hover, .form--main input[type=password]:focus,
+.form--main textarea:hover,
+.form--main textarea:focus {
+  -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
+  box-shadow: inset 4px 0px 0px 0px #323031;
+}
+.form--main input[type=text]::placeholder, .form--main input[type=email]::placeholder, .form--main input[type=password]::placeholder,
+.form--main textarea::placeholder {
+  color: #323031;
+  opacity: 0.8;
+}
+.form--main input[type=text]:focus, .form--main input[type=email]:focus, .form--main input[type=password]:focus,
+.form--main textarea:focus {
+  border: #323031 2px solid;
+}
+.form--main textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
 .form--rounded input[type=text],
+.form--rounded input[type=email],
+.form--rounded input[type=password],
 .form--rounded textarea {
   border-radius: 5px;
 }

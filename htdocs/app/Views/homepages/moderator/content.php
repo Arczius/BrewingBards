@@ -1,13 +1,20 @@
+<?php
+helper('classLengthReader');
+?>
 <div class="block">
     <h3>Klassen overzicht</h3>
     <br>
     <div class="table--dark table--rounded">
 
         <div class="table__item">
-            <span class="table__item__col mod-tbl-classname">
+            <span class="table__item__col col-3">
                 Klasnaam
             </span>
-            <span class="table__item__col"></span>
+            <span class="table__item__col col-1 link-item tooltip">
+                Aantal <i class='bx bx-info-circle'></i>
+                <span class="tooltiptext">Studenten aantal</span>
+            </span>
+            <span class="table__item__col grow-item">Voeg studenten toe</span>
         </div>
 
 
@@ -16,15 +23,21 @@
         foreach ($classes as $class) {
         ?>
             <div class="table__item">
-                <a href="./classes/<?php echo $class['ID'] ?>" class="table__item__col link-item mod-tbl-classname">
-                    &#9432; <?php echo $class['Name']; ?>
+                <a href="<?php echo base_url(); ?>/classes/<?php echo $class['ID'] ?>" class="table__item__col link-item col-3">
+                    <i class='bx bxs-show'></i> <?php echo $class['Name']; ?>
                 </a>
-                <a href="./StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item">&#x2b; Studenten toevoegen</a>
+
+
+                <span class="table__item__col col-1">
+                    <?php echo classLengthReader($class['ID']); ?>
+                </span>
+
+                <a href="<?php echo base_url(); ?>/StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Studenten toevoegen</a>
             </div>
 
         <?php
         }
         ?>
     </div>
-    <a href="./ClassCreate" class="btn_default">Klas toevoegen</a>
+    <a href="<?php echo base_url(); ?>/ClassCreate" class="btn_default">Klas toevoegen</a>
 </div>

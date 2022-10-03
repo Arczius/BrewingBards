@@ -46,10 +46,19 @@ $routes->get('/AdminHome','AdminController::index');
 $routes->get('/ModHome', 'ModController::index');
 $routes->get('/UserHome','UserController::index');
 
-$routes->get('/StudentCreate/(:alphanum)','StudentCreateController::index/$1');
-$routes->get('/ClassCreate','ClassCreateController::index');
+$routes->get('/StudentCreate/(:alphanum)', 'StudentCreateController::index/$1');
+$routes->get('/ClassCreate', 'ClassCreateController::index');
 $routes->match(['get', 'post'], 'StudentCreateController/CreateUsers', 'StudentCreateController::CreateUsers');
 $routes->match(['get', 'post'], 'ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
+
+$routes->get('/createModPage', 'AdminController::createModPage');
+$routes->post('/createModAccount', 'AdminController::createModerator');
+
+
+$routes->get('/classes/(:alphanum)','ClassViewController::index/$1');
+$routes->get('/StudentEdit/(:alphanum)','StudentEditController::index/$1');
+$routes->match(['get', 'post'], 'StudentEditController/UpdateUser', 'StudentEditController::CreateClass');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
