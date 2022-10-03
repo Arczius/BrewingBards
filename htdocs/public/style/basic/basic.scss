@@ -68,6 +68,10 @@
   @include template_block($color_accent, $color_second, $color_main);
 }
 
+.block--main {
+  @include template_block($color_main, white, $color_accent);
+}
+
 ///tables
 
 .table--dark {
@@ -75,6 +79,14 @@
   @include table($color_second, $color_accent, white);
   .table__item {
     background: rgba($color_second, 0.8);
+  }
+}
+
+.table--special {
+  margin: 0 0 20px 0;
+  @include table(rgba($color_second, 0.2), $color_second, $color_main);
+  .table__item {
+    background: white;
   }
 }
 
@@ -105,6 +117,10 @@
   width: 130px;
 }
 
+
+.adm-tbl-modname{
+  width: 180px
+}
 .mod-tbl-amount {
   width: 80px;
 }
@@ -114,8 +130,12 @@
   @include form($color_accent, $color_second, white);
 }
 
+.form--main {
+  @include form(white, $color_second, white);
+}
+
 .form--rounded {
-  input[type="text"],
+  input[type="text"], input[type="email"], input[type="password"],
   textarea {
     border-radius: 5px;
   }
