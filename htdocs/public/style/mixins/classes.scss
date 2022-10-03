@@ -84,6 +84,10 @@
           color: $mix_accent !important;
         }
       }
+
+      &.grow-item{
+        flex-grow: 1;
+      }
     }
 
     &:last-child {

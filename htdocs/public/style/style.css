@@ -48,6 +48,42 @@ ul li::before {
   padding-top: 0 !important;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  width: 130px;
+  background-color: #323031;
+  color: #fcdc4d;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  margin-left: -60px;
+}
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: #323031 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+}
+
 .block--dark {
   background-color: #323031;
   padding: 25px 25px;
@@ -239,6 +275,9 @@ ul li::before {
 .table--dark .table__item__col.link-item:hover {
   color: white !important;
 }
+.table--dark .table__item__col.grow-item {
+  flex-grow: 1;
+}
 .table--dark .table__item:last-child {
   border-bottom: none;
 }
@@ -302,9 +341,11 @@ ul li::before {
 .adm-tbl-modname {
   width: 180px;
 }
+.mod-tbl-amount {
+  width: 80px;
+}
 
-.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password],
-.form--accent textarea {
+.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password], .form--accent input[type=text], .form--accent textarea {
   background: #fcdc4d;
   border: #323031 2px solid;
   color: #323031;
@@ -312,18 +353,22 @@ ul li::before {
   outline: none;
   transition: 0.3s;
 }
+
 .form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent input[type=email]:hover, .form--accent input[type=email]:focus, .form--accent input[type=password]:hover, .form--accent input[type=password]:focus,
+.form--accent input[type=text]:hover, .form--accent input[type=text]:focus,
 .form--accent textarea:hover,
 .form--accent textarea:focus {
   -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
 }
-.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder,
-.form--accent textarea::placeholder {
+
+.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder, .form--accent input[type=text]::placeholder, .form--accent textarea::placeholder {
   color: #323031;
   opacity: 0.8;
 }
+
 .form--accent input[type=text]:focus, .form--accent input[type=email]:focus, .form--accent input[type=password]:focus,
+.form--accent input[type=text]:focus,
 .form--accent textarea:focus {
   border: #323031 2px solid;
 }
@@ -331,6 +376,7 @@ ul li::before {
   resize: vertical;
   min-height: 200px;
 }
+
 
 .form--main input[type=text], .form--main input[type=email], .form--main input[type=password],
 .form--main textarea {
@@ -362,6 +408,7 @@ ul li::before {
 }
 
 .form--rounded input[type=text], .form--rounded input[type=email], .form--rounded input[type=password],
+.form--rounded input[type=text],
 .form--rounded textarea {
   border-radius: 5px;
 }

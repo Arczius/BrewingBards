@@ -9,9 +9,11 @@ class AdminController extends Controller
     private $UsersModel;
     private $BaseAdminViewDirectory = "homepages/admin";
 
+
     public function __construct()
     {
         helper("rememberUser");
+
         $this->UsersModel = new getUserLogin();
     }
 
@@ -69,5 +71,14 @@ class AdminController extends Controller
         $userModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
 
         return redirect()->to("/AdminHome");
-    }
+        }
+
+     */   helper("permLevelCheck");
+    
+    public function index()
+    {
+        permLevelCheck(rememberUser(), 3);
+        return view('/homepages/AdminHome');
+
+    }*/
 }

@@ -18,6 +18,43 @@
   }
 }
 
+///Tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+  .tooltiptext {
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    width: 130px;
+    background-color: $color_second;
+    color: $color_accent;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    margin-left: -60px;
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 100%; /* At the bottom of the tooltip */
+      left: 50%;
+      margin-left: -8px;
+      border-width: 8px;
+      border-style: solid;
+      border-color: $color_second transparent transparent transparent;
+    }
+  }
+  &:hover .tooltiptext{
+    opacity: 1;
+    visibility: visible;
+  }
+  
+}
+
 ///container
 .block--dark {
   @include template_block($color_second, $color_accent, white);
@@ -80,8 +117,12 @@
   width: 130px;
 }
 
+
 .adm-tbl-modname{
   width: 180px
+}
+.mod-tbl-amount {
+  width: 80px;
 }
 
 ///form
