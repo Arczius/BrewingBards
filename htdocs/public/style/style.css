@@ -66,6 +66,15 @@ body {
   padding-top: 0 !important;
 }
 
+.half-block {
+  width: 50%;
+  display: inline-block;
+}
+
+.allign-right {
+  text-align: right;
+}
+
 .float-right {
   float: right;
 }
