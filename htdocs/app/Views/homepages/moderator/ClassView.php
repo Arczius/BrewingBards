@@ -1,6 +1,9 @@
 <div class="block">
-    <h3>overzicht Klas</h3>
-    <a href="<?php echo base_url(); ?>/AddSingleStudent/<?php echo $classId ?>">Voeg Student Toe</a>
+    <h3 class="linebox" style="margin-top: 5px;">Overzicht Klas</h3>
+    <a class="float-right btn_default" href="<?php echo base_url(); ?>/AddSingleStudent/<?php echo $classId ?>">Voeg Student toe</a>
+    <br>
+
+    <br>
     <br>
     <div class="table--dark table--rounded">
 
@@ -28,7 +31,7 @@
 
             <div class="table__item">
                 <p class="table__item__col  col-2">
-                   <?php echo $Student["SchoolUserName"]; ?>
+                    <?php echo $Student["SchoolUserName"]; ?>
                 </p>
                 <p class="table__item__col  col-3">
                     <?php echo $Student["Name"]; ?>
@@ -36,8 +39,8 @@
                 <p class="table__item__col  col-3">
                     <?php echo $Student["Mail"]; ?>
                 </p>
-                <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col mod-tbl-200 link-item">&#x2b; Studenten Aanpassen</a>
-                <a href="<?php echo base_url(); ?>/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col mod-tbl-200 link-item">&#x2d; Studenten Verwijderen</a>
+                <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bx-edit-alt'></i> Studenten Aanpassen</a>
+                <a href="<?php echo base_url(); ?>/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bxs-trash'></i> Studenten Verwijderen</a>
             </div>
 
         <?php

@@ -48,6 +48,14 @@ ul li::before {
   padding-top: 0 !important;
 }
 
+.float-right {
+  float: right;
+}
+
+.linebox {
+  display: inline-block;
+}
+
 i.bx {
   color: inherit;
 }
