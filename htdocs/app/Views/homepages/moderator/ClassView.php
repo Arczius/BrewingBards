@@ -1,5 +1,6 @@
 <div class="block">
     <h3>overzicht Klas</h3>
+    <a href="<?php echo base_url(); ?>/AddSingleStudent/<?php echo $classId ?>">Voeg Student Toe</a>
     <br>
     <div class="table--dark table--rounded">
 
