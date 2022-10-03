@@ -18,6 +18,7 @@ class ClassCreateController extends Controller
 
         $data = [
             'title' => "Klas aanmaken",
+            'footerClass' => "block--dark",
             'user' => rememberUser(),
         ];
 
@@ -28,6 +29,9 @@ class ClassCreateController extends Controller
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$base_view_dir/header", $data);
 

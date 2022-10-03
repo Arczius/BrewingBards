@@ -11,11 +11,33 @@
   font-family: $font_main;
 }
 
+body {
+  position: relative;
+  height: 100vh;
+  padding-bottom: 50px;
+}
+
 ///basics
 .no-pad {
   &-top {
     padding-top: 0 !important;
   }
+}
+
+.float-right {
+  float: right;
+}
+
+.linebox {
+  display: inline-block;
+}
+
+i.bx {
+  color: inherit;
+}
+
+.centered {
+  margin: 0 auto;
 }
 
 ///Tooltip
@@ -25,7 +47,7 @@
   .tooltiptext {
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
+    transition: 0.3s;
     width: 130px;
     background-color: $color_second;
     color: $color_accent;
@@ -48,11 +70,10 @@
       border-color: $color_second transparent transparent transparent;
     }
   }
-  &:hover .tooltiptext{
+  &:hover .tooltiptext {
     opacity: 1;
     visibility: visible;
   }
-  
 }
 
 ///container
@@ -70,6 +91,17 @@
 
 .block--main {
   @include template_block($color_main, white, $color_accent);
+}
+
+.block--info {
+  @include template_block($color_info, white, $color_accent);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 25px!important;
+  width: 100%;
 }
 
 ///tables
@@ -117,12 +149,19 @@
   width: 130px;
 }
 
-
-.adm-tbl-modname{
-  width: 180px
+.adm-tbl-modname {
+  width: 180px;
 }
 .mod-tbl-amount {
   width: 80px;
+}
+
+//col sizes table
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: calc((100% / 12) * #{$i});
+  }
 }
 
 ///form
@@ -135,7 +174,9 @@
 }
 
 .form--rounded {
-  input[type="text"], input[type="email"], input[type="password"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
   textarea {
     border-radius: 5px;
   }

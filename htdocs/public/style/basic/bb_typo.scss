@@ -31,6 +31,11 @@ ul {
   }
 }
 
+///text
+.txt_cntr {
+  text-align: center;
+}
+
 ///buttons
 .btn_success {
   padding: 5px 10px;
@@ -43,5 +48,15 @@ ul {
   &:hover,
   &:active {
     background-color: rgba($color_succes, 0.8);
+  }
+}
+
+.btn_info {
+  @extend .btn_success;
+  background-color: $color_info;
+  border: $color_info solid 2px;
+  &:hover,
+  &:active {
+    background-color: rgba($color_info, 0.8);
   }
 }

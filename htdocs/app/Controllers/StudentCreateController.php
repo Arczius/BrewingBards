@@ -26,6 +26,7 @@ class StudentCreateController extends Controller
         permLevelCheck(rememberUser(), 2);
         $data = [
             'title' => "Klas aanmaken",
+            'footerClass' => "block--dark",
             'user' => rememberUser(),
         ];
 
@@ -35,6 +36,9 @@ class StudentCreateController extends Controller
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
@@ -42,8 +46,12 @@ class StudentCreateController extends Controller
 
         //id ophalen uit url
         $data['HoldID'] = $id;
+        
+
 
         return view('homepages/moderator/StudentCreate', $data);
+
+        
     }
     public function CreateUsers()
     {
