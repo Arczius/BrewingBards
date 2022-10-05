@@ -63,8 +63,12 @@ $routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/
 $routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
 
 $routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
+
+$routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
+
 $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
