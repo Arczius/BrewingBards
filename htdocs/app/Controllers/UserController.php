@@ -36,6 +36,8 @@ class UserController extends Controller
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
 
-        return view('homepages/user/UserHome');
+        echo view("$base_view_dir/UserHome");
+
+        $data;
     }
 }
