@@ -54,31 +54,23 @@ class SwitchClassController extends Controller
         return view('homepages/moderator/SwitchClass', $data);
     }
 
-    public function UpdatenUsers(){
-        $newName = $this->request->getVar('name');
-        $newSchoolUserName = $this->request->getVar('schoolUserName');
-        $userID = $this->request->getVar('userID');
+    public function SwitchStudent(){
+        $StudentID = $this->request->getVar('StudentID');
+        $newClass = $this->request->getVar('newClass');
 
-        $holdUser = $this->UserModel->where("ID",$userID)->first();
 
-        $mail = $newSchoolUserName."@mydavinci.nl";
-        $completeMail = preg_replace('/\s+/', '', $mail);
+        $oldClassLink = $this->getClassUserModel->where("UserID",$StudentID)->first();
+        $holdForLink = $oldClassLink['ID'];
 
-        $data = array(
-            'ID' => $userID,
-            'Name' => $newName,
-            'Password' => $holdUser['Password'],
-            'SchoolUserName' => $newSchoolUserName,
-            'Mail' => $completeMail,
-            'PermissionLevel' => 1
-        );
+        $data = [
+            'ID' => $oldClassLink["ID"],
+            'ClassID' => $newClass,
+            'UserID' => $StudentID 
+        ];
         
-        // $this->UserModel->where("ID",$userID)->first();
-        $this->UserModel->replace($data);
+        $this->getClassUserModel->replace($data);
 
-        $holdClasses = $this->getClassFromModel->where("UserID",$userID)->first();
-
-        return redirect()->to( base_url().'/classes/'.$holdClasses['ClassID']);
+        return redirect()->to( base_url().'/classes/'.$holdForLink);
     }
 
     public function Back(){
