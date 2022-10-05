@@ -6,22 +6,20 @@ use CodeIgniter\Controller;
 use App\Models\getClasses;
 
 class UpdateClassController extends BaseController{
-    private $classesModel;
+    private $ClassesModel;
 
     public function __construct()
     {
-        $this->classesModel = new getClasses();
+        $this->ClassesModel = new getClasses();
     }
-    public function index(){
-        $classModel = $this->classesModel;
-        $data[];
-    }
-    public function edit($id = 0){
-        ##select classes by ID
-        $this->classesModel->find($id);
-
+    public function index($id){
+        $getOneClass = $this->ClassesModel->where("ID",$id)->first();
+        $data = [
+            'title' => "Update klas",
+            
+        ];
     }
     public function update($id = 0){
-        $this->classesModel->find($id);
+        
     }
 }
