@@ -47,5 +47,4 @@
         }
         ?>
     </div>
-    <a href="./ClassCreate" class="btn_default">Klas toevoegen</a>
 </div>
