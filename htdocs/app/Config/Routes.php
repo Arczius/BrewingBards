@@ -64,6 +64,9 @@ $routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSin
 
 $routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
 
+
+$routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
