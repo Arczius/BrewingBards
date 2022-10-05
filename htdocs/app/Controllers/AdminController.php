@@ -88,4 +88,48 @@ class AdminController extends Controller
         $this->UsersModel->where('id', $id)->delete();
         return redirect()->to(base_url() . "/profile");
     }
+
+    public function EditModeratorPage($id){
+        $data = [
+            'title' => "Home - Administrator",
+            'footerClass' => "block--main",
+            'user' => rememberUser(),
+            'moderator' => $this->UsersModel->where('id',$id)->first(),
+        ];
+
+        echo view("basic/head", $data);
+        $data['title'];
+
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
+
+        echo view("$this->BaseAdminViewDirectory/header", $data);
+        $data['user'];
+        $data['moderator'];
+
+        
+        echo view('homepages/admin/EditMod');
+    }
+
+    public function updateModAccount(){
+        $newName = $this->request->getVar('UserName');
+        $Mail = $this->request->getVar('Mail');
+        $userID = $this->request->getVar('ID');
+
+        $holdUser = $this->UsersModel->where("ID",$userID)->first();
+
+        $data = array(
+            'ID' => $userID,
+            'Name' => $newName,
+            'Password' => $holdUser['Password'],
+            'Mail' => $Mail,
+            'PermissionLevel' => 2
+        );
+        
+        $this->UsersModel->replace($data);
+
+
+        return redirect()->to("/AdminHome");
+    }
 }
