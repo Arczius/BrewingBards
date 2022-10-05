@@ -66,6 +66,9 @@ $routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
 
 $routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
 
+$routes->get('/editModerator/(:alphanum)', 'AdminController::EditModeratorPage/$1');
+$routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateModAccount');
+
 $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
