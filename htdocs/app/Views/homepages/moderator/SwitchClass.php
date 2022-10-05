@@ -13,7 +13,7 @@
         </select>
         <div>
             <br>
-            <button type="submit" class="btn_success">Aanmaken</button>
+            <button type="submit" class="btn_success">Student naar klas sturen</button>
         </div>
     </form>
 </div>
