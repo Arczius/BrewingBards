@@ -15,7 +15,6 @@ helper('classLengthReader');
                 <span class="tooltiptext">Studenten aantal</span>
             </span>
             <span class="table__item__col grow-item">Voeg studenten toe</span>
-            <span class="table__item__col grow-item">Aanpassen</span>
             <span class="table__item__col grow-item">Verwijderen</span>
         </div>
 

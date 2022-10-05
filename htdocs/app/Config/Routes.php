@@ -62,6 +62,8 @@ $routes->match(['get', 'post'], 'StudentEditController/UpdateUser', 'StudentEdit
 $routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/$1');
 $routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
 
+$routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
