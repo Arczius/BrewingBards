@@ -130,6 +130,10 @@
   @include form($color_accent, $color_second, white);
 }
 
+.form {
+  @include form(white, $color_second, $color_main);
+}
+
 .form--main {
   @include form(white, $color_second, white);
 }
