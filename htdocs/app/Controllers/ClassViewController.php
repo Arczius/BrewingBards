@@ -29,8 +29,10 @@ class ClassViewController extends BaseController
 
         $data = [
             'title' => "klassen Overzicht - Docent",
+            'footerClass' => "block--dark",
             'user' => rememberUser(),
-            'Students' => $holdArray
+            'Students' => $holdArray,
+            'classId' => $id
         ];
 
         $base_view_dir = "homepages/moderator";
@@ -40,6 +42,9 @@ class ClassViewController extends BaseController
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
@@ -49,6 +54,7 @@ class ClassViewController extends BaseController
         echo view("$base_view_dir/classView", $data);
         // unsetting the classes variable so it cant be accessed after this point
         $data['Students'];
+        $data['classId'];
 
 
 

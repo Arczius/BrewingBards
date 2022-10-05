@@ -3,7 +3,7 @@
 use App\Models\getUsersClasses;
 
 /**
- * classLengthReader
+ * classLengthReader a function which reads the amounts of the students in a specified class
  *
  * @param  int $classID the id of the class you want to get all the students from
  * @return int returns the amount of students in a specific class

@@ -26,6 +26,7 @@ class StudentCreateController extends Controller
         permLevelCheck(rememberUser(), 2);
         $data = [
             'title' => "Klas aanmaken",
+            'footerClass' => "block--dark",
             'user' => rememberUser(),
         ];
 
@@ -35,6 +36,9 @@ class StudentCreateController extends Controller
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
@@ -42,8 +46,14 @@ class StudentCreateController extends Controller
 
         //id ophalen uit url
         $data['HoldID'] = $id;
+        
 
-        return view('homepages/moderator/StudentCreate', $data);
+
+        echo view("$base_view_dir/StudentCreate", $data);
+
+        $data;
+
+        
     }
     public function CreateUsers()
     {
@@ -106,9 +116,9 @@ class StudentCreateController extends Controller
                 $this->UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
                 echo"naam: ".$data["0"].", Email: ".$completeMail.", Wachtwoord: ".$genPassword."<br>";
                 //user opnieuw ophalen voor het gegenereerde id optehalen
-                $Student = $this->UserModel->where("SchoolUserName", $data["1"])->findall();
+                $Student = $this->UserModel->where("SchoolUserName", $data["1"])->first();
                 //student aan hun klas linken
-                $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student[0]["ID"]]);
+                $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
