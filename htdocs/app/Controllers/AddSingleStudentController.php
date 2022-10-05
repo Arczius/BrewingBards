@@ -43,7 +43,9 @@ class AddSingleStudentController extends Controller
         //id ophalen uit url
         $data['HoldID'] = $id;
 
-        return view('homepages/moderator/StudentSingle', $data);
+        echo view('homepages/moderator/StudentSingle', $data);
+
+        $data;
     }
     public function CreateUser()
     {

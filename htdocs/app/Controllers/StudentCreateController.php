@@ -49,7 +49,9 @@ class StudentCreateController extends Controller
         
 
 
-        return view('homepages/moderator/StudentCreate', $data);
+        echo view("$base_view_dir/StudentCreate", $data);
+
+        $data;
 
         
     }
