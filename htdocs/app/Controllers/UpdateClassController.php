@@ -10,16 +10,45 @@ class UpdateClassController extends BaseController{
 
     public function __construct()
     {
+        helper("rememberUser");
+        helper("permLevelCheck");
         $this->ClassesModel = new getClasses();
     }
     public function index($id){
-        $getOneClass = $this->ClassesModel->where("ID",$id)->first();
+        $holdClass = $this->ClassesModel->where("ID",$id)->first();
+        permLevelCheck(rememberUser(), 2);
         $data = [
             'title' => "Update klas",
-            
+            'user' => rememberUser(),
         ];
+        $base_view_dir = "homepages/moderator";
+
+        echo view("basic/head", $data);
+        // unsetting the title variable so it cant be accessed after this point
+        $data['title'];
+
+        echo view("$base_view_dir/header", $data);
+        // unsetting the user variable so it cant be accessed after this point
+        $data['user'];
+
+        echo view('homepages/moderator/ClassEdit', $data);
     }
-    public function update($id = 0){
-        
-    }
+    public function updateClass(){
+     $newClassName = $this->request->getVar('name');
+     $classID = $this->request->getVar('classID');
+
+     $holdClass = $this->ClassesModel->where("ID",$classID)->first();
+     
+     $data = array(
+        'ID' => $classID,
+        'Name'=> $newClassName
+     );
+
+     $this->ClassesModel->replace($data);
+     return redirect()->to('/ClassView');
+
+}
+public function Back(){
+    return redirect()->to('/profile');
+}
 }
