@@ -18,7 +18,7 @@ class UpdateClassController extends BaseController{
         $holdClass = $this->ClassesModel->where("ID",$id)->first();
         permLevelCheck(rememberUser(), 2);
         $data = [
-            'title' => "Update klas",
+            'title' => "Update Klas - Moderator",
             'user' => rememberUser(),
         ];
         $base_view_dir = "homepages/moderator";
