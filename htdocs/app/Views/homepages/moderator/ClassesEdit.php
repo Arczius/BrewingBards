@@ -1,8 +1,8 @@
-<div>
+<div class="block">
     <h3>Bewerk klas</h3>
     
     <br>
-    <form action="<?php echo base_url(); ?>/UpdateClassController/UpdateClass" method="post">
+    <form class="form--main form--rounded" action="<?php echo base_url(); ?>/UpdateClassController/UpdateClass" method="post">
     <div>
             <input type="text" name="className" value="<?php echo $HoldID["Name"] ?>"></input>
         </div>
@@ -11,7 +11,7 @@
     </div>
     <div>
         <br>
-        <button type="submit">Bewerk de klas</button>
+        <button class="btn_success" type="submit">Bewerk de klas</button>
     </div>
     </form>
 </div>

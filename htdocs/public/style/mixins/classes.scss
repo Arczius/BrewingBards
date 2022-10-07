@@ -98,8 +98,7 @@
 
 ///form
 @mixin form($mix_bg: white, $mix_txt: $txt_main, $mix_accent: $txt_accent) {
-  input[type="text"], input[type="email"], input[type="password"],
-  textarea {
+  input[type="text"], input[type="email"], input[type="password"], textarea, select {
     background: $mix_bg;
     border: $mix_txt 2px solid;
     color: $mix_txt;
