@@ -214,6 +214,7 @@ i.bx {
 .block--accent {
   background-color: #fcdc4d;
   padding: 25px 25px;
+  min-height: calc(100vh - 191.8px);
 }
 .block--accent * {
   text-decoration: none;
