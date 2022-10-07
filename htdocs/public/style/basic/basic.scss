@@ -11,11 +11,43 @@
   font-family: $font_main;
 }
 
+body {
+  position: relative;
+  height: 100vh;
+  padding-bottom: 50px;
+}
+
 ///basics
 .no-pad {
   &-top {
     padding-top: 0 !important;
   }
+}
+
+
+.half-block{
+  width: 50%;
+  display: inline-block;
+}
+
+.allign-right{
+  text-align: right;
+}
+
+.float-right {
+  float: right;
+}
+
+.linebox {
+  display: inline-block;
+}
+
+i.bx {
+  color: inherit;
+}
+
+.centered {
+  margin: 0 auto;
 }
 
 ///Tooltip
@@ -25,7 +57,7 @@
   .tooltiptext {
     opacity: 0;
     visibility: hidden;
-    transition: .3s;
+    transition: 0.3s;
     width: 130px;
     background-color: $color_second;
     color: $color_accent;
@@ -48,11 +80,11 @@
       border-color: $color_second transparent transparent transparent;
     }
   }
-  &:hover .tooltiptext{
+  &:hover .tooltiptext {
     opacity: 1;
     visibility: visible;
   }
-  
+
 }
 
 ///container
@@ -72,6 +104,17 @@
   @include template_block($color_main, white, $color_accent);
 }
 
+.block--info {
+  @include template_block($color_info, white, $color_accent);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 25px!important;
+  width: 100%;
+}
+
 ///tables
 
 .table--dark {
@@ -82,13 +125,15 @@
   }
 }
 
-.table--special {
+.table--special, .table {
   margin: 0 0 20px 0;
   @include table(rgba($color_second, 0.2), $color_second, $color_main);
   .table__item {
     background: white;
   }
 }
+
+
 
 .table--rounded {
   .table__item {
@@ -117,12 +162,19 @@
   width: 130px;
 }
 
-
-.adm-tbl-modname{
-  width: 180px
+.adm-tbl-modname {
+  width: 180px;
 }
 .mod-tbl-amount {
   width: 80px;
+}
+
+//col sizes table
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: calc((100% / 12) * #{$i});
+  }
 }
 
 ///form
@@ -130,12 +182,18 @@
   @include form($color_accent, $color_second, white);
 }
 
+.form {
+  @include form(white, $color_second, $color_main);
+}
+
 .form--main {
   @include form(white, $color_second, white);
 }
 
 .form--rounded {
-  input[type="text"], input[type="email"], input[type="password"],
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
   textarea {
     border-radius: 5px;
   }

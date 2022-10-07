@@ -35,6 +35,6 @@ class Home extends BaseController
                     echo "this wasn't supose to happen";
             }
         }
-        return view('Homepage');
+        echo view('Homepage');
     }
 }

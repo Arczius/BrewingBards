@@ -70,6 +70,23 @@ $routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateMod
 $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
+$routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/$1');
+$routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
+
+$routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
+
+$routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
+
+$routes->get('/editModerator/(:alphanum)', 'AdminController::EditModeratorPage/$1');
+$routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateModAccount');
+
+$routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
+$routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
+
+
+$routes->get('/ClassEdit/(:alphanum)', 'UpdateClassController::index/$1');
+$routes->match(['get', 'post'], 'UpdateClassController/UpdateClass', 'UpdateClassController::CreateClass');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
