@@ -60,7 +60,7 @@ class SwitchClassController extends Controller
 
 
         $oldClassLink = $this->getClassUserModel->where("UserID",$StudentID)->first();
-        $holdForLink = $oldClassLink['ID'];
+        $holdForLink = $oldClassLink['ClassID'];
 
         $data = [
             'ID' => $oldClassLink["ID"],

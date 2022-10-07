@@ -214,6 +214,7 @@ i.bx {
 .block--accent {
   background-color: #fcdc4d;
   padding: 25px 25px;
+  min-height: calc(100vh - 191.8px);
 }
 .block--accent * {
   text-decoration: none;
@@ -489,8 +490,7 @@ footer {
   width: calc((100% / 12) * 12);
 }
 
-.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password],
-.form--accent textarea {
+.form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password], .form--accent textarea, .form--accent select {
   background: #fcdc4d;
   border: #323031 2px solid;
   color: #323031;
@@ -498,19 +498,15 @@ footer {
   outline: none;
   transition: 0.3s;
 }
-.form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent input[type=email]:hover, .form--accent input[type=email]:focus, .form--accent input[type=password]:hover, .form--accent input[type=password]:focus,
-.form--accent textarea:hover,
-.form--accent textarea:focus {
+.form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent input[type=email]:hover, .form--accent input[type=email]:focus, .form--accent input[type=password]:hover, .form--accent input[type=password]:focus, .form--accent textarea:hover, .form--accent textarea:focus, .form--accent select:hover, .form--accent select:focus {
   -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
 }
-.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder,
-.form--accent textarea::placeholder {
+.form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder, .form--accent textarea::placeholder, .form--accent select::placeholder {
   color: #323031;
   opacity: 0.8;
 }
-.form--accent input[type=text]:focus, .form--accent input[type=email]:focus, .form--accent input[type=password]:focus,
-.form--accent textarea:focus {
+.form--accent input[type=text]:focus, .form--accent input[type=email]:focus, .form--accent input[type=password]:focus, .form--accent textarea:focus, .form--accent select:focus {
   border: #323031 2px solid;
 }
 .form--accent textarea {
@@ -518,8 +514,7 @@ footer {
   min-height: 200px;
 }
 
-.form--main input[type=text], .form--main input[type=email], .form--main input[type=password],
-.form--main textarea {
+.form input[type=text], .form input[type=email], .form input[type=password], .form textarea, .form select {
   background: white;
   border: #323031 2px solid;
   color: #323031;
@@ -527,19 +522,39 @@ footer {
   outline: none;
   transition: 0.3s;
 }
-.form--main input[type=text]:hover, .form--main input[type=text]:focus, .form--main input[type=email]:hover, .form--main input[type=email]:focus, .form--main input[type=password]:hover, .form--main input[type=password]:focus,
-.form--main textarea:hover,
-.form--main textarea:focus {
+.form input[type=text]:hover, .form input[type=text]:focus, .form input[type=email]:hover, .form input[type=email]:focus, .form input[type=password]:hover, .form input[type=password]:focus, .form textarea:hover, .form textarea:focus, .form select:hover, .form select:focus {
   -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
 }
-.form--main input[type=text]::placeholder, .form--main input[type=email]::placeholder, .form--main input[type=password]::placeholder,
-.form--main textarea::placeholder {
+.form input[type=text]::placeholder, .form input[type=email]::placeholder, .form input[type=password]::placeholder, .form textarea::placeholder, .form select::placeholder {
   color: #323031;
   opacity: 0.8;
 }
-.form--main input[type=text]:focus, .form--main input[type=email]:focus, .form--main input[type=password]:focus,
-.form--main textarea:focus {
+.form input[type=text]:focus, .form input[type=email]:focus, .form input[type=password]:focus, .form textarea:focus, .form select:focus {
+  border: #323031 2px solid;
+}
+.form textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+.form--main input[type=text], .form--main input[type=email], .form--main input[type=password], .form--main textarea, .form--main select {
+  background: white;
+  border: #323031 2px solid;
+  color: #323031;
+  padding: 5px 10px;
+  outline: none;
+  transition: 0.3s;
+}
+.form--main input[type=text]:hover, .form--main input[type=text]:focus, .form--main input[type=email]:hover, .form--main input[type=email]:focus, .form--main input[type=password]:hover, .form--main input[type=password]:focus, .form--main textarea:hover, .form--main textarea:focus, .form--main select:hover, .form--main select:focus {
+  -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
+  box-shadow: inset 4px 0px 0px 0px #323031;
+}
+.form--main input[type=text]::placeholder, .form--main input[type=email]::placeholder, .form--main input[type=password]::placeholder, .form--main textarea::placeholder, .form--main select::placeholder {
+  color: #323031;
+  opacity: 0.8;
+}
+.form--main input[type=text]:focus, .form--main input[type=email]:focus, .form--main input[type=password]:focus, .form--main textarea:focus, .form--main select:focus {
   border: #323031 2px solid;
 }
 .form--main textarea {
@@ -550,6 +565,7 @@ footer {
 .form--rounded input[type=text],
 .form--rounded input[type=email],
 .form--rounded input[type=password],
+.form--rounded select,
 .form--rounded textarea {
   border-radius: 5px;
 }

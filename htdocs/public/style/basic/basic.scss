@@ -98,6 +98,7 @@ i.bx {
 
 .block--accent {
   @include template_block($color_accent, $color_second, $color_main);
+  min-height: calc(100vh - 191.8px);
 }
 
 .block--main {
@@ -182,6 +183,10 @@ footer {
   @include form($color_accent, $color_second, white);
 }
 
+.form {
+  @include form(white, $color_second, $color_main);
+}
+
 .form--main {
   @include form(white, $color_second, white);
 }
@@ -190,6 +195,7 @@ footer {
   input[type="text"],
   input[type="email"],
   input[type="password"],
+  select,
   textarea {
     border-radius: 5px;
   }
