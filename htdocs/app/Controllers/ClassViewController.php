@@ -55,7 +55,7 @@ class ClassViewController extends BaseController
         $data['user'];
 
 
-        echo view("$base_view_dir/classView", $data);
+        echo view("$base_view_dir/ClassView", $data);
         // unsetting the classes variable so it cant be accessed after this point
         $data['Students'];
         $data['classId'];
