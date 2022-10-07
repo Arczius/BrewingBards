@@ -35,7 +35,8 @@ class SigninController extends Controller
                 //session aanmaken voor de user
                 $ses_data = [
                     'id' => $data['ID'],
-                    'isLoggedIn' => TRUE
+                    'isLoggedIn' => TRUE,
+                    'permissionLevel' => $data["PermissionLevel"]
                 ];
                 
                 $this->session->set($ses_data);
