@@ -30,7 +30,9 @@ class UpdateClassController extends BaseController{
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
-
+        
+        $data;
+        
         echo view('homepages/moderator/ClassEdit', $data);
     }
     public function UpdateClass(){
