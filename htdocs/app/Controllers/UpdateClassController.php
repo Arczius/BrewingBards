@@ -33,7 +33,7 @@ class UpdateClassController extends BaseController{
 
         echo view('homepages/moderator/ClassEdit', $data);
     }
-    public function updateClass(){
+    public function UpdateClass(){
      $newClassName = $this->request->getVar('name');
      $classID = $this->request->getVar('classID');
 

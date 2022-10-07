@@ -33,6 +33,7 @@
                 </span>
 
                 <a href="<?php echo base_url(); ?>/StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item">&#x2b; Studenten toevoegen</a>
+                <a href="<?php echo base_url(); ?>/ClassesEdit/<?php echo $class['ID'] ?>" class="table__item__col link-item">&#x2b; Klas bewerken</a>
             </div>
 
         <?php
