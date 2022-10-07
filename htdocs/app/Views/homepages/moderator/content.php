@@ -15,8 +15,8 @@ helper('classLengthReader');
                 <span class="tooltiptext">Studenten aantal</span>
             </span>
             <span class="table__item__col grow-item">Voeg studenten toe</span>
-            <span class="table__item__col grow-item">Bewerk klas</span>
-            <span class="table__item__col grow-item">Verwijderen</span>
+            <span class="table__item__col col-2">Bewerk klas</span>
+            <span class="table__item__col col-1">Verwijderen</span>
         </div>
 
 
@@ -35,8 +35,8 @@ helper('classLengthReader');
                 </span>
 
                 <a href="<?php echo base_url(); ?>/StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Studenten toevoegen</a>
-                <a href="<?php echo base_url(); ?>/ClassesEdit/<?php echo $class['ID'] ?>" class="table__item__col link-item">&#x2b; Klas bewerken</a>
-                <a href="<?php echo base_url(); ?>/DeleteClass/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Verwijderen</a>
+                <a href="<?php echo base_url(); ?>/ClassesEdit/<?php echo $class['ID'] ?>" class="table__item__col link-item col-2"><i class='bx bxs-pencil'></i> Klas bewerken</a>
+                <a href="<?php echo base_url(); ?>/DeleteClass/<?php echo $class['ID'] ?>" class="table__item__col link-item col-1"><i class='bx bxs-trash'></i> Verwijderen</a>
 
             </div>
 
