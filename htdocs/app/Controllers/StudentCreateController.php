@@ -49,7 +49,9 @@ class StudentCreateController extends Controller
         
 
 
-        return view('homepages/moderator/StudentCreate', $data);
+        echo view("$base_view_dir/StudentCreate", $data);
+
+        $data;
 
         
     }
@@ -114,9 +116,9 @@ class StudentCreateController extends Controller
                 $this->UserModel->insert(["Name" => $data["0"],"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $data["1"], "PermissionLevel" => "1"]);
                 echo"naam: ".$data["0"].", Email: ".$completeMail.", Wachtwoord: ".$genPassword."<br>";
                 //user opnieuw ophalen voor het gegenereerde id optehalen
-                $Student = $this->UserModel->where("SchoolUserName", $data["1"])->findall();
+                $Student = $this->UserModel->where("SchoolUserName", $data["1"])->first();
                 //student aan hun klas linken
-                $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student[0]["ID"]]);
+                $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped

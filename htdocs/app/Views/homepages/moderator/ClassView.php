@@ -1,5 +1,5 @@
 <div class="block">
-    <h3 class="linebox" style="margin-top: 5px;">Overzicht Klas</h3>
+    <h3 class="linebox" style="margin-top: 5px;">Overzicht Klas: <?php echo $ClassName?></h3>
     <a class="float-right btn_default" href="<?php echo base_url(); ?>/AddSingleStudent/<?php echo $classId ?>">Voeg Student toe</a>
     <br>
 
@@ -11,11 +11,14 @@
             <span class="table__item__col col-2">
                 Studenten nummer
             </span>
-            <span class="table__item__col col-3">
+            <span class="table__item__col col-2">
                 Naam
             </span>
             <span class="table__item__col col-3">
                 Mail
+            </span>
+            <span class="table__item__col col-1">
+                klas veranderen
             </span>
             <span class="table__item__col col-2">
                 Aanpassen
@@ -33,12 +36,13 @@
                 <p class="table__item__col  col-2">
                     <?php echo $Student["SchoolUserName"]; ?>
                 </p>
-                <p class="table__item__col  col-3">
+                <p class="table__item__col  col-2">
                     <?php echo $Student["Name"]; ?>
                 </p>
                 <p class="table__item__col  col-3">
                     <?php echo $Student["Mail"]; ?>
-                </p>
+                </p> 
+                <a href="<?php echo base_url(); ?>/SwitchClass/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bx-shuffle'></i></a>
                 <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bx-edit-alt'></i> Studenten Aanpassen</a>
                 <a href="<?php echo base_url(); ?>/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bxs-trash'></i> Studenten Verwijderen</a>
             </div>
@@ -47,5 +51,4 @@
         }
         ?>
     </div>
-    <a href="./ClassCreate" class="btn_default">Klas toevoegen</a>
 </div>

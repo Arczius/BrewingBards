@@ -9,6 +9,7 @@ class StudentEditController extends Controller
 {
 
     private $UserModel;
+    private $getClassFromModel;
 
     public function __construct(){
         helper("rememberUser");

@@ -3,17 +3,20 @@
 namespace App\Controllers;
 use App\Models\getUsersClasses;
 use App\Models\getStudents;
+use App\Models\getClasses;
 
 class ClassViewController extends BaseController
 {
     private $UsersClassesModel;
     private $StudentModel;
+    private $ClassModel;
 
     public function __construct(){
         helper("rememberUser");
         helper("permLevelCheck");
         $this->UsersClassesModel = new getUsersClasses();
         $this->StudentModel = new getStudents();
+        $this->ClassModel = new getClasses();
     }
 
     public function index($id)
@@ -26,13 +29,14 @@ class ClassViewController extends BaseController
             $Student = $this->StudentModel->where("ID",$SingleStudent["UserID"])->first();
             array_push($holdArray, $Student);
         }
-
+        $ClassName = $this->ClassModel->where("ID", $id)->first();
         $data = [
             'title' => "klassen Overzicht - Docent",
             'footerClass' => "block--dark",
             'user' => rememberUser(),
             'Students' => $holdArray,
-            'classId' => $id
+            'classId' => $id,
+            'ClassName' => $ClassName["Name"]
         ];
 
         $base_view_dir = "homepages/moderator";
@@ -55,6 +59,7 @@ class ClassViewController extends BaseController
         // unsetting the classes variable so it cant be accessed after this point
         $data['Students'];
         $data['classId'];
+        $data['ClassName'];
 
 
 
