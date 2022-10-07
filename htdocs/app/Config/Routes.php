@@ -38,7 +38,7 @@ $routes->setAutoRoute(true);
 
 $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController::loginAuth');
 
-$routes->group('', ['filter' => 'loginFilter'], function($routes){
+
     $routes->get('/signin', 'SigninController::index');
     $routes->add('/profile', 'ProfileController::index');
 
@@ -62,7 +62,7 @@ $routes->group('', ['filter' => 'loginFilter'], function($routes){
     $routes->get('/classes/(:alphanum)','ClassViewController::index/$1');
     $routes->get('/StudentEdit/(:alphanum)','StudentEditController::index/$1');
     $routes->match(['get', 'post'], 'StudentEditController/UpdateUser', 'StudentEditController::CreateClass');
-});
+
 
 $routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/$1');
 $routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
@@ -78,7 +78,7 @@ $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
 
-$routes->get('/ClassEdit/(:alphanum)', 'UpdateClassController::index/$1');
+$routes->get('/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');
 $routes->match(['get', 'post'], 'UpdateClassController/UpdateClass', 'UpdateClassController::CreateClass');
 
 /*
