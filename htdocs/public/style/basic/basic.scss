@@ -98,6 +98,7 @@ i.bx {
 
 .block--accent {
   @include template_block($color_accent, $color_second, $color_main);
+  min-height: calc(100vh - 191.8px);
 }
 
 .block--main {
