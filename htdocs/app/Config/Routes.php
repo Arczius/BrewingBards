@@ -38,6 +38,7 @@ $routes->setAutoRoute(true);
 
 $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController::loginAuth');
 
+
 $routes->get('/signin', 'SigninController::index');
 $routes->add('/profile', 'ProfileController::index');
 
@@ -64,11 +65,19 @@ $routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
 
 $routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
 
+
+$routes->get('/classes/(:alphanum)','ClassViewController::index/$1');
+$routes->get('/StudentEdit/(:alphanum)','StudentEditController::index/$1');
+$routes->match(['get', 'post'], 'StudentEditController/UpdateUser', 'StudentEditController::CreateClass');
+
+
+
 $routes->get('/editModerator/(:alphanum)', 'AdminController::EditModeratorPage/$1');
 $routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateModAccount');
 
 $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
+
 
 $routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/$1');
 $routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
@@ -84,7 +93,7 @@ $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
 
-$routes->get('/ClassEdit/(:alphanum)', 'UpdateClassController::index/$1');
+$routes->get('/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');
 $routes->match(['get', 'post'], 'UpdateClassController/UpdateClass', 'UpdateClassController::CreateClass');
 
 /*

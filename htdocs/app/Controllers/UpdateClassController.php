@@ -31,8 +31,7 @@ class UpdateClassController extends BaseController{
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
         
-        $data;
-        
+        $data["HoldID"] = $holdClass;
         echo view('homepages/moderator/ClassesEdit', $data);
     }
     public function UpdateClass(){
@@ -40,7 +39,7 @@ class UpdateClassController extends BaseController{
      $classID = $this->request->getVar('classID');
 
      $holdClass = $this->ClassesModel->where("ID",$classID)->first();
-     
+
      $data = array(
         'ID' => $classID,
         'Name'=> $newClassName

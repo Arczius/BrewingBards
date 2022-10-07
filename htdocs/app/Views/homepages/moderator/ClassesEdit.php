@@ -1,5 +1,6 @@
 <div>
     <h3>Bewerk klas</h3>
+    
     <br>
     <form action="<?php echo base_url(); ?>/UpdateClassController/UpdateClass" method="post">
     <div>
