@@ -38,39 +38,38 @@ $routes->setAutoRoute(true);
 
 $routes->match(['get', 'post'], 'SigninController/loginAuth', 'SigninController::loginAuth');
 
-$routes->group('', ['filter' => 'loginFilter'], function($routes){
-    $routes->get('/signin', 'SigninController::index');
-    $routes->add('/profile', 'ProfileController::index');
+$routes->get('/signin', 'SigninController::index');
+$routes->add('/profile', 'ProfileController::index');
 
-    $routes->get('/Home', 'Home::homepage');
-    $routes->get('/back', 'ProfileController::index');
-    $routes->get('logout', 'SigninController::logout');
+$routes->get('/Home', 'Home::homepage');
+$routes->get('/back', 'ProfileController::index');
+$routes->get('logout', 'SigninController::logout');
 
-    $routes->get('/AdminHome','AdminController::index');
-    $routes->get('/ModHome', 'ModController::index');
-    $routes->get('/UserHome','UserController::index');
+$routes->get('/AdminHome','AdminController::index');
+$routes->get('/ModHome', 'ModController::index');
+$routes->get('/UserHome','UserController::index');
 
-    $routes->get('/StudentCreate/(:alphanum)', 'StudentCreateController::index/$1');
-    $routes->get('/ClassCreate', 'ClassCreateController::index');
-    $routes->match(['get', 'post'], 'StudentCreateController/CreateUsers', 'StudentCreateController::CreateUsers');
-    $routes->match(['get', 'post'], 'ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
+$routes->get('/StudentCreate/(:alphanum)', 'StudentCreateController::index/$1');
+$routes->get('/ClassCreate', 'ClassCreateController::index');
+$routes->match(['get', 'post'], 'StudentCreateController/CreateUsers', 'StudentCreateController::CreateUsers');
+$routes->match(['get', 'post'], 'ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
 
-    $routes->get('/createModPage', 'AdminController::createModPage');
-    $routes->post('/createModAccount', 'AdminController::createModerator');
+$routes->get('/createModPage', 'AdminController::createModPage');
+$routes->post('/createModAccount', 'AdminController::createModerator');
 
-    $routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/$1');
-    $routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
+$routes->get('/AddSingleStudent/(:alphanum)','AddSingleStudentController::index/$1');
+$routes->match(['get', 'post'], 'AddSingleStudentController/CreateUser', 'AddSingleStudentController::CreateUser');
 
-    $routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
+$routes->get('/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
 
-    $routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
+$routes->get('/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
 
-    $routes->get('/editModerator/(:alphanum)', 'AdminController::EditModeratorPage/$1');
-    $routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateModAccount');
+$routes->get('/editModerator/(:alphanum)', 'AdminController::EditModeratorPage/$1');
+$routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateModAccount');
 
-    $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
-    $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
-});
+$routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
+$routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
