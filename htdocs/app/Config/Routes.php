@@ -77,6 +77,10 @@ $routes->match(['get', 'post'], '/updateModAccount', 'AdminController::updateMod
 $routes->get('/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
+
+$routes->get('/ClassEdit/(:alphanum)', 'UpdateClassController::index/$1');
+$routes->match(['get', 'post'], 'UpdateClassController/UpdateClass', 'UpdateClassController::CreateClass');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

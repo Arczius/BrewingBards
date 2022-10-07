@@ -15,6 +15,7 @@ helper('classLengthReader');
                 <span class="tooltiptext">Studenten aantal</span>
             </span>
             <span class="table__item__col grow-item">Voeg studenten toe</span>
+            <span class="table__item__col grow-item">Bewerk klas</span>
             <span class="table__item__col grow-item">Verwijderen</span>
         </div>
 
@@ -34,7 +35,9 @@ helper('classLengthReader');
                 </span>
 
                 <a href="<?php echo base_url(); ?>/StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Studenten toevoegen</a>
+                <a href="<?php echo base_url(); ?>/ClassesEdit/<?php echo $class['ID'] ?>" class="table__item__col link-item">&#x2b; Klas bewerken</a>
                 <a href="<?php echo base_url(); ?>/DeleteClass/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Verwijderen</a>
+
             </div>
 
         <?php
