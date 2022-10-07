@@ -35,7 +35,7 @@ class UpdateClassController extends BaseController{
         echo view('homepages/moderator/ClassesEdit', $data);
     }
     public function UpdateClass(){
-     $newClassName = $this->request->getVar('name');
+     $newClassName = $this->request->getVar('className');
      $classID = $this->request->getVar('classID');
 
      $holdClass = $this->ClassesModel->where("ID",$classID)->first();
@@ -46,7 +46,7 @@ class UpdateClassController extends BaseController{
      );
 
      $this->ClassesModel->replace($data);
-     return redirect()->to('/ClassView');
+     return redirect()->to('/profile');
 
 }
 public function Back(){
