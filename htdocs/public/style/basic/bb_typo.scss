@@ -1,0 +1,62 @@
+/// fonts
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap");
+$font_main: "Noto Sans JP", sans-serif; /// noto sans jp
+
+/// list styling
+ol,
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    padding: 0;
+  }
+}
+
+ol {
+  counter-reset: item;
+  li {
+    &:before {
+      content: counter(item) ".";
+      counter-increment: item;
+      margin-right: 5px;
+    }
+  }
+}
+ul {
+  li {
+    &::before {
+      content: "\2027";
+      margin-right: 5px;
+    }
+  }
+}
+
+///text
+.txt_cntr {
+  text-align: center;
+}
+
+///buttons
+.btn_success {
+  padding: 5px 10px;
+  display: inline-block;
+  color: white !important;
+  background-color: $color_succes;
+  border: $color_succes solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  &:hover,
+  &:active {
+    background-color: rgba($color_succes, 0.8);
+  }
+}
+
+.btn_info {
+  @extend .btn_success;
+  background-color: $color_info;
+  border: $color_info solid 2px;
+  &:hover,
+  &:active {
+    background-color: rgba($color_info, 0.8);
+  }
+}
