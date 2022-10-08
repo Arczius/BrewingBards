@@ -8,7 +8,7 @@ class modCheckFilter implements FilterInterface
 {
     public function before(RequestInterface $request, $arguments = null)
     {
-        if (session()->get('PermissionLevel') !== 2)
+        if (session()->get('permissionLevel') !== "2")
         {
             return redirect()->back();
         }

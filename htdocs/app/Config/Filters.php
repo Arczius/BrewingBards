@@ -73,5 +73,5 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = ['adminCheckFilter' => ['before' => 'Admin/*'], 'modCheckFilter' => ['before' => 'Mod/*'], 'userCheckFilter' => ['before' => 'User/*']];
+    public $filters = ['adminCheckFilter' => ['before' => ['Admin/*']], 'modCheckFilter' => ['before' => ['Mod/*']], 'userCheckFilter' => ['before' => ['User/*']]];
 }
