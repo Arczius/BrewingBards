@@ -94,7 +94,7 @@ $routes->match(['get', 'post'], 'SwitchClassController/SwitchStudent', 'SwitchCl
 
 
 $routes->get('/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');
-$routes->match(['get', 'post'], 'UpdateClassController/UpdateClass', 'UpdateClassController::CreateClass');
+$routes->match(['get', 'post'], 'UpdateClassController/UpdateClass', 'UpdateClassController::UpdateClass');
 
 /*
  * --------------------------------------------------------------------
