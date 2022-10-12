@@ -1,7 +1,7 @@
 <div>
     <h3>Bewerk klas</h3>
     <br>
-    <form action="<?php echo base_url(); ?>/UpdateClassController/UpdateClass" method="post">
+    <form action="<?php echo base_url(); ?>/Mod/UpdateClassController/UpdateClass" method="post">
     <div>
             <input type="text" name="className" value="<?php echo $HoldID["Name"] ?>"></input>
         </div>

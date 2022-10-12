@@ -42,9 +42,9 @@
                 <p class="table__item__col  col-3">
                     <?php echo $Student["Mail"]; ?>
                 </p> 
-                <a href="<?php echo base_url(); ?>/SwitchClass/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bx-shuffle'></i></a>
-                <a href="<?php echo base_url(); ?>/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bx-edit-alt'></i> Studenten Aanpassen</a>
-                <a href="<?php echo base_url(); ?>/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bxs-trash'></i> Studenten Verwijderen</a>
+                <a href="<?php echo base_url(); ?>/Mod/SwitchClass/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bx-shuffle'></i></a>
+                <a href="<?php echo base_url(); ?>/Mod/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bx-edit-alt'></i> Studenten Aanpassen</a>
+                <a href="<?php echo base_url(); ?>/Mod/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bxs-trash'></i> Studenten Verwijderen</a>
             </div>
 
         <?php
