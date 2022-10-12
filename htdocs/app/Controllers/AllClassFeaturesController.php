@@ -1,26 +1,30 @@
-<?php 
-namespace App\Controllers;
+<?php
 
+namespace App\Controllers;
+use CodeIgniter\Controller;
+
+use App\Models\getClasses;
 use App\Models\getUserLogin;
 use App\Models\getUsersClasses;
-use CodeIgniter\Controller;
-  
-class StudentCreateController extends Controller
-{
 
-    private $UserModel;
+class AllClassFeaturesController extends BaseController{
+
+    private $ClassesModel;
+    private $UserMode;
     private $UsersClassesModel;
 
-    public function __construct(){
+    public function __construct()
+    {
         helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
+        $this->ClassesModel = new getClasses();
         $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
     }
-    
 
-    public function index($id)
+    // Start CreateStudentFromList Feature
+    public function indexCreateStudents($id)
     {
         
         permLevelCheck(rememberUser(), 2);
@@ -125,9 +129,108 @@ class StudentCreateController extends Controller
                 echo $data["0"]." bestaat al en is daarvoor niet aangemaakt<br>";
             }
         }
-        echo "<a href='./back'>terug naar pagina</a>";
     }
-    public function Back(){
+    // End CreateStudentsFromList Feature
+
+    // Start ClassCreate Feature
+    public function indexClassCreate()
+    {
+
+        $data = [
+            'title' => "Klas aanmaken",
+            'footerClass' => "block--dark",
+            'user' => rememberUser(),
+        ];
+
+        $base_view_dir = "homepages/moderator";
+
+        echo view("basic/head", $data);
+
+        // unsetting the title variable so it cant be accessed after this point
+        $data['title'];
+
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
+
+        echo view("$base_view_dir/header", $data);
+
+        // unsetting the user variable so it cant be accessed after this point
+        $data['user'];
+
+        echo view("$base_view_dir/ClassCreate");
+
+        $data;
+    }
+    public function CreateClass()
+    {
+        $text = $this->request->getVar('className');
+        
+        $this->ClassesModel->insert(["Name"=>$text]);
+
         return redirect()->to('/profile');
     }
+    // End ClassCreate Feature
+
+    // Start DeleteClass Feature
+    public function Delete($id)
+    {
+        permLevelCheck(rememberUser(), 2);
+        
+        $getClassStudents = $this->UsersClassesModel->where("ClassID",$id)->findall();
+
+        $Students = [];
+        foreach($getClassStudents as $student){
+            $this->UserModel->where("id",$student["UserID"])->delete();
+            $this->UsersClassesModel->where("UserID",$student["UserID"])->delete();
+        }
+        $this->ClassesModel->where("id",$id)->delete();
+
+        return redirect()->to('/profile');
+        
+    }
+    // End ClassDelete Feature
+
+    // Start UpdateClass Feature
+    public function indexUpdateClass($id){
+        $holdClass = $this->ClassesModel->where("ID",$id)->first();
+        permLevelCheck(rememberUser(), 2);
+        $data = [
+            'title' => "Update Klas - Moderator",
+            'user' => rememberUser(),
+        ];
+        $base_view_dir = "homepages/moderator";
+
+        echo view("basic/head", $data);
+        // unsetting the title variable so it cant be accessed after this point
+        $data['title'];
+
+        echo view("$base_view_dir/header", $data);
+        // unsetting the user variable so it cant be accessed after this point
+        $data['user'];
+        
+        $data["HoldID"] = $holdClass;
+        echo view('homepages/moderator/ClassesEdit', $data);
+    }
+
+    public function UpdateClass(){
+     $newClassName = $this->request->getVar('className');
+     $classID = $this->request->getVar('classID');
+
+     $holdClass = $this->ClassesModel->where("ID",$classID)->first();
+
+     $data = array(
+        'ID' => $classID,
+        'Name'=> $newClassName
+     );
+
+     $this->ClassesModel->replace($data);
+     return redirect()->to('/profile');
+
+    }
+    // End UpdateClassFeature
+
+public function Back(){
+    return redirect()->to('/profile');
+}
 }
