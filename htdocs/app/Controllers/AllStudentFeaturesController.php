@@ -71,7 +71,6 @@ class AllStudentFeaturesController extends Controller
             'PermissionLevel' => 1
         );
         
-        // $this->UserModel->where("ID",$userID)->first();
         $this->UserModel->replace($data);
 
         $holdClasses = $this->UsersClassesModel->where("UserID",$userID)->first();
@@ -188,10 +187,17 @@ class AllStudentFeaturesController extends Controller
         }
         else{
             //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
-            echo $data["0"]." bestaat al en is daarvoor niet aangemaakt<br>";
-            
-        echo "<a href='./back'>terug naar pagina</a>";
+            echo $studentUserName." bestaat al en is daarvoor niet aangemaakt<br>";          
         }
+        $email = \Config\Services::email();
+
+        $email->setFrom('99056991@mydavinci.nl', 'Mogedob Niwor');
+        $email->setTo('sliskas2003@gmail.com');
+
+        $email->setSubject('Email Test');
+        $email->setMessage('Testing the email class.');
+
+        $email->send();
     }
     //End AddSingleStudent Feature
 
