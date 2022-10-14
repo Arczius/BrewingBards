@@ -109,11 +109,33 @@ i.bx {
   @include template_block($color_info, white, $color_accent);
 }
 
+.block--flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 footer {
   position: absolute;
   bottom: 0;
   padding: 10px 25px!important;
   width: 100%;
+}
+
+
+
+.border--dark{
+  border: $color_second solid;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.border-left--dark{
+  border-left: solid $color_second;
+}
+
+.border-right--dark{
+  border-left: solid $color_second;
 }
 
 ///tables
@@ -177,6 +199,14 @@ footer {
     width: calc((100% / 12) * #{$i});
   }
 }
+
+.col-35{
+  width: calc((100% / 12) * 3.5);
+}
+.col-38{
+  width: calc((100% / 12) * 3.8);
+}
+
 
 ///form
 .form--accent {
