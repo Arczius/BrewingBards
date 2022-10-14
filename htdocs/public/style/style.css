@@ -29,6 +29,10 @@ ul li::before {
   text-align: center;
 }
 
+.txt_right {
+  text-align: right;
+}
+
 .btn_success, .btn_info {
   padding: 5px 10px;
   display: inline-block;
@@ -338,11 +342,31 @@ i.bx {
   background-color: transparent;
 }
 
+.block--flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 footer {
   position: absolute;
   bottom: 0;
   padding: 10px 25px !important;
   width: 100%;
+}
+
+.border--dark {
+  border: #323031 solid;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.border-left--dark {
+  border-left: solid #323031;
+}
+
+.border-right--dark {
+  border-left: solid #323031;
 }
 
 .table--dark {
@@ -488,6 +512,14 @@ footer {
 
 .col-12 {
   width: calc((100% / 12) * 12);
+}
+
+.col-35 {
+  width: 29.1666666667%;
+}
+
+.col-38 {
+  width: 31.6666666667%;
 }
 
 .form--accent input[type=text], .form--accent input[type=email], .form--accent input[type=password], .form--accent textarea, .form--accent select {
