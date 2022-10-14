@@ -31,11 +31,8 @@ class UpdateClassController extends BaseController{
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
-
-        var_dump($data);
         
-        $data;
-        echo view('homepages/moderator/ClassesEdit', ["data" => $data]);
+        echo view("$base_view_dir/ClassesEdit", ["data" => $data["user"]]);
     }
     public function UpdateClass(){
      $newClassName = $this->request->getVar('name');

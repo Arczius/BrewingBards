@@ -1,6 +1,6 @@
 <div class="block">
     <h3 class="linebox" style="margin-top: 5px;">Overzicht Klas: <?php echo $ClassName?></h3>
-    <a class="float-right btn_default" href="<?php echo base_url(); ?>/AddSingleStudent/<?php echo $classId ?>">Voeg Student toe</a>
+    <a class="float-right btn_default" href="<?php echo base_url(); ?>/Mod/AddSingleStudent/<?php echo $classId ?>">Voeg Student toe</a>
     <br>
 
     <br>
