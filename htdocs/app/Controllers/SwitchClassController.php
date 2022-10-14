@@ -70,7 +70,7 @@ class SwitchClassController extends Controller
         
         $this->getClassUserModel->replace($data);
 
-        return redirect()->to( base_url().'/classes/'.$holdForLink);
+        return redirect()->to( base_url().'/Mod/classes/'.$holdForLink);
     }
 
     public function Back(){

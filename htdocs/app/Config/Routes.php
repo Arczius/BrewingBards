@@ -43,7 +43,7 @@ $routes->add('/profile', 'ProfileController::index');
 
 $routes->get('/Home', 'Home::homepage');
 $routes->get('/back', 'ProfileController::index');
-$routes->get('logout', 'SigninController::logout');
+$routes->get('/logout', 'SigninController::logout');
 
 $routes->get('/Admin/AdminHome','AdminController::index');
 $routes->get('/Mod/ModHome', 'ModController::index');
@@ -64,10 +64,14 @@ $routes->get('/Mod/DeleteClass/(:alphanum)','DeleteClassController::Delete/$1');
 
 $routes->get('/Admin/deleteModerator/(:alphanum)', 'AdminController::deleteModerator/$1');
 
+$routes->get('/Mod/classes/(:alphanum)','ClassViewController::index/$1');
+$routes->get('/Mod/StudentEdit/(:alphanum)','AllStudentFeaturesController::indexStudentEdit/$1');
+$routes->match(['get', 'post'], '/Mod/AllStudentFeaturesController/UpdatenUsers', 'AllStudentFeaturesController::UpdatenUsers');
+
 $routes->get('/Admin/editModerator/(:alphanum)', 'AdminController::EditModeratorPage/$1');
 $routes->match(['get', 'post'], '/Admin/updateModAccount', 'AdminController::updateModAccount');
 
-$routes->get('/Mod/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
+$routes->get('/Mod/SwitchClass/(:alphanum)', 'SwitchClassController::index/$1');
 $routes->match(['get', 'post'], '/Mod/SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
 $routes->get('/Mod/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');
