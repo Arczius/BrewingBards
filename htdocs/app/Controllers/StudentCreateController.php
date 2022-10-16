@@ -57,7 +57,6 @@ class StudentCreateController extends Controller
     }
     public function CreateUsers()
     {
-        permLevelCheck(rememberUser(), 2);
 
         //data ophalen uit de forms
         $text = $this->request->getVar('text');
@@ -125,7 +124,7 @@ class StudentCreateController extends Controller
                 echo $data["0"]." bestaat al en is daarvoor niet aangemaakt<br>";
             }
         }
-        echo "<a href='./back'>terug naar pagina</a>";
+        echo "<a href='/back'>terug naar pagina</a>";
     }
     public function Back(){
         return redirect()->to('/profile');
