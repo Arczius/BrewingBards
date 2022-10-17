@@ -1,20 +1,32 @@
-.char-card{
-    &__header{
-        h1{
-            line-height: 1;
-        }
+.char-card {
+  &__header {
+    h1 {
+      line-height: 1;
     }
+  }
 
-
-&__icons{
-
+  &__icons {
     padding-top: 15px;
-    
-
-    a {
-        margin-right: 0 15px;
-        
+    a, span {
+      margin-right: 0 15px;
+      .alert-icon {
+        position: absolute;
+        font-size: 18px;
+        right: 0;
+        bottom: 90%;
+        &--red{
+            @extend .alert-icon;
+            color: $color_main;
+        }
+        &--yellow{
+            @extend .alert-icon;
+            color: $color_accent;
+        }
+        &--green{
+            @extend .alert-icon;
+            color: $color_succes;
+        }
+      }
     }
-}
-
+  }
 }

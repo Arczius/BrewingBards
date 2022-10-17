@@ -25,8 +25,7 @@ body {
   }
 }
 
-
-.half-block{
+.half-block {
   width: 50%;
   display: inline-block;
 }
@@ -73,22 +72,22 @@ body {
       border-color: $color_second transparent transparent transparent;
     }
   }
-  .tooltiptext--bottom{
+  .tooltiptext--bottom {
     @extend .tooltiptext;
     bottom: unset;
     top: calc(100% + 5px);
-    &::after{
+    &::after {
       top: unset;
       bottom: 100%;
-      border-color:  transparent transparent $color_second transparent
+      border-color: transparent transparent $color_second transparent;
     }
   }
 
-  &:hover .tooltiptext, &hover .tooltiptext--bottom{
+  &:hover .tooltiptext,
+  &hover .tooltiptext--bottom {
     opacity: 1;
     visibility: visible;
   }
-
 }
 
 ///container
@@ -117,7 +116,15 @@ body {
   @include template_block(white, $color_second, $color_info);
 }
 
-.block--flex{
+.block--dark--alt {
+  @include template_block($color_second, white, $color_main);
+}
+
+.block--disabled {
+  @include template_block(white, lighten($color_second, 25%), $color_second);
+}
+
+.block--flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -126,27 +133,17 @@ body {
 footer {
   position: absolute;
   bottom: 0;
-  padding: 10px 25px!important;
+  padding: 10px 25px !important;
   width: 100%;
 }
 
 ///border
 
-.border--dark{
-  border: $color_second solid;
+@include template_border("dark", $color_second);
+@include template_border("disabled", lighten($color_second, 25%));
+
+.border--rounded {
   border-radius: 5px;
-}
-
-.border-left--dark{
-  border-left: solid $color_second;
-}
-
-.border-right--dark{
-  border-left: solid $color_second;
-}
-
-.border-top--dark{
-  border-top: solid $color_second;
 }
 
 ///tables
@@ -159,15 +156,14 @@ footer {
   }
 }
 
-.table--special, .table {
+.table--special,
+.table {
   margin: 0 0 20px 0;
   @include table(rgba($color_second, 0.2), $color_second, $color_main);
   .table__item {
     background: white;
   }
 }
-
-
 
 .table--rounded {
   .table__item {
@@ -211,13 +207,12 @@ footer {
   }
 }
 
-.col-35{
+.col-35 {
   width: calc((100% / 12) * 3.5);
 }
-.col-38{
+.col-38 {
   width: calc((100% / 12) * 3.8);
 }
-
 
 ///form
 .form--accent {
