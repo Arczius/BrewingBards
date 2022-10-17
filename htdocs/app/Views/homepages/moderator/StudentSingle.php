@@ -2,7 +2,9 @@
     <h3>Voeg student toe</h3>
     <p>voer hier de gegevens van de leerling in die aangemaakt moet worden.</p>
     <br>
-    <form action="<?php echo base_url(); ?>/AddSingleStudentController/CreateUser" method="post" class="form form--rounded">
+
+    <form action="<?php echo base_url(); ?>/Mod/AddSingleStudentController/CreateUser" method="post" class="form--accent form--rounded">
+
         <div>
             <input type="text" name="Name" placeholder="Naam" class="form-control">
         </div>
