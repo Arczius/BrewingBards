@@ -46,8 +46,6 @@ class StudentCreateController extends Controller
 
         //id ophalen uit url
         $data['HoldID'] = $id;
-        
-
 
         echo view("$base_view_dir/StudentCreate", $data);
 

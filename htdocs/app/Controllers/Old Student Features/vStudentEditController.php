@@ -45,7 +45,9 @@ class StudentEditController extends Controller
         //id ophalen uit url
         $data['HoldID'] = $holdUser;
 
-        return view('homepages/moderator/StudentEdit', $data);
+        echo view('homepages/moderator/StudentEdit', $data);
+
+        $data;
     }
 
     public function UpdatenUsers(){
