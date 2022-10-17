@@ -3,6 +3,7 @@
 //\\//\\//\\//\\
 
 @import "bb_typo";
+@import "bb_card";
 
 ///root
 * {
@@ -30,20 +31,12 @@ body {
   display: inline-block;
 }
 
-.allign-right{
-  text-align: right;
-}
-
 .float-right {
   float: right;
 }
 
 .linebox {
   display: inline-block;
-}
-
-i.bx {
-  color: inherit;
 }
 
 .centered {
@@ -58,9 +51,9 @@ i.bx {
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
-    width: 130px;
+    width: 140px;
     background-color: $color_second;
-    color: $color_accent;
+    color: white;
     text-align: center;
     border-radius: 5px;
     padding: 5px;
@@ -68,7 +61,7 @@ i.bx {
     z-index: 1;
     bottom: calc(100% + 5px);
     left: 50%;
-    margin-left: -60px;
+    margin-left: -70px;
     &::after {
       content: " ";
       position: absolute;
@@ -80,7 +73,18 @@ i.bx {
       border-color: $color_second transparent transparent transparent;
     }
   }
-  &:hover .tooltiptext {
+  .tooltiptext--bottom{
+    @extend .tooltiptext;
+    bottom: unset;
+    top: calc(100% + 5px);
+    &::after{
+      top: unset;
+      bottom: 100%;
+      border-color:  transparent transparent $color_second transparent
+    }
+  }
+
+  &:hover .tooltiptext, &hover .tooltiptext--bottom{
     opacity: 1;
     visibility: visible;
   }
@@ -109,6 +113,10 @@ i.bx {
   @include template_block($color_info, white, $color_accent);
 }
 
+.block--main-info {
+  @include template_block(white, $color_second, $color_info);
+}
+
 .block--flex{
   display: flex;
   flex-wrap: wrap;
@@ -122,12 +130,11 @@ footer {
   width: 100%;
 }
 
-
+///border
 
 .border--dark{
   border: $color_second solid;
   border-radius: 5px;
-  margin: 5px;
 }
 
 .border-left--dark{
@@ -136,6 +143,10 @@ footer {
 
 .border-right--dark{
   border-left: solid $color_second;
+}
+
+.border-top--dark{
+  border-top: solid $color_second;
 }
 
 ///tables

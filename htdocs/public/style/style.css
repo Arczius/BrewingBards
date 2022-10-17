@@ -33,6 +33,30 @@ ul li::before {
   text-align: right;
 }
 
+.allign-right {
+  text-align: right;
+}
+
+i.bx {
+  color: inherit;
+}
+
+.ico-h1 i.bx {
+  font-size: 32pt;
+}
+
+i.bx.ico-h1 {
+  font-size: 32pt;
+}
+
+.ico-h2 i.bx {
+  font-size: 26pt;
+}
+
+i.bx.ico-h2 {
+  font-size: 26pt;
+}
+
 .btn_success, .btn_info {
   padding: 5px 10px;
   display: inline-block;
@@ -52,6 +76,16 @@ ul li::before {
 }
 .btn_info:hover, .btn_info:active {
   background-color: rgba(45, 161, 157, 0.8);
+}
+
+.char-card__header h1 {
+  line-height: 1;
+}
+.char-card__icons {
+  padding-top: 15px;
+}
+.char-card__icons a {
+  margin-right: 0 15px;
 }
 
 * {
@@ -75,20 +109,12 @@ body {
   display: inline-block;
 }
 
-.allign-right {
-  text-align: right;
-}
-
 .float-right {
   float: right;
 }
 
 .linebox {
   display: inline-block;
-}
-
-i.bx {
-  color: inherit;
 }
 
 .centered {
@@ -99,13 +125,13 @@ i.bx {
   position: relative;
   display: inline-block;
 }
-.tooltip .tooltiptext {
+.tooltip .tooltiptext, .tooltip .tooltiptext--bottom {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  width: 130px;
+  width: 140px;
   background-color: #323031;
-  color: #fcdc4d;
+  color: white;
   text-align: center;
   border-radius: 5px;
   padding: 5px;
@@ -113,9 +139,9 @@ i.bx {
   z-index: 1;
   bottom: calc(100% + 5px);
   left: 50%;
-  margin-left: -60px;
+  margin-left: -70px;
 }
-.tooltip .tooltiptext::after {
+.tooltip .tooltiptext::after, .tooltip .tooltiptext--bottom::after {
   content: " ";
   position: absolute;
   top: 100%;
@@ -126,7 +152,16 @@ i.bx {
   border-style: solid;
   border-color: #323031 transparent transparent transparent;
 }
-.tooltip:hover .tooltiptext {
+.tooltip .tooltiptext--bottom {
+  bottom: unset;
+  top: calc(100% + 5px);
+}
+.tooltip .tooltiptext--bottom::after {
+  top: unset;
+  bottom: 100%;
+  border-color: transparent transparent #323031 transparent;
+}
+.tooltip:hover .tooltiptext, .tooltip:hover .tooltiptext--bottom, .tooltiphover .tooltiptext--bottom {
   opacity: 1;
   visibility: visible;
 }
@@ -144,6 +179,25 @@ i.bx {
   transition: 0.5s;
 }
 .block--dark a:hover, .block--dark a:active {
+  color: #fcdc4d;
+}
+.block--dark a.rev {
+  color: #fcdc4d;
+  transition: 0.5s;
+}
+.block--dark a.rev:hover, .block--dark a.rev:active {
+  color: white;
+}
+.block--dark a.alt-dark {
+  color: #fcdc4d;
+}
+.block--dark a.alt-dark:hover, .block--dark a.alt-dark:active {
+  color: #e6e6e6;
+}
+.block--dark a.dark {
+  color: #e6e6e6;
+}
+.block--dark a.dark:hover, .block--dark a.dark:active {
   color: #fcdc4d;
 }
 .block--dark .btn_default {
@@ -186,6 +240,25 @@ i.bx {
   transition: 0.5s;
 }
 .block a:hover, .block a:active {
+  color: #323031;
+}
+.block a.rev {
+  color: #323031;
+  transition: 0.5s;
+}
+.block a.rev:hover, .block a.rev:active {
+  color: #c20114;
+}
+.block a.alt-dark {
+  color: #323031;
+}
+.block a.alt-dark:hover, .block a.alt-dark:active {
+  color: #8f010f;
+}
+.block a.dark {
+  color: #8f010f;
+}
+.block a.dark:hover, .block a.dark:active {
   color: #323031;
 }
 .block .btn_default {
@@ -231,6 +304,25 @@ i.bx {
 .block--accent a:hover, .block--accent a:active {
   color: #323031;
 }
+.block--accent a.rev {
+  color: #323031;
+  transition: 0.5s;
+}
+.block--accent a.rev:hover, .block--accent a.rev:active {
+  color: #c20114;
+}
+.block--accent a.alt-dark {
+  color: #323031;
+}
+.block--accent a.alt-dark:hover, .block--accent a.alt-dark:active {
+  color: #8f010f;
+}
+.block--accent a.dark {
+  color: #8f010f;
+}
+.block--accent a.dark:hover, .block--accent a.dark:active {
+  color: #323031;
+}
 .block--accent .btn_default {
   padding: 5px 10px;
   display: inline-block;
@@ -271,6 +363,25 @@ i.bx {
   transition: 0.5s;
 }
 .block--main a:hover, .block--main a:active {
+  color: white;
+}
+.block--main a.rev {
+  color: white;
+  transition: 0.5s;
+}
+.block--main a.rev:hover, .block--main a.rev:active {
+  color: #fcdc4d;
+}
+.block--main a.alt-dark {
+  color: white;
+}
+.block--main a.alt-dark:hover, .block--main a.alt-dark:active {
+  color: #fbd21b;
+}
+.block--main a.dark {
+  color: #fbd21b;
+}
+.block--main a.dark:hover, .block--main a.dark:active {
   color: white;
 }
 .block--main .btn_default {
@@ -315,6 +426,25 @@ i.bx {
 .block--info a:hover, .block--info a:active {
   color: white;
 }
+.block--info a.rev {
+  color: white;
+  transition: 0.5s;
+}
+.block--info a.rev:hover, .block--info a.rev:active {
+  color: #fcdc4d;
+}
+.block--info a.alt-dark {
+  color: white;
+}
+.block--info a.alt-dark:hover, .block--info a.alt-dark:active {
+  color: #fbd21b;
+}
+.block--info a.dark {
+  color: #fbd21b;
+}
+.block--info a.dark:hover, .block--info a.dark:active {
+  color: white;
+}
 .block--info .btn_default {
   padding: 5px 10px;
   display: inline-block;
@@ -342,6 +472,67 @@ i.bx {
   background-color: transparent;
 }
 
+.block--main-info {
+  background-color: white;
+  padding: 25px 25px;
+}
+.block--main-info * {
+  text-decoration: none;
+  color: #323031;
+}
+.block--main-info a {
+  color: #2da19d;
+  transition: 0.5s;
+}
+.block--main-info a:hover, .block--main-info a:active {
+  color: #323031;
+}
+.block--main-info a.rev {
+  color: #323031;
+  transition: 0.5s;
+}
+.block--main-info a.rev:hover, .block--main-info a.rev:active {
+  color: #2da19d;
+}
+.block--main-info a.alt-dark {
+  color: #323031;
+}
+.block--main-info a.alt-dark:hover, .block--main-info a.alt-dark:active {
+  color: #227976;
+}
+.block--main-info a.dark {
+  color: #227976;
+}
+.block--main-info a.dark:hover, .block--main-info a.dark:active {
+  color: #323031;
+}
+.block--main-info .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: white;
+  background-color: #323031;
+  border: #323031 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--main-info .btn_default:hover, .block--main-info .btn_default:active {
+  color: #323031;
+  background-color: transparent;
+}
+.block--main-info .btn_second {
+  padding: 5px 10px;
+  color: white;
+  background-color: #2da19d;
+  border: #2da19d solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--main-info .btn_second:hover, .block--main-info .btn_second:active {
+  color: #2da19d;
+  background-color: transparent;
+}
+
 .block--flex {
   display: flex;
   flex-wrap: wrap;
@@ -358,7 +549,6 @@ footer {
 .border--dark {
   border: #323031 solid;
   border-radius: 5px;
-  margin: 5px;
 }
 
 .border-left--dark {
@@ -367,6 +557,10 @@ footer {
 
 .border-right--dark {
   border-left: solid #323031;
+}
+
+.border-top--dark {
+  border-top: solid #323031;
 }
 
 .table--dark {

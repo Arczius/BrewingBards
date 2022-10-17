@@ -23,6 +23,29 @@
       color: $mix_txt;
     }
   }
+  a.rev {
+    color: $mix_txt;
+    transition: 0.5s;
+    &:hover,
+    &:active {
+      color: $mix_accent;
+    }
+  }
+  a.alt-dark {
+    color: $mix_txt;
+    &:hover,
+    &:active {
+      color: darken($mix_accent, 10%);
+    }
+  }
+
+  a.dark {
+    color: darken($mix_accent, 10%);
+    &:hover,
+    &:active {
+      color: $mix_txt;
+    }
+  }
   .btn_default {
     padding: 5px 10px;
     display: inline-block;
