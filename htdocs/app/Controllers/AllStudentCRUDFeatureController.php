@@ -26,28 +26,13 @@ class AllStudentCRUDFeatureController extends Controller
         $holdUser = $this->UserModel->where("ID",$id)->first();
         permLevelCheck(rememberUser(), 2);
         $data = [
-            'title' => "Student aanmaken",
+            'title' => "Student Updaten",
             'footerClass' => "block--dark",
             'user' => rememberUser(),
+            'HoldID' => $holdUser
         ];
-        $base_view_dir = "homepages/moderator";
-
-        echo view("basic/head", $data);
-        // unsetting the title variable so it cant be accessed after this point
-        $data['title'];
-
-        echo view("basic/footer", $data);
-        // unsetting the classes variable so it cant be accessed after this point
-        $data['footerClass'];
-
-        echo view("$base_view_dir/header", $data);
-        // unsetting the user variable so it cant be accessed after this point
-        $data['user'];
-
-        //id ophalen uit url
-        $data['HoldID'] = $holdUser;
-
-        return view('homepages/moderator/StudentEdit', $data);
+        $view = "StudentEdit";
+          $this->index($data,$view);
     }
 
     // Student Create Form View Builder
@@ -55,31 +40,13 @@ class AllStudentCRUDFeatureController extends Controller
     {        
         permLevelCheck(rememberUser(), 2);
         $data = [
-            'title' => "Klas aanmaken",
+            'title' => "Studenten aanmaken",
             'footerClass' => "block--dark",
             'user' => rememberUser(),
+            'HoldID' => $id
         ];
-
-        $base_view_dir = "homepages/moderator";
-
-        echo view("basic/head", $data);
-        // unsetting the title variable so it cant be accessed after this point
-        $data['title'];
-
-        echo view("basic/footer", $data);
-        // unsetting the classes variable so it cant be accessed after this point
-        $data['footerClass'];
-
-        echo view("$base_view_dir/header", $data);
-        // unsetting the user variable so it cant be accessed after this point
-        $data['user'];
-
-        //id ophalen uit url
-        $data['HoldID'] = $id;
-
-        echo view("$base_view_dir/StudentCreate", $data);
-
-        $data;       
+        $view = "StudentCreate";
+        $this->index($data,$view);
     }
 
     // Add A Single Student Form View Builder
@@ -88,29 +55,38 @@ class AllStudentCRUDFeatureController extends Controller
         
         permLevelCheck(rememberUser(), 2);
         $data = [
-            'title' => "Klas aanmaken",
+            'title' => "Student aanmaken",
+            'footerClass' => "block--dark",
             'user' => rememberUser(),
+            'HoldID' => $id
         ];
+        $view = "StudentSingle";
+        $this->index($data,$view);
+    }
 
+    public function index($data,$view){
         $base_view_dir = "homepages/moderator";
 
         echo view("basic/head", $data);
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
 
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
 
         echo view("$base_view_dir/header", $data);
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
 
         //id ophalen uit url
-        $data['HoldID'] = $id;
+        $data['HoldID'];
 
-        echo view('homepages/moderator/StudentSingle', $data);
+        echo view("$base_view_dir/$view", $data);
 
-        $data;
+        $data; 
     }
-
+    
     // Create A Single Student Feature
     public function CreateSingleUser()
     {
