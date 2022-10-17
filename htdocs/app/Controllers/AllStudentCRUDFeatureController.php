@@ -1,11 +1,11 @@
 <?php 
 namespace App\Controllers;
 
-use App\Models\getUserLogin;
+use App\Models\getStudents;
 use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
   
-class StudentCreateController extends Controller
+class AllStudentCRUDFeatureController extends Controller
 {
 
     private $UserModel;
@@ -15,21 +15,56 @@ class StudentCreateController extends Controller
         helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
-        $this->UserModel = new getUserLogin();
+        $this->UserModel = new getStudents();
         $this->UsersClassesModel = new getUsersClasses();
     }
     
+    // All Index Pages
+    // Student Update Form View Builder
+    public function indexUpdateUsers($id)
+    {
+        $holdUser = $this->UserModel->where("ID",$id)->first();
+        permLevelCheck(rememberUser(), 2);
+        $data = [
+            'title' => "Student Updaten",
+            'footerClass' => "block--dark",
+            'user' => rememberUser(),
+            'HoldID' => $holdUser
+        ];
+        $view = "StudentEdit";
+          $this->index($data,$view);
+    }
 
-    public function index($id)
+    // Student Create Form View Builder
+    public function indexStudentCreate($id)
+    {        
+        permLevelCheck(rememberUser(), 2);
+        $data = [
+            'title' => "Studenten aanmaken",
+            'footerClass' => "block--dark",
+            'user' => rememberUser(),
+            'HoldID' => $id
+        ];
+        $view = "StudentCreate";
+        $this->index($data,$view);
+    }
+
+    // Add A Single Student Form View Builder
+    public function indexSingleStudent($id)
     {
         
         permLevelCheck(rememberUser(), 2);
         $data = [
-            'title' => "Klas aanmaken",
+            'title' => "Student aanmaken",
             'footerClass' => "block--dark",
             'user' => rememberUser(),
+            'HoldID' => $id
         ];
+        $view = "StudentSingle";
+        $this->index($data,$view);
+    }
 
+    public function index($data,$view){
         $base_view_dir = "homepages/moderator";
 
         echo view("basic/head", $data);
@@ -45,19 +80,49 @@ class StudentCreateController extends Controller
         $data['user'];
 
         //id ophalen uit url
-        $data['HoldID'] = $id;
-        
+        $data['HoldID'];
 
+        echo view("$base_view_dir/$view", $data);
 
-        echo view("$base_view_dir/StudentCreate", $data);
-
-        $data;
-
-        
+        $data; 
     }
+    
+    // Create A Single Student Feature
+    public function CreateSingleUser()
+    {
+        //data ophalen uit de forms
+        $name = $this->request->getVar('Name');
+        $studentUserName = $this->request->getVar('StudentUserName');
+        $class = $this->request->getVar('Class');
+
+        $exist = $this->UserModel->where("SchoolUserName", $studentUserName)->get()->getResult();
+
+        if(!$exist){
+            //random wachtwoord maken en encryptie
+            $genPassword = randomPasswordGen();
+            $password = password_hash($genPassword, PASSWORD_DEFAULT);
+            //mail samenstellen
+            $mail = $studentUserName."@mydavinci.nl";
+            $completeMail = preg_replace('/\s+/', '', $mail);
+            //user naar database sturen
+            $this->UserModel->insert(["Name" => $name,"Password" => $password,"Mail" => $completeMail, "SchoolUserName" => $studentUserName, "PermissionLevel" => "1"]);
+            echo"naam: ".$name.", Email: ".$completeMail.", Wachtwoord: ".$genPassword."<br>";
+            //user opnieuw ophalen voor het gegenereerde id optehalen
+            $Student = $this->UserModel->where("SchoolUserName", $studentUserName)->first();
+            //student aan hun klas linken
+            $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
+        }
+        else{
+            //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
+            echo $name." bestaat al en is daarvoor niet aangemaakt<br>";
+            
+        echo "<a href='./back'>terug naar pagina</a>";
+        }
+    }
+
+    // Create Users From List
     public function CreateUsers()
     {
-
         //data ophalen uit de forms
         $text = $this->request->getVar('text');
         $class = $this->request->getVar('class');
@@ -126,6 +191,35 @@ class StudentCreateController extends Controller
         }
         echo "<a href='/back'>terug naar pagina</a>";
     }
+
+    // update Users Feature
+    public function UpdatenUsers(){
+        $newName = $this->request->getVar('name');
+        $newSchoolUserName = $this->request->getVar('schoolUserName');
+        $userID = $this->request->getVar('userID');
+
+        $holdUser = $this->UserModel->where("ID",$userID)->first();
+
+        $mail = $newSchoolUserName."@mydavinci.nl";
+        $completeMail = preg_replace('/\s+/', '', $mail);
+
+        $data = array(
+            'ID' => $userID,
+            'Name' => $newName,
+            'Password' => $holdUser['Password'],
+            'SchoolUserName' => $newSchoolUserName,
+            'Mail' => $completeMail,
+            'PermissionLevel' => 1
+        );
+        
+        // $this->UserModel->where("ID",$userID)->first();
+        $this->UserModel->replace($data);
+
+        $holdClasses = $this->UsersClassesModel->where("UserID",$userID)->first();
+
+        return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
+    }
+
     public function Back(){
         return redirect()->to('/profile');
     }
