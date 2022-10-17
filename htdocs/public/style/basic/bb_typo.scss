@@ -40,6 +40,35 @@ ul {
   text-align: right;
 }
 
+.allign-right{
+  text-align: right;
+}
+
+///icons
+i.bx {
+  color: inherit;
+}
+
+.ico-h1{
+  i.bx {
+    font-size: 32pt;
+  }
+}
+
+i.bx.ico-h1 {
+  font-size: 32pt;
+}
+
+.ico-h2{
+  i.bx {
+    font-size: 26pt;
+  }
+}
+
+i.bx.ico-h2 {
+  font-size: 26pt;
+}
+
 ///buttons
 .btn_success {
   padding: 5px 10px;
