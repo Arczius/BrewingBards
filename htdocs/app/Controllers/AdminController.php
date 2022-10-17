@@ -12,6 +12,7 @@ class AdminController extends Controller
 
     public function __construct()
     {
+        helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
 
@@ -27,8 +28,6 @@ class AdminController extends Controller
             //finding all users with the moderator permission level
             'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
         ];
-
-        
 
         echo view("basic/head", $data);
         $data['title'];
@@ -75,8 +74,8 @@ class AdminController extends Controller
     public function createModerator(){
 
         $explode = explode("@", $this->request->getPost("Mail"));
-
-        $Password = password_hash($this->request->getPost("Password"), PASSWORD_DEFAULT);
+        
+        $Password = password_hash(randomPasswordGen(), PASSWORD_DEFAULT);
 
         $this->UsersModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
 
