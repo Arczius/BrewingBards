@@ -19,11 +19,7 @@ class UserController extends Controller
             'user' => rememberUser(),
             'footerClass' => "block--info",
         ];
-
-
-
-
-
+        
         echo view("basic/head", $data);
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];

@@ -51,8 +51,7 @@ class AllStudentCRUDFeatureController extends Controller
 
     // Add A Single Student Form View Builder
     public function indexSingleStudent($id)
-    {
-        
+    {       
         permLevelCheck(rememberUser(), 2);
         $data = [
             'title' => "Student aanmaken",
@@ -86,7 +85,7 @@ class AllStudentCRUDFeatureController extends Controller
 
         $data; 
     }
-    
+
     // Create A Single Student Feature
     public function CreateSingleUser()
     {
