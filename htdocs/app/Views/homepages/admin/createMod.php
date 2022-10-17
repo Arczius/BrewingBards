@@ -6,8 +6,6 @@
     <br><br>
     <input type="email" name="Mail" placeholder="voorbeeld@domein.nl" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
     <br><br>
-    <input type="password" name="Password" placeholder='Password'>
-    <br><br>
     <input type="submit" value="Submit" class="btn_success">
 </form>
 </div>
