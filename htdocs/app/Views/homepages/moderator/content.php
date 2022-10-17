@@ -25,7 +25,7 @@ helper('classLengthReader');
         foreach ($classes as $class) {
         ?>
             <div class="table__item">
-                <a href="<?php echo base_url(); ?>/classes/<?php echo $class['ID'] ?>" class="table__item__col link-item col-3">
+                <a href="<?php echo base_url(); ?>/Mod/classes/<?php echo $class['ID'] ?>" class="table__item__col link-item col-3">
                     <i class='bx bxs-show'></i> <?php echo $class['Name']; ?>
                 </a>
 
@@ -34,9 +34,9 @@ helper('classLengthReader');
                     <?php echo classLengthReader($class['ID']); ?>
                 </span>
 
-                <a href="<?php echo base_url(); ?>/StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Studenten toevoegen</a>
-                <a href="<?php echo base_url(); ?>/ClassesEdit/<?php echo $class['ID'] ?>" class="table__item__col link-item col-2"><i class='bx bxs-pencil'></i> Klas bewerken</a>
-                <a href="<?php echo base_url(); ?>/DeleteClass/<?php echo $class['ID'] ?>" class="table__item__col link-item col-1"><i class='bx bxs-trash'></i> Verwijderen</a>
+                <a href="<?php echo base_url(); ?>/Mod/StudentCreate/<?php echo $class['ID'] ?>" class="table__item__col link-item grow-item"><i class='bx bx-user-plus'></i> Studenten toevoegen</a>
+                <a href="<?php echo base_url(); ?>/Mod/ClassesEdit/<?php echo $class['ID'] ?>" class="table__item__col link-item col-2"><i class='bx bxs-pencil'></i> Klas bewerken</a>
+                <a href="<?php echo base_url(); ?>/Mod/DeleteClass/<?php echo $class['ID'] ?>" class="table__item__col link-item col-1"><i class='bx bxs-trash'></i> Verwijderen</a>
 
 
             </div>
@@ -45,5 +45,5 @@ helper('classLengthReader');
         }
         ?>
     </div>
-    <a href="<?php echo base_url(); ?>/ClassCreate" class="btn_default">Klas toevoegen</a>
+    <a href="<?php echo base_url(); ?>/Mod/ClassCreate" class="btn_default">Klas toevoegen</a>
 </div>

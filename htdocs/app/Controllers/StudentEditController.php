@@ -72,7 +72,7 @@ class StudentEditController extends Controller
 
         $holdClasses = $this->getClassFromModel->where("UserID",$userID)->first();
 
-        return redirect()->to( base_url().'/classes/'.$holdClasses['ClassID']);
+        return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
     }
 
     public function Back(){

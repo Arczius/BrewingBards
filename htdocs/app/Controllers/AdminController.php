@@ -73,14 +73,14 @@ class AdminController extends Controller
     }
 
     public function createModerator(){
-        permLevelCheck(rememberUser(), 3);
+
         $explode = explode("@", $this->request->getPost("Mail"));
 
         $Password = password_hash($this->request->getPost("Password"), PASSWORD_DEFAULT);
 
         $this->UsersModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
 
-        return redirect()->to("/AdminHome");
+        return redirect()->to("/Admin/AdminHome");
     }
 
     public function deleteModerator($id){
@@ -130,6 +130,6 @@ class AdminController extends Controller
         $this->UsersModel->replace($data);
 
 
-        return redirect()->to("/AdminHome");
+        return redirect()->to("/Admin/AdminHome");
     }
 }

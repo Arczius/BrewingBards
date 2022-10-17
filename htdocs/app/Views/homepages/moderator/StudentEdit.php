@@ -1,7 +1,9 @@
 <div class="block">
     <h3>Voeg student toe</h3>
     <br>
-    <form action="<?php echo base_url(); ?>/StudentEditController/UpdatenUsers" method="post" class="form form--rounded">
+
+    <form action="<?php echo base_url(); ?>/Mod/StudentEditController/UpdateUser" method="post" class="form--accent form--rounded">
+
         <div>
             <input type="text" name="name" value="<?php echo $HoldID["Name"] ?>"></input>
         </div>
