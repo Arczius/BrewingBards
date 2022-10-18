@@ -84,8 +84,23 @@ i.bx.ico-h2 {
 .char-card__icons {
   padding-top: 15px;
 }
-.char-card__icons a {
+.char-card__icons a, .char-card__icons span {
   margin-right: 0 15px;
+}
+.char-card__icons a .alert-icon, .char-card__icons a .alert-icon--green, .char-card__icons a .alert-icon--yellow, .char-card__icons a .alert-icon--red, .char-card__icons span .alert-icon, .char-card__icons span .alert-icon--green, .char-card__icons span .alert-icon--yellow, .char-card__icons span .alert-icon--red {
+  position: absolute;
+  font-size: 18px;
+  right: 0;
+  bottom: 90%;
+}
+.char-card__icons a .alert-icon--red, .char-card__icons span .alert-icon--red {
+  color: #c20114;
+}
+.char-card__icons a .alert-icon--yellow, .char-card__icons span .alert-icon--yellow {
+  color: #fcdc4d;
+}
+.char-card__icons a .alert-icon--green, .char-card__icons span .alert-icon--green {
+  color: #697a21;
 }
 
 * {
@@ -533,6 +548,128 @@ body {
   background-color: transparent;
 }
 
+.block--dark--alt {
+  background-color: #323031;
+  padding: 25px 25px;
+}
+.block--dark--alt * {
+  text-decoration: none;
+  color: white;
+}
+.block--dark--alt a {
+  color: #c20114;
+  transition: 0.5s;
+}
+.block--dark--alt a:hover, .block--dark--alt a:active {
+  color: white;
+}
+.block--dark--alt a.rev {
+  color: white;
+  transition: 0.5s;
+}
+.block--dark--alt a.rev:hover, .block--dark--alt a.rev:active {
+  color: #c20114;
+}
+.block--dark--alt a.alt-dark {
+  color: white;
+}
+.block--dark--alt a.alt-dark:hover, .block--dark--alt a.alt-dark:active {
+  color: #8f010f;
+}
+.block--dark--alt a.dark {
+  color: #8f010f;
+}
+.block--dark--alt a.dark:hover, .block--dark--alt a.dark:active {
+  color: white;
+}
+.block--dark--alt .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: #323031;
+  background-color: white;
+  border: white solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--dark--alt .btn_default:hover, .block--dark--alt .btn_default:active {
+  color: white;
+  background-color: transparent;
+}
+.block--dark--alt .btn_second {
+  padding: 5px 10px;
+  color: #323031;
+  background-color: #c20114;
+  border: #c20114 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--dark--alt .btn_second:hover, .block--dark--alt .btn_second:active {
+  color: #c20114;
+  background-color: transparent;
+}
+
+.block--disabled {
+  background-color: white;
+  padding: 25px 25px;
+}
+.block--disabled * {
+  text-decoration: none;
+  color: #736e71;
+}
+.block--disabled a {
+  color: #323031;
+  transition: 0.5s;
+}
+.block--disabled a:hover, .block--disabled a:active {
+  color: #736e71;
+}
+.block--disabled a.rev {
+  color: #736e71;
+  transition: 0.5s;
+}
+.block--disabled a.rev:hover, .block--disabled a.rev:active {
+  color: #323031;
+}
+.block--disabled a.alt-dark {
+  color: #736e71;
+}
+.block--disabled a.alt-dark:hover, .block--disabled a.alt-dark:active {
+  color: #181718;
+}
+.block--disabled a.dark {
+  color: #181718;
+}
+.block--disabled a.dark:hover, .block--disabled a.dark:active {
+  color: #736e71;
+}
+.block--disabled .btn_default {
+  padding: 5px 10px;
+  display: inline-block;
+  color: white;
+  background-color: #736e71;
+  border: #736e71 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+.block--disabled .btn_default:hover, .block--disabled .btn_default:active {
+  color: #736e71;
+  background-color: transparent;
+}
+.block--disabled .btn_second {
+  padding: 5px 10px;
+  color: white;
+  background-color: #323031;
+  border: #323031 solid 2px;
+  transition: 0.5s;
+  border-radius: 5px;
+  display: inline-block;
+}
+.block--disabled .btn_second:hover, .block--disabled .btn_second:active {
+  color: #323031;
+  background-color: transparent;
+}
+
 .block--flex {
   display: flex;
   flex-wrap: wrap;
@@ -547,8 +684,15 @@ footer {
 }
 
 .border--dark {
-  border: #323031 solid;
-  border-radius: 5px;
+  border: solid #323031;
+}
+
+.border-top--dark {
+  border-top: solid #323031;
+}
+
+.border-bottom--dark {
+  border-bottom: solid #323031;
 }
 
 .border-left--dark {
@@ -556,11 +700,31 @@ footer {
 }
 
 .border-right--dark {
-  border-left: solid #323031;
+  border-right: solid #323031;
 }
 
-.border-top--dark {
-  border-top: solid #323031;
+.border--disabled {
+  border: solid #736e71;
+}
+
+.border-top--disabled {
+  border-top: solid #736e71;
+}
+
+.border-bottom--disabled {
+  border-bottom: solid #736e71;
+}
+
+.border-left--disabled {
+  border-left: solid #736e71;
+}
+
+.border-right--disabled {
+  border-right: solid #736e71;
+}
+
+.border--rounded {
+  border-radius: 5px;
 }
 
 .table--dark {
@@ -596,36 +760,45 @@ footer {
   background: rgba(50, 48, 49, 0.8);
 }
 
-.table--special, .table {
+.table--special,
+.table {
   margin: 0 0 20px 0;
 }
-.table--special .table__item, .table .table__item {
+.table--special .table__item,
+.table .table__item {
   display: flex;
   flex-wrap: wrap;
   background: rgba(50, 48, 49, 0.2);
   border-bottom: 2px solid #323031;
 }
-.table--special .table__item__col, .table .table__item__col {
+.table--special .table__item__col,
+.table .table__item__col {
   padding: 5px 5px;
   color: #323031 !important;
   border-right: 2px solid #323031;
 }
-.table--special .table__item__col:nth-child(odd), .table .table__item__col:nth-child(odd) {
+.table--special .table__item__col:nth-child(odd),
+.table .table__item__col:nth-child(odd) {
   background: rgba(50, 48, 49, 0.2);
 }
-.table--special .table__item__col:last-child, .table .table__item__col:last-child {
+.table--special .table__item__col:last-child,
+.table .table__item__col:last-child {
   border-right: none;
 }
-.table--special .table__item__col.link-item:hover, .table .table__item__col.link-item:hover {
+.table--special .table__item__col.link-item:hover,
+.table .table__item__col.link-item:hover {
   color: #c20114 !important;
 }
-.table--special .table__item__col.grow-item, .table .table__item__col.grow-item {
+.table--special .table__item__col.grow-item,
+.table .table__item__col.grow-item {
   flex-grow: 1;
 }
-.table--special .table__item:last-child, .table .table__item:last-child {
+.table--special .table__item:last-child,
+.table .table__item:last-child {
   border-bottom: none;
 }
-.table--special .table__item, .table .table__item {
+.table--special .table__item,
+.table .table__item {
   background: white;
 }
 
