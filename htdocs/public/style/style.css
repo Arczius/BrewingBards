@@ -90,8 +90,12 @@ i.bx.ico-h2 {
 .char-card__icons a .alert-icon, .char-card__icons a .alert-icon--green, .char-card__icons a .alert-icon--yellow, .char-card__icons a .alert-icon--red, .char-card__icons span .alert-icon, .char-card__icons span .alert-icon--green, .char-card__icons span .alert-icon--yellow, .char-card__icons span .alert-icon--red {
   position: absolute;
   font-size: 18px;
-  right: 0;
-  bottom: 90%;
+  right: -5px;
+  top: 35px;
+  background: white;
+  height: 18px;
+  width: 18px;
+  border-radius: 100%;
 }
 .char-card__icons a .alert-icon--red, .char-card__icons span .alert-icon--red {
   color: #c20114;
@@ -101,6 +105,20 @@ i.bx.ico-h2 {
 }
 .char-card__icons a .alert-icon--green, .char-card__icons span .alert-icon--green {
   color: #697a21;
+}
+
+.switch-btn[data-toggle=true] {
+  color: #697a21 !important;
+}
+.switch-btn[data-toggle=true]::before {
+  content: "\eecb" !important;
+}
+
+.switch-btn[data-toggle=false] {
+  color: #c20114 !important;
+}
+.switch-btn[data-toggle=false]::before {
+  content: "\ec4a" !important;
 }
 
 * {

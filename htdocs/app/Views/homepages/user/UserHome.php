@@ -4,9 +4,13 @@
 
     <!-- card item -->
     <div class="block--main-info  border--rounded border--dark col-38 char-card">
+        <div class="col-12 border-bottom--dark">
+        <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="test"></i>
+        </div>
+        <br>
         <div class="col-2 float-right txt_right">
             <a href="" class="ico-h2 alt-dark tooltip">
-            <i class='bx bxs-pencil'></i>
+            <i class='bx bxs-pencil '></i>
             <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
@@ -88,3 +92,21 @@
     <!-- here to evenout the flex justify, do not remove -->
     <span class="col-38"></span>
 </div>
+
+<script>
+    var toggles = document.getElementsByClassName('switch-btn');
+
+    function switchToggle(elementName) {
+        var switchElm = document.querySelector('[data-name='+ elementName +']');
+        if ( switchElm.dataset.toggle == "true" ) {
+            switchElm.dataset.toggle = "false";
+        } else {
+            switchElm.dataset.toggle = "true";
+        }
+    }
+
+    for (let i = 0; i < toggles.length; i++) {
+        let elmName = toggles[i].dataset.name;
+        toggles[i].addEventListener('click', function(){switchToggle(elmName)});
+    }
+</script>
