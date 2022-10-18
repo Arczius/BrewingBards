@@ -20,14 +20,18 @@ class BasicMail
         $this->fromEmail = $fromEmail;
         $this->fromName = $fromName;
     }
-
-    protected function SendMail(
-        $to,
-        $subject,
-        $message,
-        $cc = null,
-        $bcc = null,
-    ){
+    
+    /**
+     * SendMail a method to send a mail 
+     *
+     * @param  string $to - the mail address you want to send the mail to
+     * @param  string $subject - the subject of the mail
+     * @param  string $message - the message of the mail
+     * @param  string $cc - the cc of the mail, leave empty if you dont want to use this
+     * @param  string $bcc -the bcc of the mail, leave empty if you dont want to use this
+     * @return void
+     */
+    protected function SendMail($to, $subject, $message, $cc = null, $bcc = null ){
         $this->email->setFrom($this->fromEmail, $this->fromName);
         $this->email->setTo($to);
         $this->email->setSubject($subject);
