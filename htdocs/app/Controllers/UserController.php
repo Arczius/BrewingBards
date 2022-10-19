@@ -40,4 +40,10 @@ class UserController extends Controller
 
         $data;
     }
+
+    public function LeepadUser(){
+        echo view("homepages/user/header");
+        echo view("homepages/user/UserLeerpadOverview");
+        echo view("basic/footer");
+    }
 }

@@ -7,5 +7,5 @@
 <nav class="block--main-info block--flex txt_cntr">
     <a href="#" class="col-38 linebox btn_second">Home</a>
     <a href="#" class="col-38 linebox btn_second">Karakters</a>
-    <a href="#" class="col-38 linebox btn_second">Leerpaden</a>
+    <a href="./UserLeerpad" class="col-38 linebox btn_second">Leerpaden</a>
 </nav>
