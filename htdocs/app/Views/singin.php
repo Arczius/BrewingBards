@@ -26,7 +26,7 @@
                        <?= session()->getFlashdata('msg') ?>
                     </div>
                 <?php endif;?>
-                <form class="form--main" action="<?php echo base_url(); ?>/SigninController/loginAuth" method="post">
+                <?php echo form_open("base_url()/SigninController/loginAuth", ["class"=>"form--main"]); ?>
                     <div class="form-group mb-3">
                         <input type="email" name="Mail" placeholder="Email" class="form-control" >
                     </div>
