@@ -42,8 +42,33 @@ class UserController extends Controller
     }
 
     public function LeepadUser(){
-        echo view("homepages/user/header");
-        echo view("homepages/user/UserLeerpadOverview");
-        echo view("basic/footer");
+          
+        permLevelCheck(rememberUser(), 1);
+        $base_view_dir = "homepages/user";
+        $data = [
+            'title' => "Home - Gebruiker",
+            'user' => rememberUser(),
+            'footerClass' => "block--info",
+        ];
+
+
+
+
+
+        echo view("basic/head", $data);
+        // unsetting the title variable so it cant be accessed after this point
+        $data['title'];
+        
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
+
+        echo view("$base_view_dir/header", $data);
+        // unsetting the user variable so it cant be accessed after this point
+        $data['user'];
+
+        echo view("$base_view_dir/UserLeerpadOverview");
+
+        $data;
     }
 }
