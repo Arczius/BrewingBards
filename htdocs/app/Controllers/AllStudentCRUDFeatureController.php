@@ -1,10 +1,11 @@
 <?php 
 namespace App\Controllers;
 
-use App\Models\getStudents;
+use App\Models\getUserLogin;
 use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
-  
+use NewUserPasswordMail;
+
 class AllStudentCRUDFeatureController extends Controller
 {
 
@@ -15,7 +16,7 @@ class AllStudentCRUDFeatureController extends Controller
         helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
-        $this->UserModel = new getStudents();
+        $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
     }
     
@@ -98,6 +99,9 @@ class AllStudentCRUDFeatureController extends Controller
         $exist = $this->UserModel->where("SchoolUserName", $studentUserName)->get()->getResult();
 
         if(!$exist){
+
+
+
             //random wachtwoord maken en encryptie
             $genPassword = randomPasswordGen();
             $password = password_hash($genPassword, PASSWORD_DEFAULT);
@@ -111,6 +115,12 @@ class AllStudentCRUDFeatureController extends Controller
             $Student = $this->UserModel->where("SchoolUserName", $studentUserName)->first();
             //student aan hun klas linken
             $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
+
+
+            helper("NewUserPasswordMail");
+
+            $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
+            $mailManager->SendPasswordMail($mail, $name, $genPassword);
         }
         else{
             //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
@@ -183,6 +193,12 @@ class AllStudentCRUDFeatureController extends Controller
                 $Student = $this->UserModel->where("SchoolUserName", $data["1"])->first();
                 //student aan hun klas linken
                 $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
+
+                helper("NewUserPasswordMail");
+
+                $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
+
+                $mailManager->SendPasswordMail($mail, $data["0"], $genPassword);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
