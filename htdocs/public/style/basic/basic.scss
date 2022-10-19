@@ -141,6 +141,7 @@ footer {
 ///border
 
 @include template_border("dark", $color_second);
+@include template_border("info", $color_info);
 @include template_border("disabled", lighten($color_second, 25%));
 
 .border--rounded {

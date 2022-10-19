@@ -721,6 +721,26 @@ footer {
   border-right: solid #323031;
 }
 
+.border--info {
+  border: solid #2da19d;
+}
+
+.border-top--info {
+  border-top: solid #2da19d;
+}
+
+.border-bottom--info {
+  border-bottom: solid #2da19d;
+}
+
+.border-left--info {
+  border-left: solid #2da19d;
+}
+
+.border-right--info {
+  border-right: solid #2da19d;
+}
+
 .border--disabled {
   border: solid #736e71;
 }
