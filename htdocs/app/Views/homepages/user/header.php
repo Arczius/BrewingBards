@@ -4,3 +4,8 @@
     <br> <br>
     <a class="rev" href="javascript:void(0)" onclick="history.back()"><i class='bx bx-left-arrow'></i> Ga terug</a>
 </header>
+<nav class="block--main-info block--flex txt_cntr">
+    <a href="#" class="col-38 linebox btn_second">Home</a>
+    <a href="#" class="col-38 linebox btn_second">Karakters</a>
+    <a href="./UserLeerpad" class="col-38 linebox btn_second">Leerpaden</a>
+</nav>

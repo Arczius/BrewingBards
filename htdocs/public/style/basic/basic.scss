@@ -26,6 +26,10 @@ body {
   }
 }
 
+.margin-bottom{
+  margin-bottom: 25px;
+}
+
 .half-block {
   width: 50%;
   display: inline-block;
@@ -109,12 +113,12 @@ body {
   @include template_block($color_main, white, $color_accent);
 }
 
-.block--info {
-  @include template_block($color_info, white, $color_accent);
-}
-
 .block--main-info {
   @include template_block(white, $color_second, $color_info);
+}
+
+.block--info {
+  @include template_block($color_info, white, $color_accent);
 }
 
 .block--dark--alt {
@@ -141,6 +145,7 @@ footer {
 ///border
 
 @include template_border("dark", $color_second);
+@include template_border("info", $color_info);
 @include template_border("disabled", lighten($color_second, 25%));
 
 .border--rounded {
@@ -213,6 +218,10 @@ footer {
 }
 .col-38 {
   width: calc((100% / 12) * 3.8);
+}
+
+.col-58 {
+  width: calc((100% / 12) * 5.8);
 }
 
 ///form

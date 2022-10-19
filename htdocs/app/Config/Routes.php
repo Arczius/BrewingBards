@@ -74,7 +74,7 @@ $routes->match(['get', 'post'], '/Admin/updateModAccount', 'AdminController::upd
 $routes->get('/Mod/SwitchClass/(:alphanum)','SwitchClassController::index/$1');
 $routes->match(['get', 'post'], '/Mod/SwitchClassController/SwitchStudent', 'SwitchClassController::SwitchStudent');
 
-
+$routes->get("/User/UserLeerpad", "UserController::LeepadUser");
 
 
 
