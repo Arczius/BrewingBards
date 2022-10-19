@@ -3,6 +3,7 @@
 </div>
 
 <!-- flex holder -->
+<!-- leerpaden -->
 <div class="block--main-info block--flex">
 
 <!-- list item -->
