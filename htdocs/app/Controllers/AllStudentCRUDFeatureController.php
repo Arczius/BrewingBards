@@ -1,7 +1,7 @@
 <?php 
 namespace App\Controllers;
 
-use App\Models\getStudents;
+use App\Models\getUserLogin;
 use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
 use NewUserPasswordMail;
@@ -16,7 +16,7 @@ class AllStudentCRUDFeatureController extends Controller
         helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
-        $this->UserModel = new getStudents();
+        $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
     }
     
