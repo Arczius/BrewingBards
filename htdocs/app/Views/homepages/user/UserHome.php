@@ -14,7 +14,7 @@
         <br>
         <div class="col-2 float-right txt_right">
             <a href="" class="ico-h2 alt-dark tooltip">
-                <i class='bx bxs-pencil '></i>
+                <i class='bx bxs-pencil'></i>
                 <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
@@ -53,5 +53,6 @@
     </div>
 
 
+    
     
 </div>
