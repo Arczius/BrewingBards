@@ -8,4 +8,5 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/style/style.css">
     <script src="<?php echo base_url() ?>/js/switch.js"></script>
+    <script src="<?php echo base_url() ?>/js/modal.js"></script>
 </head>
