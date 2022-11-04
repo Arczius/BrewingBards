@@ -13,7 +13,6 @@ class LoginFilter implements FilterInterface
         if(!session()->has("isLoggedIn")){
             return redirect()->back();
         }
-
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

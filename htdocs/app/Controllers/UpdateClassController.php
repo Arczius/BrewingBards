@@ -12,8 +12,10 @@ class UpdateClassController extends BaseController{
     {
         helper("rememberUser");
         helper("permLevelCheck");
+        helper("scriptSaves");
         $this->ClassesModel = new getClasses();
     }
+
     public function index($id){
         $holdClass = $this->ClassesModel->where("ID",$id)->first();
         permLevelCheck(rememberUser(), 2);
@@ -34,22 +36,21 @@ class UpdateClassController extends BaseController{
         $data["HoldID"] = $holdClass;
         echo view('homepages/moderator/ClassesEdit', $data);
     }
-    public function UpdateClass(){
-     $newClassName = $this->request->getVar('className');
-     $classID = $this->request->getVar('classID');
 
-     $holdClass = $this->ClassesModel->where("ID",$classID)->first();
+    public function UpdateClass(){
+     $postRequest = scriptSaves($this->request->getPost());
 
      $data = array(
-        'ID' => $classID,
-        'Name'=> $newClassName
+        'ID' => $postRequest["classID"],
+        'Name'=> $postRequest["className"]
      );
 
      $this->ClassesModel->replace($data);
      return redirect()->to('/profile');
 
-}
-public function Back(){
-    return redirect()->to('/profile');
-}
+    }
+
+    public function Back(){
+        return redirect()->to('/profile');
+    }
 }
