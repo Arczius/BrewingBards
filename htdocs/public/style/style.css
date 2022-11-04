@@ -159,8 +159,7 @@ body {
 .tooltip .tooltiptext::after, .tooltip .tooltiptext--bottom::after {
   content: " ";
   position: absolute;
-  top: 100%;
-  /* At the bottom of the tooltip */
+  top: 100%; /* At the bottom of the tooltip */
   left: 50%;
   margin-left: -8px;
   border-width: 8px;
@@ -898,8 +897,15 @@ footer {
   transition: 0.3s;
 }
 .form--accent input[type=text]:hover, .form--accent input[type=text]:focus, .form--accent input[type=email]:hover, .form--accent input[type=email]:focus, .form--accent input[type=password]:hover, .form--accent input[type=password]:focus, .form--accent textarea:hover, .form--accent textarea:focus, .form--accent select:hover, .form--accent select:focus {
-  -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
+}
+.form--accent input[type=text]::-moz-placeholder, .form--accent input[type=email]::-moz-placeholder, .form--accent input[type=password]::-moz-placeholder, .form--accent textarea::-moz-placeholder, .form--accent select::-moz-placeholder {
+  color: #323031;
+  opacity: 0.8;
+}
+.form--accent input[type=text]:-ms-input-placeholder, .form--accent input[type=email]:-ms-input-placeholder, .form--accent input[type=password]:-ms-input-placeholder, .form--accent textarea:-ms-input-placeholder, .form--accent select:-ms-input-placeholder {
+  color: #323031;
+  opacity: 0.8;
 }
 .form--accent input[type=text]::placeholder, .form--accent input[type=email]::placeholder, .form--accent input[type=password]::placeholder, .form--accent textarea::placeholder, .form--accent select::placeholder {
   color: #323031;
@@ -922,8 +928,15 @@ footer {
   transition: 0.3s;
 }
 .form input[type=text]:hover, .form input[type=text]:focus, .form input[type=email]:hover, .form input[type=email]:focus, .form input[type=password]:hover, .form input[type=password]:focus, .form textarea:hover, .form textarea:focus, .form select:hover, .form select:focus {
-  -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
+}
+.form input[type=text]::-moz-placeholder, .form input[type=email]::-moz-placeholder, .form input[type=password]::-moz-placeholder, .form textarea::-moz-placeholder, .form select::-moz-placeholder {
+  color: #323031;
+  opacity: 0.8;
+}
+.form input[type=text]:-ms-input-placeholder, .form input[type=email]:-ms-input-placeholder, .form input[type=password]:-ms-input-placeholder, .form textarea:-ms-input-placeholder, .form select:-ms-input-placeholder {
+  color: #323031;
+  opacity: 0.8;
 }
 .form input[type=text]::placeholder, .form input[type=email]::placeholder, .form input[type=password]::placeholder, .form textarea::placeholder, .form select::placeholder {
   color: #323031;
@@ -946,8 +959,15 @@ footer {
   transition: 0.3s;
 }
 .form--main input[type=text]:hover, .form--main input[type=text]:focus, .form--main input[type=email]:hover, .form--main input[type=email]:focus, .form--main input[type=password]:hover, .form--main input[type=password]:focus, .form--main textarea:hover, .form--main textarea:focus, .form--main select:hover, .form--main select:focus {
-  -webkit-box-shadow: inset 4px 0px 0px 0px #323031;
   box-shadow: inset 4px 0px 0px 0px #323031;
+}
+.form--main input[type=text]::-moz-placeholder, .form--main input[type=email]::-moz-placeholder, .form--main input[type=password]::-moz-placeholder, .form--main textarea::-moz-placeholder, .form--main select::-moz-placeholder {
+  color: #323031;
+  opacity: 0.8;
+}
+.form--main input[type=text]:-ms-input-placeholder, .form--main input[type=email]:-ms-input-placeholder, .form--main input[type=password]:-ms-input-placeholder, .form--main textarea:-ms-input-placeholder, .form--main select:-ms-input-placeholder {
+  color: #323031;
+  opacity: 0.8;
 }
 .form--main input[type=text]::placeholder, .form--main input[type=email]::placeholder, .form--main input[type=password]::placeholder, .form--main textarea::placeholder, .form--main select::placeholder {
   color: #323031;
@@ -967,6 +987,4 @@ footer {
 .form--rounded select,
 .form--rounded textarea {
   border-radius: 5px;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
