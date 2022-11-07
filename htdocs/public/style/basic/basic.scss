@@ -3,7 +3,9 @@
 //\\//\\//\\//\\
 
 @import "bb_typo";
-
+@import "bb_card";
+@import "bb_switch";
+@import "bb_modal";
 ///root
 * {
   margin: 0;
@@ -24,14 +26,13 @@ body {
   }
 }
 
-
-.half-block{
-  width: 50%;
-  display: inline-block;
+.margin-bottom{
+  margin-bottom: 25px;
 }
 
-.allign-right{
-  text-align: right;
+.half-block {
+  width: 50%;
+  display: inline-block;
 }
 
 .float-right {
@@ -40,10 +41,6 @@ body {
 
 .linebox {
   display: inline-block;
-}
-
-i.bx {
-  color: inherit;
 }
 
 .centered {
@@ -58,9 +55,9 @@ i.bx {
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
-    width: 130px;
+    width: 140px;
     background-color: $color_second;
-    color: $color_accent;
+    color: white;
     text-align: center;
     border-radius: 5px;
     padding: 5px;
@@ -68,7 +65,7 @@ i.bx {
     z-index: 1;
     bottom: calc(100% + 5px);
     left: 50%;
-    margin-left: -60px;
+    margin-left: -70px;
     &::after {
       content: " ";
       position: absolute;
@@ -80,11 +77,22 @@ i.bx {
       border-color: $color_second transparent transparent transparent;
     }
   }
-  &:hover .tooltiptext {
+  .tooltiptext--bottom {
+    @extend .tooltiptext;
+    bottom: unset;
+    top: calc(100% + 5px);
+    &::after {
+      top: unset;
+      bottom: 100%;
+      border-color: transparent transparent $color_second transparent;
+    }
+  }
+
+  &:hover .tooltiptext,
+  &hover .tooltiptext--bottom {
     opacity: 1;
     visibility: visible;
   }
-
 }
 
 ///container
@@ -105,15 +113,43 @@ i.bx {
   @include template_block($color_main, white, $color_accent);
 }
 
+.block--main-info {
+  @include template_block(white, $color_second, $color_info);
+}
+
 .block--info {
   @include template_block($color_info, white, $color_accent);
+}
+
+.block--dark--alt {
+  @include template_block($color_second, white, $color_main);
+}
+
+.block--disabled {
+  @include template_block(white, lighten($color_second, 25%), $color_second);
+}
+
+.block--flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 footer {
   position: absolute;
   bottom: 0;
-  padding: 10px 25px!important;
+  padding: 10px 25px !important;
   width: 100%;
+}
+
+///border
+
+@include template_border("dark", $color_second);
+@include template_border("info", $color_info);
+@include template_border("disabled", lighten($color_second, 25%));
+
+.border--rounded {
+  border-radius: 5px;
 }
 
 ///tables
@@ -126,15 +162,14 @@ footer {
   }
 }
 
-.table--special, .table {
+.table--special,
+.table {
   margin: 0 0 20px 0;
   @include table(rgba($color_second, 0.2), $color_second, $color_main);
   .table__item {
     background: white;
   }
 }
-
-
 
 .table--rounded {
   .table__item {
@@ -176,6 +211,17 @@ footer {
   .col-#{$i} {
     width: calc((100% / 12) * #{$i});
   }
+}
+
+.col-35 {
+  width: calc((100% / 12) * 3.5);
+}
+.col-38 {
+  width: calc((100% / 12) * 3.8);
+}
+
+.col-58 {
+  width: calc((100% / 12) * 5.8);
 }
 
 ///form

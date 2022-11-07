@@ -45,7 +45,9 @@ class StudentEditController extends Controller
         //id ophalen uit url
         $data['HoldID'] = $holdUser;
 
-        return view('homepages/moderator/StudentEdit', $data);
+        echo view('homepages/moderator/StudentEdit', $data);
+
+        $data;
     }
 
     public function UpdatenUsers(){
@@ -72,7 +74,7 @@ class StudentEditController extends Controller
 
         $holdClasses = $this->getClassFromModel->where("UserID",$userID)->first();
 
-        return redirect()->to( base_url().'/classes/'.$holdClasses['ClassID']);
+        return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
     }
 
     public function Back(){

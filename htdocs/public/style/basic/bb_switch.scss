@@ -1,0 +1,13 @@
+.switch-btn[data-toggle="true"] {
+    color: $color_succes!important;
+    &::before{
+        content: "\eecb"!important;
+    }
+}
+
+.switch-btn[data-toggle="false"] {
+    color: $color_main!important;
+    &::before{
+        content: "\ec4a"!important;
+    }
+}

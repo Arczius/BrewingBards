@@ -36,6 +36,39 @@ ul {
   text-align: center;
 }
 
+.txt_right{
+  text-align: right;
+}
+
+.allign-right{
+  text-align: right;
+}
+
+///icons
+i.bx {
+  color: inherit;
+}
+
+.ico-h1{
+  i.bx {
+    font-size: 32pt;
+  }
+}
+
+i.bx.ico-h1 {
+  font-size: 32pt;
+}
+
+.ico-h2{
+  i.bx {
+    font-size: 26pt;
+  }
+}
+
+i.bx.ico-h2 {
+  font-size: 26pt;
+}
+
 ///buttons
 .btn_success {
   padding: 5px 10px;
@@ -59,4 +92,16 @@ ul {
   &:active {
     background-color: rgba($color_info, 0.8);
   }
+}
+
+///forced colors
+.color-succes{
+  color: $color_succes!important;
+}
+.color-accent{
+  color: $color_accent!important;
+}
+
+.color-main{
+  color: $color_main!important;
 }
