@@ -40,9 +40,9 @@ class AdminController extends Controller
         $data['user'];
 
         echo view("$this->BaseAdminViewDirectory/content", $data);
-        
         $data['moderators'];
 
+        echo view("basic/text_editor_js.php");
 
         $data;
     }

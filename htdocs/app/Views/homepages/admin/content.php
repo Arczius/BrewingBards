@@ -25,5 +25,14 @@
         <a class="btn_second" href="./createModPage">
             nieuwe moderator
         </a>
+
+        
     
 </div>
+
+<div class="block">
+    <h2>Text editor test</h2>
+    <button class="btn_default" onclick="test()">test</button>
+<div class="test" id="editor"></div>
+</div>
+
