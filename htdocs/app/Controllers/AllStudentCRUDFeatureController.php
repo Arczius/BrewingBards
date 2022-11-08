@@ -16,6 +16,7 @@ class AllStudentCRUDFeatureController extends Controller
         helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
+        helper("scriptSaves");
         $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
     }
@@ -91,10 +92,11 @@ class AllStudentCRUDFeatureController extends Controller
     // Create A Single Student Feature
     public function CreateSingleUser()
     {
+        $postRequest = scriptSaves($this->request->getPost());
         //data ophalen uit de forms
-        $name = $this->request->getVar('Name');
-        $studentUserName = $this->request->getVar('StudentUserName');
-        $class = $this->request->getVar('Class');
+        $name = $postRequest['Name'];
+        $studentUserName = $postRequest['StudentUserName'];
+        $class = $postRequest['Class'];
 
         $exist = $this->UserModel->where("SchoolUserName", $studentUserName)->get()->getResult();
 
@@ -133,9 +135,10 @@ class AllStudentCRUDFeatureController extends Controller
     // Create Users From List
     public function CreateUsers()
     {
+        $postRequest = scriptSaves($this->request->getPost());
         //data ophalen uit de forms
-        $text = $this->request->getVar('text');
-        $class = $this->request->getVar('class');
+        $text = $postRequest['text'];
+        $class = $postRequest['class'];
 
         //array op splitsing van de lijst met data
         $holdArray = explode("\n", $text);
@@ -210,9 +213,10 @@ class AllStudentCRUDFeatureController extends Controller
 
     // update Users Feature
     public function UpdatenUsers(){
-        $newName = $this->request->getVar('name');
-        $newSchoolUserName = $this->request->getVar('schoolUserName');
-        $userID = $this->request->getVar('userID');
+        $postRequest = scriptSaves($this->request->getPost());
+        $newName = $postRequest['name'];
+        $newSchoolUserName = $postRequest['schoolUserName'];
+        $userID = $postRequest['userID'];
 
         $holdUser = $this->UserModel->where("ID",$userID)->first();
 

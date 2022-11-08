@@ -17,6 +17,7 @@ class SwitchClassController extends Controller
     public function __construct(){
         helper("rememberUser");
         helper("permLevelCheck");
+        helper("scriptSaves");
         $this->getUserModel = new getStudents();
         $this->getClassModel = new getClasses();
         $this->getClassUserModel = new getUsersClasses();
@@ -55,17 +56,15 @@ class SwitchClassController extends Controller
     }
 
     public function SwitchStudent(){
-        $StudentID = $this->request->getVar('StudentID');
-        $newClass = $this->request->getVar('newClass');
+        $postRequest = scriptSaves($this->request->getPost());
 
-
-        $oldClassLink = $this->getClassUserModel->where("UserID",$StudentID)->first();
+        $oldClassLink = $this->getClassUserModel->where("UserID", $postRequest["StudentID"])->first();
         $holdForLink = $oldClassLink['ClassID'];
 
         $data = [
             'ID' => $oldClassLink["ID"],
-            'ClassID' => $newClass,
-            'UserID' => $StudentID 
+            'ClassID' => $postRequest["newClass"],
+            'UserID' => $postRequest["StudentID"]
         ];
         
         $this->getClassUserModel->replace($data);

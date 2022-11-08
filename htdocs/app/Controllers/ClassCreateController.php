@@ -10,6 +10,7 @@ class ClassCreateController extends Controller
 
     public function __construct(){
         helper("rememberUser");
+        helper("scriptSaves");
         $this->ClassesModel = new getClasses();
     }
 
@@ -44,9 +45,9 @@ class ClassCreateController extends Controller
     }
     public function CreateClass()
     {
-        $text = $this->request->getVar('className');
+        $postRequest = scriptSaves($this->request->getPost());
         
-        $this->ClassesModel->insert(["Name"=>$text]);
+        $this->ClassesModel->insert(["Name"=>$postRequest["className"]]);
 
         return redirect()->to('/profile');
     }

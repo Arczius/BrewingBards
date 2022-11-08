@@ -15,6 +15,7 @@ class AdminController extends Controller
         helper("randomPasswordGen");
         helper("rememberUser");
         helper("permLevelCheck");
+        helper("scriptSaves");
 
         $this->UsersModel = new getUserLogin();
     }
@@ -112,9 +113,10 @@ class AdminController extends Controller
     }
 
     public function updateModAccount(){
-        $newName = $this->request->getVar('UserName');
-        $Mail = $this->request->getVar('Mail');
-        $userID = $this->request->getVar('ID');
+        $postRequest = scriptSaves($this->request->getPost());
+        $newName = $postRequest['UserName'];
+        $Mail = $postRequest['Mail'];
+        $userID = $postRequest['ID'];
 
         $holdUser = $this->UsersModel->where("ID",$userID)->first();
 
