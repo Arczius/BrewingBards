@@ -76,6 +76,7 @@ $routes->match(['get', 'post'], '/Mod/SwitchClassController/SwitchStudent', 'Swi
 
 $routes->get("/User/UserLeerpad", "UserController::LeepadUser");
 
+$routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 
 
 

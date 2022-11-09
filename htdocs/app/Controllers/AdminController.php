@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 use App\Models\getUserLogin;
 use CodeIgniter\Controller;
+
+
   
 class AdminController extends Controller
 {
@@ -130,5 +132,36 @@ class AdminController extends Controller
 
 
         return redirect()->to("/Admin/AdminHome");
+    }
+
+    public function mailingTemplates()
+    {
+        
+
+        $data = [
+            'title' => "Mailing templates - Administrator",
+            'footerClass' => "block--main",
+            'user' => rememberUser(),
+        ];
+
+    
+
+
+        echo view("basic/head", $data);
+        $data['title'];
+
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
+
+        echo view("$this->BaseAdminViewDirectory/header", $data);
+        $data['user'];
+
+        echo view("$this->BaseAdminViewDirectory/Mailing", $data);
+
+        echo view("basic/text_editor_js.php");
+
+        
+        $data;
     }
 }
