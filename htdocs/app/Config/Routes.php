@@ -44,6 +44,7 @@ $routes->add('/profile', 'ProfileController::index');
 $routes->get('/Home', 'Home::homepage');
 $routes->get('/back', 'ProfileController::index');
 $routes->get('/logout', 'SigninController::logout');
+$routes->get("/ChangePassword", "ChangePasswordController::index");
 
 $routes->get('/Admin/AdminHome','AdminController::index');
 $routes->get('/Mod/ModHome', 'ModController::index');
