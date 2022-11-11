@@ -20,7 +20,11 @@
     <?php foreach ($characters as $character){ ?>
     <div class="block--main-info  border--rounded border--dark col-38 char-card">
         <div class="col-12 border-bottom--dark">
-            <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="card1"></i>
+            <?php if($character["CharacterActivity"] ==  "Active") { ?>
+            <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="card1" onclick(ChangeActivity);></i>
+            <?php } else{ ?>
+            <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="card1" onclick(ChangeActivity);></i>
+            <?php } ?> 
         </div>
         <br>
         <div class="col-2 float-right txt_right">
@@ -115,17 +119,17 @@
 <div class="modal" data-toggle="false" data-modal="modal-character-create">
         <div class="modal__body block--rounded">
             <div class="block--info block--rounded">
-                <h2 class="linebox">Modal</h2>
+                <h2 class="linebox">Karakter aanmaken</h2>
                 <a href="JavaScript:Void(0)" class="rev float-right"><i class='bx bx-x ico-h2 modal-btn' data-modal="modal-character-create"></i></a>
 
             </div>
 
 <form class="block form" action="./createCharacter" method="post">
-    Name: <br> <input type="text" name="name">
+    Naam: <br> <input type="text" placeholder="Karakter naam"name="name">
     <br>
 
 
-    Race: <br> 
+    Karakter Ras: <br> 
     <select name="race" id="race">
     <?php foreach ($dndRaces as $Race){ ?>
         <option value=<?php Echo $Race['RaceName']?>><?php echo $Race['RaceName'] ?></option>   
@@ -133,14 +137,14 @@
     <?php }?>
     </select>
     <br>
-    Class: <br> <select name="class" id="class">
+    Karakter Class: <br> <select name="class" id="class">
     <?php foreach ($dndClasses as $Class){ ?>
         <option value=<?php echo $Class['ClassName'] ?>><?php echo $Class['ClassName'] ?></option>
 
     <?php }?>
-    </select><br>
+    </select><br><br>
 
-    <input type="submit">
+    <input type="submit" value="Aanmaken" class="btn_info">
 </form>
         </div>
     </div>

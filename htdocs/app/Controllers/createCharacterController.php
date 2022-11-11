@@ -32,7 +32,7 @@ class createCharacterController extends BaseController{
 
         }
         else{
-        $this->getCharactersModel->insert(["UserId" => rememberUser()["ID"], "CharacterName" => $this->request->getPost("name"), "CharacterRace" => $this->request->getPost("race"), "CharacterClass" => $this->request->getPost("class"), "Characteractivity" => "Inactive"]);
+        $this->getCharactersModel->insert(["UserId" => rememberUser()["ID"], "CharacterName" => $this->request->getPost("name"), "CharacterRace" => $this->request->getPost("race"), "CharacterClass" => $this->request->getPost("class"), "CharacterActivity" => "Inactive"]);
    
         return redirect()->back();
         }
