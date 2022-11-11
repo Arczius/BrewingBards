@@ -65,11 +65,13 @@ class ChangePasswordController extends Controller
                 
                 $this->session->set($ses_data);
                 return redirect()->to('/profile');
-            }else{
+            }
+            else{
                 $this->session->setFlashdata('msg', 'Password is incorrect.');
                 return redirect()->to('/');
             }
-        }else{
+        }
+        else{
             $this->session->setFlashdata('msg', 'Mail does not exist.');
             return redirect()->to('/');
         }
