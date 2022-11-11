@@ -74,10 +74,23 @@ class AdminController extends Controller
     public function createModerator(){
 
         $explode = explode("@", $this->request->getPost("Mail"));
+
         
         $Password = password_hash(randomPasswordGen(), PASSWORD_DEFAULT);
 
-        $this->UsersModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
+        $data = [
+                "Name" => $this->request->getPost("UserName"), 
+                "Password" => $Password, 
+                "Mail" => $this->request->getPost("Mail"), 
+                "SchoolUserName" => $explode[0], 
+                "PermissionLevel" => "2"
+            ];
+        
+        if($this->request->getPost("Afkorting") !== ""){
+            $data["SchoolUserName"] = $this->request->getPost("Afkorting");
+        }
+
+        $this->UsersModel->insert($data);
 
         return redirect()->to("/Admin/AdminHome");
     }
@@ -119,7 +132,6 @@ class AdminController extends Controller
 
         $holdUser = $this->UsersModel->where("ID",$userID)->first();
 
-        // var_dump($this->request->getVar());
         
         $data = array(
             'ID' => $userID,
