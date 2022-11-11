@@ -17,8 +17,8 @@ class CreateSeeder extends Seeder
             'LearningPathsClasses',
             'Themes',
             'UserThemes',
-            'DnDClassesSeeder',
-            'DnDRacesSeeder',
+            'DnDClasses',
+            'DnDRaces',
         ];
 
         // a loop which calls all the seeders in this order
