@@ -115,16 +115,24 @@ class AdminController extends Controller
         $newName = $this->request->getVar('UserName');
         $Mail = $this->request->getVar('Mail');
         $userID = $this->request->getVar('ID');
+        $SchoolUserName = $this->request->getVar('SchoolUserName');
 
         $holdUser = $this->UsersModel->where("ID",$userID)->first();
 
+        // var_dump($this->request->getVar());
+        
         $data = array(
             'ID' => $userID,
             'Name' => $newName,
             'Password' => $holdUser['Password'],
+            'SchoolUserName' => $holdUser['SchoolUserName'],
             'Mail' => $Mail,
-            'PermissionLevel' => 2
+            'PermissionLevel' => 2,
         );
+
+        if($SchoolUserName !== ""){
+            $data['SchoolUserName'] = $SchoolUserName;
+        }
         
         $this->UsersModel->replace($data);
 
