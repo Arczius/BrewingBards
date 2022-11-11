@@ -127,34 +127,17 @@
 
     Race: <br> 
     <select name="race" id="race">
-    <option value="Human">Human</option>
-    <option value="Elf">Elf</option>
-    <option value="Half-Elf">Half-Elf</option>
-    <option value="Aarakocra">Aarakocra</option>
-    <option value="Dwarf">Dwarf</option>
-    <option value="Halfling">Halfling</option>
-    <option value="Gnome">Gnome</option>
-    <option value="Aasimar">Aasimar</option>
-    <option value="Dragonborn">Dragonborn</option>
-    <option value="Genasi">Genasi</option>
-    <option value="Goliath">Goliath</option>
-    <option value="Half-Orc">Half-Orc</option>
-    <option value="Tiefling">Tiefling</option>
+    <?php foreach ($dndRaces as $Race){ ?>
+        <option value=<?php Echo $Race['RaceName']?>><?php echo $Race['RaceName'] ?></option>   
+
+    <?php }?>
     </select>
     <br>
     Class: <br> <select name="class" id="class">
-    <option value="Barbarian">Barbarian</option>
-    <option value="Bard">Bard</option>
-    <option value="Cleric">Celric</option>
-    <option value="Druid">Druid</option>
-    <option value="Fighter">Fighter</option>
-    <option value="Paladin">Paladin</option>
-    <option value="Monk">Monk</option>
-    <option value="Ranger">Ranger</option>
-    <option value="Rogue">Rogue</option>
-    <option value="Sorcerer">Sorcerer</option>
-    <option value="Warlock">Warlock</option>
-    <option value="Wizard">Wizard</option>
+    <?php foreach ($dndClasses as $Class){ ?>
+        <option value=<?php echo $Class['ClassName'] ?>><?php echo $Class['ClassName'] ?></option>
+
+    <?php }?>
     </select><br>
 
     <input type="submit">

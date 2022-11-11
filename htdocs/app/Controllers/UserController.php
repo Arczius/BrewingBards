@@ -2,16 +2,22 @@
 namespace App\Controllers;  
 
 use App\Models\getCharacters;
+use App\Models\getDnDClasses;
+use App\Models\getDnDRaces;
   
 class UserController extends BaseController
 {
     private $getCharactersModel;
+    private $getDnDClassesModel;
+    private $getDnDRacesModel;
 
     public function __construct()
     {
         helper("rememberUser");
         helper("permLevelCheck");
         $this->getCharactersModel = new getCharacters();
+        $this->getDnDClassesModel = new getDnDClasses();
+        $this->getDnDRacesModel = new getDnDRaces();
     }
     public function index()
     {
@@ -77,6 +83,8 @@ class UserController extends BaseController
     }
     public function Characterviewpage(){
         $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->findall();
+        $dndClasses = $this->getDnDClassesModel->findall();
+        $dndRaces = $this->getDnDRacesModel->findall();
 
         $base_view_dir = "homepages/user";
         $data = [
@@ -84,6 +92,8 @@ class UserController extends BaseController
             'user' => rememberUser(),
             'footerClass' => "block--info",
             'characters' => $characters,
+            'dndClasses' => $dndClasses,
+            'dndRaces' => $dndRaces,
         ];
         echo view("basic/head", $data);
         // unsetting the title variable so it cant be accessed after this point
@@ -100,6 +110,8 @@ class UserController extends BaseController
         Echo view('homepages/user/UserCharacters', $data);
 
         $data["characters"];
+        $data["dndClasses"];
+        $data["dndRaces"];
         $data;
     }
 
