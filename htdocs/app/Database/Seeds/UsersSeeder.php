@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
                 'Name' => "Airto Van Vugt",
                 'Password' => "GayFishKoekje",
                 'Mail' => "99063870@mydavinci.nl",
-                'SchoolUserName' => "99063870",
+                'SchoolUserName' => "AVV",
                 // Moderator permission level
                 'PermissionLevel' => "2",
             ],
@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
                 'Name' => "Rowin Bodegom",
                 'Password' => "pizza123",
                 'Mail' => "99056991@mydavinci.nl",
-                'SchoolUserName' => "99056991",
+                'SchoolUserName' => "RB",
                 // Moderator permission level
                 'PermissionLevel' => "2",
             ],
