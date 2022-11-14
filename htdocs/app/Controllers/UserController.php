@@ -81,7 +81,7 @@ class UserController extends BaseController
 
         $data;
     }
-    public function Characterviewpage(){
+    public function CharacterViewPage(){
         $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->findall();
         $dndClasses = $this->getDnDClassesModel->findall();
         $dndRaces = $this->getDnDRacesModel->findall();

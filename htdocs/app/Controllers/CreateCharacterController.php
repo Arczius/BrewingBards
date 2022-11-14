@@ -6,7 +6,7 @@ use App\Models\getStudents;
 use App\Models\getClasses;
 use App\Models\getCharacters;
 
-class createCharacterController extends BaseController{
+class CreateCharacterController extends BaseController{
     private $ClassesModel;
     private $StudentModel;
     private $ClassStudentModel;
@@ -22,7 +22,7 @@ class createCharacterController extends BaseController{
     }
 
     
-    public function createCharacter()
+    public function CreateCharacter()
     {
         $check = $this->request->getPost("name");
         if($check == NULL){
@@ -43,4 +43,3 @@ class createCharacterController extends BaseController{
         }
     }
 }
-

@@ -124,7 +124,7 @@
 
             </div>
 
-<form class="block form" action="./createCharacter" method="post">
+<form class="block form" action="./CreateCharacter" method="post">
     Naam: <br> <input type="text" placeholder="Karakter naam"name="name">
     <br>
 
