@@ -6,6 +6,6 @@
 </header>
 <nav class="block--main-info block--flex txt_cntr">
     <a href="#" class="col-38 linebox btn_second">Home</a>
-    <a href="./Characterviewpage" class="col-38 linebox btn_second">Karakters</a>
+    <a href="./CharacterViewPage" class="col-38 linebox btn_second">Karakters</a>
     <a href="./UserLeerpad" class="col-38 linebox btn_second">Leerpaden</a>
 </nav>
