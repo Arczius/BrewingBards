@@ -80,7 +80,7 @@ $routes->get("/User/UserLeerpad", "UserController::LeepadUser");
 
 
 
-$routes->post("/User/createCharacter", 'CreateCharacterController::CreateCharacter');
+$routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 
 
 
