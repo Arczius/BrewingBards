@@ -10,32 +10,32 @@ class UserThemesSeeder extends Seeder
     {
         $data = [
             [
-                'ClassID' => 1,
-                'LearningPathID' => 1,
+                'UserID' => 1,
+                'ThemeID' => 1,
             ],
             [
-                'ClassID' => 2,
-                'LearningPathID' => 1,
+                'UserID' => 2,
+                'ThemeID' => 1,
             ],
             [
-                'ClassID' => 3,
-                'LearningPathID' => 1,
+                'UserID' => 3,
+                'ThemeID' => 1,
             ],
             [
-                'ClassID' => 4,
-                'LearningPathID' => 1,
+                'UserID' => 4,
+                'ThemeID' => 1,
             ],
             [
-                'ClassID' => 5,
-                'LearningPathID' => 1,
+                'UserID' => 5,
+                'ThemeID' => 1,
             ],
         ];
 
         foreach($data as $item){
-            $ClassID = $item['ClassID'];
-            $LearningPathID = $item['LearningPathID'];
+            $UserID = $item['UserID'];
+            $ThemeID = $item['ThemeID'];
 
-            $this->db->query("INSERT INTO UserThemes (ClassID, LearningPathID) VALUES ($ClassID, $LearningPathID)");
+            $this->db->query("INSERT INTO UserThemes (UserID, ThemeID) VALUES ($UserID, $ThemeID)");
         }
     }
 }
