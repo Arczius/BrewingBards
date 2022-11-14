@@ -161,7 +161,7 @@ i.bx.ico-h2 {
 
 body {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   padding-bottom: 50px;
 }
 
