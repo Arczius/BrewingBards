@@ -37,7 +37,7 @@ class createCharacterController extends BaseController{
                 "CharacterClass" => $this->request->getPost("class"),
                 "CharacterActivity" => "Inactive"
             ];
-        $this->getCharactersModel->insert([$data]);
+            $this->getCharactersModel->insert($data);
    
         return redirect()->back();
         }
