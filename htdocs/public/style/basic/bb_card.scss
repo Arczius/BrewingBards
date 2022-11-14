@@ -12,8 +12,12 @@
       .alert-icon {
         position: absolute;
         font-size: 18px;
-        right: 0;
-        bottom: 90%;
+        right: -5px;
+        top: 35px;
+        background: white;
+        height: 18px;
+        width: 18px;
+        border-radius: 100%;
         &--red{
             @extend .alert-icon;
             color: $color_main;

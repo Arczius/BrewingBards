@@ -1,8 +1,8 @@
-<!-- flex holder -->
-<div class="block--main-info col-12 no-pad-top">
-    <a href="" class="col-12 btn_default txt_cntr">Laats bekeken leerpark</a>
+<div class="block--main-info col-12 no-pad-top txt_right">
+    <a href="" class="btn_default">Karakter toevoegen</a>
 </div>
 
+<!-- flex holder -->
 <div class="block--main-info block--flex">
 
 
@@ -13,8 +13,8 @@
         </div>
         <br>
         <div class="col-2 float-right txt_right">
-            <a href="/leerpad" class="ico-h2 alt-dark tooltip">
-                <i class='bx bxs-pencil'></i>
+            <a href="" class="ico-h2 alt-dark tooltip">
+                <i class='bx bxs-pencil '></i>
                 <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
@@ -53,6 +53,50 @@
     </div>
 
 
-    
-    
+    <!-- card item DISABLED-->
+    <div class="block--disabled border--rounded border--disabled col-38 char-card">
+        <div class="col-12 border-bottom--disabled">
+            <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="card2"></i>
+        </div>
+        <br>
+        <div class="col-2 float-right txt_right">
+            <a href="" class="ico-h2 tooltip">
+                <i class='bx bxs-pencil'></i>
+                <span class="tooltiptext">Aanpassen</span>
+            </a>
+            <br>
+            <a href="" class="ico-h2 tooltip">
+                <i class='bx bxs-trash'></i>
+                <span class="tooltiptext">Verwijderen</span>
+            </a>
+            <br>
+            <a href="" class="ico-h2 tooltip">
+                <i class='bx bx-download'></i>
+                <span class="tooltiptext--bottom">Downloaden</span>
+            </a>
+        </div>
+        <div class="col-10 char-card__header">
+            <h1>Inactief</h1>
+            <h2>Class | Race</h2>
+        </div>
+        <br>
+        <div class="col-10 border-top--disabled char-card__icons">
+            <span class="ico-h1">
+                <i class='bx bxs-castle'></i>
+            </span>
+            <span class="ico-h1">
+                <i class='bx bxs-cog'></i>
+            </span>
+            <span class="ico-h1">
+                <i class='bx bxs-flask'></i>
+            </span>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- here to evenout the flex justify, do not remove -->
+    <span class="col-38"></span>
 </div>

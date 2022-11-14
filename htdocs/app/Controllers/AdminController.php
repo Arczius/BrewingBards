@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 use App\Models\getUserLogin;
 use CodeIgniter\Controller;
+
+
   
 class AdminController extends Controller
 {
@@ -41,9 +43,9 @@ class AdminController extends Controller
         $data['user'];
 
         echo view("$this->BaseAdminViewDirectory/content", $data);
-        
         $data['moderators'];
 
+        echo view("basic/text_editor_js.php");
 
         $data;
     }
@@ -75,10 +77,23 @@ class AdminController extends Controller
     public function createModerator(){
 
         $explode = explode("@", $this->request->getPost("Mail"));
+
         
         $Password = password_hash(randomPasswordGen(), PASSWORD_DEFAULT);
 
-        $this->UsersModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
+        $data = [
+                "Name" => $this->request->getPost("UserName"), 
+                "Password" => $Password, 
+                "Mail" => $this->request->getPost("Mail"), 
+                "SchoolUserName" => $explode[0], 
+                "PermissionLevel" => "2"
+            ];
+        
+        if($this->request->getPost("Afkorting") !== ""){
+            $data["SchoolUserName"] = $this->request->getPost("Afkorting");
+        }
+
+        $this->UsersModel->insert($data);
 
         return redirect()->to("/Admin/AdminHome");
     }
@@ -120,17 +135,54 @@ class AdminController extends Controller
 
         $holdUser = $this->UsersModel->where("ID",$userID)->first();
 
+        
         $data = array(
             'ID' => $userID,
             'Name' => $newName,
             'Password' => $holdUser['Password'],
+            'SchoolUserName' => $holdUser['SchoolUserName'],
             'Mail' => $Mail,
-            'PermissionLevel' => 2
+            'PermissionLevel' => 2,
         );
+
+        if($SchoolUserName !== ""){
+            $data['SchoolUserName'] = $SchoolUserName;
+        }
         
         $this->UsersModel->replace($data);
 
 
         return redirect()->to("/Admin/AdminHome");
+    }
+
+    public function mailingTemplates()
+    {
+        
+
+        $data = [
+            'title' => "Mailing templates - Administrator",
+            'footerClass' => "block--main",
+            'user' => rememberUser(),
+        ];
+
+    
+
+
+        echo view("basic/head", $data);
+        $data['title'];
+
+        echo view("basic/footer", $data);
+        // unsetting the classes variable so it cant be accessed after this point
+        $data['footerClass'];
+
+        echo view("$this->BaseAdminViewDirectory/header", $data);
+        $data['user'];
+
+        echo view("$this->BaseAdminViewDirectory/Mailing", $data);
+
+        echo view("basic/text_editor_js.php");
+
+        
+        $data;
     }
 }

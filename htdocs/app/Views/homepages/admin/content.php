@@ -1,5 +1,8 @@
 <div class="container block">
-    <h3>Moderator overzicht</h3>
+    <h3 class="linebox">Moderator overzicht</h3>
+
+    <a href="./mailing" class="btn_default float-right">Mailing templates</a>
+    <br>
     <br>
     <div class="table--special table--rounded">
 
@@ -25,5 +28,10 @@
         <a class="btn_second" href="./createModPage">
             nieuwe moderator
         </a>
+
+        
     
 </div>
+
+
+
