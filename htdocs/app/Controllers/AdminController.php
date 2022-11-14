@@ -76,10 +76,23 @@ class AdminController extends Controller
     public function createModerator(){
 
         $explode = explode("@", $this->request->getPost("Mail"));
+
         
         $Password = password_hash(randomPasswordGen(), PASSWORD_DEFAULT);
 
-        $this->UsersModel->insert(["Name" => $this->request->getPost("UserName"), "Password" => $Password, "Mail" => $this->request->getPost("Mail"), "SchoolUserName" => $explode[0], "PermissionLevel" => "2"]);
+        $data = [
+                "Name" => $this->request->getPost("UserName"), 
+                "Password" => $Password, 
+                "Mail" => $this->request->getPost("Mail"), 
+                "SchoolUserName" => $explode[0], 
+                "PermissionLevel" => "2"
+            ];
+        
+        if($this->request->getPost("Afkorting") !== ""){
+            $data["SchoolUserName"] = $this->request->getPost("Afkorting");
+        }
+
+        $this->UsersModel->insert($data);
 
         return redirect()->to("/Admin/AdminHome");
     }
@@ -117,16 +130,23 @@ class AdminController extends Controller
         $newName = $this->request->getVar('UserName');
         $Mail = $this->request->getVar('Mail');
         $userID = $this->request->getVar('ID');
+        $SchoolUserName = $this->request->getVar('SchoolUserName');
 
         $holdUser = $this->UsersModel->where("ID",$userID)->first();
 
+        
         $data = array(
             'ID' => $userID,
             'Name' => $newName,
             'Password' => $holdUser['Password'],
+            'SchoolUserName' => $holdUser['SchoolUserName'],
             'Mail' => $Mail,
-            'PermissionLevel' => 2
+            'PermissionLevel' => 2,
         );
+
+        if($SchoolUserName !== ""){
+            $data['SchoolUserName'] = $SchoolUserName;
+        }
         
         $this->UsersModel->replace($data);
 

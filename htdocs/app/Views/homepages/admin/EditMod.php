@@ -6,6 +6,8 @@
     <br><br>
     <input type="email" name="Mail" value="<?php echo $moderator["Mail"]?>">
     <br><br>
+    <input type="text" name="SchoolUserName" value="<?php echo $moderator["SchoolUserName"]; ?>">
+    <br><br>
     <input type="hidden" name="ID" value="<?php echo $moderator["ID"]?>">
     <input type="submit" value="Submit" class="btn_success">
 </form>
