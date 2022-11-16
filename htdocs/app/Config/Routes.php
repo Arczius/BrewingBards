@@ -80,6 +80,9 @@ $routes->get("/User/UserLeerpad", "UserController::LeepadUser");
 
 $routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 
+$routes->get("/Mod/form_builder_overview", "FormBuilderController::index");
+$routes->get("/Mod/form_builder/(:alphanum)", 'FormBuilderController::overview/$1');
+
 
 
 
