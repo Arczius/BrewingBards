@@ -83,14 +83,14 @@ $routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 
 
 
-$routes->post("/User/createCharacter", 'createCharacterController::createCharacter');
+$routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 
 
 
 
 
 
-$routes->get("/User/Characterviewpage", 'Usercontroller::Characterviewpage');
+$routes->get("/User/CharacterViewPage", 'UserController::CharacterViewPage');
 
 
 
