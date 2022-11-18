@@ -44,8 +44,8 @@
             </a>
         </div>
         <div class="col-10 char-card__header">
-            <h1>Name <?php echo $character["CharacterName"] ?></h1>
-            <h2>Class <?php echo $character['CharacterClass'] ?> | Race <?php  echo $character['CharacterRace']?></h2>
+            <h1><?php echo $character["CharacterName"] ?></h1>
+            <h2><?php  echo $character['CharacterRace']?> | <?php echo $character['CharacterClass'] ?> </h2>
         </div>
         <br>
         <div class="col-10 border-top--dark char-card__icons">
