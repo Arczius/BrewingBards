@@ -13,7 +13,6 @@ class PasswordEditingController extends Controller{
         helper("rememberUser");
         $this->UserLoginModel = new getUserLogin();
         $this->errorMessages = [" "," "," "];
-        $this->session = session();
     }
 
     public function index($error)
