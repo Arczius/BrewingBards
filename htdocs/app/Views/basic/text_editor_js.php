@@ -25,7 +25,7 @@
 });
 
     function test(){
-    var content = ($('#editor').trumbowyg('html'));
+    var content = ($('.editor').trumbowyg('html'));
     alert(content);
     }
 </script>

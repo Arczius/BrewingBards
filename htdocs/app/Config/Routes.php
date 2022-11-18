@@ -81,7 +81,7 @@ $routes->get("/User/UserLeerpad", "UserController::LeepadUser");
 $routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 
 
-
+$routes->post('/Admin/editTemplates', 'AdminController::editTemplates');
 
 $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 

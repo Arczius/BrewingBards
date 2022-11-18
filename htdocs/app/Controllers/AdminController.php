@@ -188,4 +188,19 @@ class AdminController extends Controller
         
         $data;
     }
+
+    public function editTemplates()
+    {
+        
+        $data = [
+            'templateName' => '',
+            "mailingID" => $this->request->getPost("mailingID"),
+            "content" => $this->request->getPost("mailingContent"), 
+        ];
+        $template =  $this->MailingTemplates->where('mailingID',$data["mailingID"])->first();
+        $data['templateName'] = $template['templateName'];
+        $this->MailingTemplates->replace($data);
+
+        return redirect()->to("/Admin/AdminHome");
+    }
 }
