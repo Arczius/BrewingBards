@@ -1,20 +1,20 @@
 <div class="block">
     <h3>Wachtwoord veranderen</h3>
-    <br>
+    <p> <span class="error color-main">LET OP! </span> Na het wachtwoord veranderen wordt u uitgelogged.</p><br>
 
     <form id="basic-form" action="<?php echo base_url(); ?>/PasswordEditingController/changePassword" method="post" class="form form--rounded">
 
         <div>
             <label for="oldPassword">Oud wachtwoord</label><br>
-            <input type="text" class="form-control" name="oldPassword" placeholder="Voer oud wachtwoord in">
+            <input type="password" class="form-control" name="oldPassword" placeholder="Voer oud wachtwoord in">
             <b><span class="error color-main"><?php echo $errorMessages[0];?></span></b><br><br>
 
             <label for="newPassword">Nieuw wachtwoord</label><br>
-            <input type="text" class="form-control" name="newPassword" placeholder="Voer nieuw wachtwoord in" required>
+            <input type="password" class="form-control" name="newPassword" placeholder="Voer nieuw wachtwoord in" required>
             <b><span class="error color-main"><?php echo $errorMessages[1];?></span></b><br><br>
             
             <label for="repeatNewPassword">Herhaal nieuw wachtwoord</label><br>
-            <input type="text" class="form-control" name="repeatNewPassword" placeholder="Herhaal nieuw wachtwoord">
+            <input type="password" class="form-control" name="repeatNewPassword" placeholder="Herhaal nieuw wachtwoord">
             <b><span class="error color-main"><?php echo $errorMessages[2];?></span></b>
         </div>
 
