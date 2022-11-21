@@ -41,6 +41,10 @@ class PasswordEditingController extends Controller{
                 break;
             case 2:
                 $base_view_dir = "homepages/moderator";
+
+                break;
+            case 3:
+                return redirect()->back();
                 break;
         }
 
