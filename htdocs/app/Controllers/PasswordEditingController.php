@@ -31,23 +31,23 @@ class PasswordEditingController extends Controller{
         
         $data = [
             'title' => "Wachtwoord veranderen",
-            'footerClass' => "block--dark",
+            'footerClass' => " ",
             'errorMessages' => $this->errorMessages,
             'user' => rememberUser()
         ];
         switch ($data['user']['PermissionLevel']){
             case 1:
                 $base_view_dir = "homepages/user";
+                $data['footerClass'] = "block--info";
                 break;
             case 2:
                 $base_view_dir = "homepages/moderator";
-
+                $data['footerClass'] = "block--dark";
                 break;
             case 3:
                 return redirect()->back();
                 break;
         }
-
         echo view("basic/head", $data);
 
         // unsetting the title variable so it cant be accessed after this point
