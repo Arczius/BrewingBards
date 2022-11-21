@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\getUserLogin;
 use CodeIgniter\Controller;
+use App\Models\getMailingTemplates;
 
 
   
@@ -10,6 +11,7 @@ class AdminController extends Controller
 {
     private $UsersModel;
     private $BaseAdminViewDirectory = "homepages/admin";
+    private $MailingTemplates;
 
 
     public function __construct()
@@ -19,6 +21,7 @@ class AdminController extends Controller
         helper("permLevelCheck");
 
         $this->UsersModel = new getUserLogin();
+        $this->MailingTemplates = new getMailingTemplates();
     }
 
     public function index()
@@ -156,12 +159,13 @@ class AdminController extends Controller
 
     public function mailingTemplates()
     {
-        
+        $TemplateData = $this->MailingTemplates->findall();
 
         $data = [
             'title' => "Mailing templates - Administrator",
             'footerClass' => "block--main",
             'user' => rememberUser(),
+            'templates' => $TemplateData,
         ];
 
     
@@ -183,5 +187,22 @@ class AdminController extends Controller
 
         
         $data;
+    }
+
+    public function editTemplates()
+    {
+        
+        $data = [
+            'templateName' => '',
+            "mailingID" => $this->request->getPost("mailingID"),
+            "keywords" => '',
+            "content" => $this->request->getPost("mailingContent"), 
+        ];
+        $template =  $this->MailingTemplates->where('mailingID',$data["mailingID"])->first();
+        $data['templateName'] = $template['templateName'];
+        $data['keywords'] = $template['keywords'];
+        $this->MailingTemplates->replace($data);
+
+        return redirect()->to("/Admin/AdminHome");
     }
 }
