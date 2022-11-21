@@ -195,10 +195,12 @@ class AdminController extends Controller
         $data = [
             'templateName' => '',
             "mailingID" => $this->request->getPost("mailingID"),
+            "keywords" => '',
             "content" => $this->request->getPost("mailingContent"), 
         ];
         $template =  $this->MailingTemplates->where('mailingID',$data["mailingID"])->first();
         $data['templateName'] = $template['templateName'];
+        $data['keywords'] = $template['keywords'];
         $this->MailingTemplates->replace($data);
 
         return redirect()->to("/Admin/AdminHome");

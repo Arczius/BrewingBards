@@ -19,6 +19,9 @@ class MailingTemplates extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'keywords' => [
+                'type' => 'TEXT',
+            ],
             'content' => [
                 'type' => 'TEXT',
             ],
