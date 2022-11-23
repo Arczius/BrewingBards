@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\getLearningPaths;
+// use App\Models\getLearningPaths;
 use App\Models\getStudyPaths;
 use CodeIgniter\Controller;
 
@@ -28,6 +28,21 @@ class FormBuilderController extends Controller
         }
         else{
             return redirect()->back();
+        }
+    }
+
+    public function create(){
+        // if($this->request->getPost() !== null){
+        if($this->request->getMethod(false) === 'post'){
+            d($this->request->getPost());
+            $data = [
+                'Name' => $this->request->getPost('StudyPathName'),
+                'Required' => boolval($this->request->getPost('required')),
+            ];
+            $this->StudyPathsModel->insert($data);
+        }
+        else{
+            echo view("$this->base_view_dir/create/form");
         }
     }
 }
