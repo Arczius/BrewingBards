@@ -13,17 +13,35 @@ class FormBuilderController extends Controller
     public function __construct()
     {
         $this->StudyPathsModel = new getStudyPaths();
+        helper("RememberUser");
     }
 
     public function index(){
+        $data = [
+            'title' => "Leerpad",
+            'user' => rememberUser(),
+            'footerClass' => "block--dark",
+        ];
         $data['StudyPaths'] = $this->StudyPathsModel->findAll();
+
+        echo view("basic/head", $data);
+        echo view("basic/footer", $data);
+        echo view("homepages/moderator/header", $data);
         echo view("$this->base_view_dir/index/StudyPaths", $data);
     }
 
     public function overview($id){
         $item = $this->StudyPathsModel->where('ID', $id)->first();
         if(isset($item)){
+            $data = [
+                'title' => "Leerpad",
+                'user' => rememberUser(),
+                'footerClass' => "block--dark",
+            ];
             $data['StudyPath'] = $item;
+            echo view("basic/head", $data);
+            echo view("basic/footer", $data);
+            echo view("homepages/moderator/header", $data);
             echo view($this->base_view_dir . "/overview/Main", $data);
         }
         else{
@@ -57,6 +75,15 @@ class FormBuilderController extends Controller
             return redirect()->to('Mod/form_builder_overview');
         }
         else{
+            $data = [
+                'title' => "Leerpad",
+                'user' => rememberUser(),
+                'footerClass' => "block--dark",
+            ];
+
+            echo view("basic/head", $data);
+            echo view("basic/footer", $data);
+            echo view("homepages/moderator/header", $data);
             echo view("$this->base_view_dir/create/form");
         }
     }
