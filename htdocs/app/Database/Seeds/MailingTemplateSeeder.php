@@ -13,5 +13,11 @@ class MailingTemplateSeeder extends Seeder
         $TemplateKeywords = '{USERNAME}, {PASSWORD}, {MAIL}';
     
         $this->db->query("INSERT INTO `MailingTemplates` (`MailingID`, `templateName`, `keywords`, `content`) VALUES (NULL, ' $TemplateName', '$TemplateKeywords', '$TemplateContent') ");
+
+        $TemplateName = 'Wachtwoord veranderen';
+        $TemplateContent = '<h2>Goede dag {USERNAME},</h2><p><br></p><p>U heeft recent uw wachtwoord veranderd. </p><p>Uw nieuwe wachtwoord is:<br>{PASSWORD}</p><p>U kunt nu inloggen met dit nieuwe wachtoord.</p><p><br></p><p>Met vriendelijke groet,<br>Team Social Tavern</p><p><br></p><img src="https://i.imgur.com/hkxE6Fr.png" alt="Logo" width="150">';
+        $TemplateKeywords = '{USERNAME}, {PASSWORD}';
+    
+        $this->db->query("INSERT INTO `MailingTemplates` (`MailingID`, `templateName`, `keywords`, `content`) VALUES (NULL, ' $TemplateName', '$TemplateKeywords', '$TemplateContent') ");
     }
 }
