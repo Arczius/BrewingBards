@@ -32,8 +32,8 @@ class UserCharacters extends Migration
                 'constraint' => '255',
             ],
             'CharacterActivity' => [
-            'type' => 'VARCHAR',
-            'constraint' => '255',
+            'type' => 'BOOLEAN',
+            
         ],
         ]);
 

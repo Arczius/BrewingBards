@@ -42,4 +42,6 @@ class CreateCharacterController extends BaseController{
         return redirect()->back();
         }
     }
+
+
 }

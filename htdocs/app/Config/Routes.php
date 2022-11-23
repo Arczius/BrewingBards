@@ -83,6 +83,8 @@ $routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 
 $routes->post('/Admin/editTemplates', 'AdminController::editTemplates');
 
+$routes->post('/User/Activity', 'UserController::Activity');
+
 $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 
 
