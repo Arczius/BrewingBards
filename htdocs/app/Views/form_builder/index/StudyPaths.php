@@ -1,15 +1,17 @@
-<div>
-    <?php
-        foreach($StudyPaths as $StudyPath){
-            ?>
+<div class="block">
+    <ul>
+        <?php
+        foreach ($StudyPaths as $StudyPath) {
+        ?>
 
-            <div>
+            <li>
                 <a href="<?php echo base_url() ?>/Mod/form_builder/<?php echo $StudyPath['ID']; ?>">
                     <?php echo $StudyPath['Name']; ?>
                 </a>
-            </div>
-            
-            <?php
+            </li>
+
+        <?php
         }
-    ?>
+        ?>
+    </ul>
 </div>
