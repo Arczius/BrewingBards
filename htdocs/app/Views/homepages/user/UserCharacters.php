@@ -18,14 +18,16 @@
 
     <!-- card item -->
     <?php foreach ($characters as $character){ ?>
+    <?php if($character["CharacterActivity"] ==  true) { ?> 
     <div class="block--main-info  border--rounded border--dark col-38 char-card">
         <div class="col-12 border-bottom--dark">
-            <?php if($character["CharacterActivity"] ==  "Active") { ?>
-            <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="card1" onclick(ChangeActivity);></i>
+            <?php if($character["CharacterActivity"] ==  true) { ?> 
+            <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
             <?php } else{ ?>
-            <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="card1" onclick(ChangeActivity);></i>
+            <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
             <?php } ?> 
         </div>
+        
         <br>
         <div class="col-2 float-right txt_right">
             <a href="" class="ico-h2 alt-dark tooltip">
@@ -66,12 +68,16 @@
             </a>
         </div>
     </div>
-<?php } ?>
+    <?php } else{ ?>      
 
     <!-- card item DISABLED-->
     <div class="block--disabled border--rounded border--disabled col-38 char-card">
         <div class="col-12 border-bottom--disabled">
-            <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="card2"></i>
+            <?php if($character["CharacterActivity"] ==  true) { ?> 
+            <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
+            <?php } else{ ?>
+            <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
+            <?php } ?> 
         </div>
         <br>
         <div class="col-2 float-right txt_right">
@@ -91,8 +97,8 @@
             </a>
         </div>
         <div class="col-10 char-card__header">
-            <h1>Inactief</h1>
-            <h2>Class | Race</h2>
+        <h1><?php echo $character["CharacterName"] ?></h1>
+        <h2><?php  echo $character['CharacterRace']?> | <?php echo $character['CharacterClass'] ?> </h2>
         </div>
         <br>
         <div class="col-10 border-top--disabled char-card__icons">
@@ -107,8 +113,8 @@
             </span>
         </div>
     </div>
-
-
+    <?php } ?> 
+    <?php } ?> 
 
 
 
