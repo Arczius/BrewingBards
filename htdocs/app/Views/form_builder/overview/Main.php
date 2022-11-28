@@ -1,4 +1,4 @@
-<div>
+<div class="block">
     <h2>
         <?php echo $StudyPath['Name']; ?>
     </h2>
