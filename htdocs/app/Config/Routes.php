@@ -45,7 +45,11 @@ $routes->get('/Home', 'Home::homepage');
 $routes->get('/back', 'ProfileController::index');
 $routes->get('/logout', 'SigninController::logout');
 $routes->get("/ChangePassword/(:alphanum)", "PasswordEditingController::index/$1");
+$routes->get("/ForgotPasswordController/index", "ForgotPasswordController::index");
+$routes->match(['get', 'post'], '/ForgotPasswordController/sendForgotPasswordNotificationMail', 'ForgotPasswordController::sendForgotPasswordNotificationMail');
+$routes->match(['get', 'post'], '/ForgotPasswordController/sendForgotPasswordNotificationMail', 'ForgotPasswordController::sendForgotPasswordNotificationMail');
 $routes->match(['get', 'post'], '/PasswordEditingController/changePassword', 'PasswordEditingController::changePassword');
+$routes->get("/ForgotPasswordController/ForgotPasswordPage/(:alphanum)", "ForgotPasswordController::ChangeIndex/$1");
 
 $routes->get('/Admin/AdminHome','AdminController::index');
 $routes->get('/Mod/ModHome', 'ModController::index');
@@ -93,10 +97,6 @@ $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharact
 
 
 $routes->get("/User/CharacterViewPage", 'UserController::CharacterViewPage');
-
-
-
-
 
 
 $routes->get('/Mod/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');

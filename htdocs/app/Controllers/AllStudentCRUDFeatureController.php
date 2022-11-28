@@ -103,8 +103,6 @@ class AllStudentCRUDFeatureController extends Controller
 
         if(!$exist){
 
-
-
             //random wachtwoord maken en encryptie
             $genPassword = randomPasswordGen();
             $password = password_hash($genPassword, PASSWORD_DEFAULT);
@@ -128,14 +126,14 @@ class AllStudentCRUDFeatureController extends Controller
             helper("NewUserPasswordMail");
 
             $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
-            $mailManager->SendPasswordMail($mail, $name, $genPassword, $MailContent);
+            $mailManager->SendPasswordMail($mail, $name, $MailContent);
+            die();
         }
         else{
             //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
             echo $name." bestaat al en is daarvoor niet aangemaakt<br>";
-            
-        echo "<a href='./back'>terug naar pagina</a>";
         }
+        echo "<a href='./back'>terug naar pagina</a>";
     }
 
     // Create Users From List
@@ -212,7 +210,7 @@ class AllStudentCRUDFeatureController extends Controller
 
                 $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
 
-                $mailManager->SendPasswordMail($mail, $data["0"], $genPassword, $MailContent);
+                $mailManager->SendPasswordMail($mail, $data["0"], $MailContent);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped

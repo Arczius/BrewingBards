@@ -10,7 +10,7 @@ class ForgotPasswordMail extends BasicMail
         parent::__construct($fromName, $fromEmail);
     }
 
-    public function SendPasswordMail($toMailAddress, $personName,  $password, $content)
+    public function SendPasswordMail($toMailAddress, $personName, $content)
     {
         $baseUrl = base_url();
         $this->SendMail(

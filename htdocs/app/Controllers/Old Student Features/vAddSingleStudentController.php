@@ -5,7 +5,7 @@ use App\Models\getUserLogin;
 use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
   
-class AddSingleStudentController extends Controller
+class vAddSingleStudentController extends Controller
 {
 
     private $UserModel;
