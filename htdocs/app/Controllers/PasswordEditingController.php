@@ -118,4 +118,30 @@ class PasswordEditingController extends Controller{
         }
         return;
     }
+    public function sendForgotPasswordNotificationMail(){
+        $TemplateData = $this->MailingTemplates->where('mailingID', 1)->first();
+        $MailContent = $TemplateData['content'];
+        $search = array('{USERNAME}', '{MAIL}', '{PASSWORD}');
+        $replace = array($name,  $mail, $genPassword);
+        $MailContent = str_replace($search, $replace, $MailContent);
+
+        helper("NewUserPasswordMail");
+
+        $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
+        $mailManager->SendPasswordMail($mail, $name, $genPassword, $MailContent); 
+    }
+    public function forgotChangePassword(){
+        $genPassword = randomPasswordGen();
+
+        $TemplateData = $this->MailingTemplates->where('mailingID', 2)->first();
+        $MailContent = $TemplateData['content'];
+        $search = array('{USERNAME}', '{MAIL}', '{PASSWORD}');
+        $replace = array($name,  $mail, $genPassword);
+        $MailContent = str_replace($search, $replace, $MailContent);
+
+        helper("NewUserPasswordMail");
+
+        $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
+        $mailManager->SendPasswordMail($mail, $name, $genPassword, $MailContent); 
+    }
 }

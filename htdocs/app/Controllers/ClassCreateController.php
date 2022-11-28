@@ -15,7 +15,6 @@ class ClassCreateController extends Controller
 
     public function index()
     {
-
         $data = [
             'title' => "Klas aanmaken",
             'footerClass' => "block--dark",
