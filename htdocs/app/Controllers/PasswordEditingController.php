@@ -31,13 +31,23 @@ class PasswordEditingController extends Controller{
         
         $data = [
             'title' => "Wachtwoord veranderen",
-            'footerClass' => "block--dark",
+            'footerClass' => " ",
             'errorMessages' => $this->errorMessages,
-            'user' => rememberUser(),
+            'user' => rememberUser()
         ];
-
-        $base_view_dir = "homepages/moderator";
-
+        switch ($data['user']['PermissionLevel']){
+            case 1:
+                $base_view_dir = "homepages/user";
+                $data['footerClass'] = "block--info";
+                break;
+            case 2:
+                $base_view_dir = "homepages/moderator";
+                $data['footerClass'] = "block--dark";
+                break;
+            case 3:
+                return redirect()->back();
+                break;
+        }
         echo view("basic/head", $data);
 
         // unsetting the title variable so it cant be accessed after this point
@@ -88,8 +98,8 @@ class PasswordEditingController extends Controller{
             );
             
             $this->UserLoginModel->replace($data);
-
-            echo "Je nieuwe wachtwoord is ".$newPassword;
+            
+            return redirect()->to("/logout");
         }
         else{
             switch (false) {
@@ -103,7 +113,7 @@ class PasswordEditingController extends Controller{
                     return redirect()->to('/ChangePassword/3');
                     break;
                 default:
-                echo "?????? how just how ?????????????????????????/";
+                echo "?????? how just how ?????????????????????????";
             }
         }
         return;
