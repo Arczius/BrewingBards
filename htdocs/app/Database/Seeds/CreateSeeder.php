@@ -20,6 +20,7 @@ class CreateSeeder extends Seeder
             'DnDClasses',
             'DnDRaces',
             'StudyPaths',
+            'Question',
         ];
 
         // a loop which calls all the seeders in this order
