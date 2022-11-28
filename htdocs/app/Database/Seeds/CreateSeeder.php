@@ -19,6 +19,8 @@ class CreateSeeder extends Seeder
             'UserThemes',
             'DnDClasses',
             'DnDRaces',
+            'StudyPaths',
+            'Question',
             'MailingTemplate',
         ];
 
