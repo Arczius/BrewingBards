@@ -22,6 +22,7 @@ class CreateSeeder extends Seeder
             'StudyPaths',
             'Question',
             'MailingTemplate',
+            'StudyPathQuestion',
         ];
 
         // a loop which calls all the seeders in this order
