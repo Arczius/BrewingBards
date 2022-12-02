@@ -248,6 +248,27 @@ class AllStudentCRUDFeatureController extends Controller
         return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
     }
 
+    public function ArchiveStudent($StudentID){
+
+        $holdUser = $this->UserModel->where("ID", $StudentID)->first();
+
+        $data = array(
+            'ID' => $holdUser["ID"],
+            'Name' => $holdUser['Name'],
+            'Password' => $holdUser['Password'],
+            'SchoolUserName' => $holdUser['SchoolUserName'],
+            'Mail' => $holdUser["Mail"],
+            'PermissionLevel' => 1,
+            'archive' => true
+        );
+        
+        $this->UserModel->replace($data);
+
+        $holdClasses = $this->UsersClassesModel->where("UserID",$StudentID)->first();
+
+        return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
+    }
+
     public function Back(){
         return redirect()->to('/profile');
     }

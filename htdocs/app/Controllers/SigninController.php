@@ -31,16 +31,20 @@ class SigninController extends Controller
             $pass = $data['Password'];
             //kijken op de wachtworden overeen komen
             $authenticatePassword = Password_verify($Password, $pass);
-            if($authenticatePassword == true){
-                //session aanmaken voor de user
-                $ses_data = [
-                    'id' => $data['ID'],
-                    'isLoggedIn' => TRUE,
-                    'permissionLevel' => $data["PermissionLevel"],
-                ];
-                
-                $this->session->set($ses_data);
-                return redirect()->to('/profile');
+            if($authenticatePassword == true){                
+                if(!$data['Archive']){
+                    //session aanmaken voor de user
+                    $ses_data = [
+                        'id' => $data['ID'],
+                        'isLoggedIn' => TRUE,
+                        'permissionLevel' => $data["PermissionLevel"],
+                    ];
+
+                    $this->session->set($ses_data);
+                    return redirect()->to('/profile');
+                }
+                $this->session->setFlashdata('msg', 'Account is Gearchiveerd');
+                return redirect()->to('/');
             }else{
                 $this->session->setFlashdata('msg', 'Password is incorrect.');
                 return redirect()->to('/');
