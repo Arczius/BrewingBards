@@ -2,7 +2,7 @@
 
 helper("BasicMail");
 
-class NewUserPasswordMail extends BasicMail
+class ForgotPasswordMail extends BasicMail
 {
 
     public function __construct($fromName, $fromEmail)
@@ -15,7 +15,7 @@ class NewUserPasswordMail extends BasicMail
         $baseUrl = base_url();
         $this->SendMail(
             $to = $toMailAddress,
-            $subject = "Hallo $personName, u bent verwelkomt tot Social Tavern",
+            $subject = "Hallo $personName,u hebt een nieuwe wachtwoord aangevraagt",
             $message = $content,
         );
     }

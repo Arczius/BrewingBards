@@ -44,6 +44,12 @@ $routes->add('/profile', 'ProfileController::index');
 $routes->get('/Home', 'Home::homepage');
 $routes->get('/back', 'ProfileController::index');
 $routes->get('/logout', 'SigninController::logout');
+$routes->get("/ChangePassword/(:alphanum)", "PasswordEditingController::index/$1");
+$routes->get("/ForgotPasswordController/index", "ForgotPasswordController::index");
+$routes->match(['get', 'post'], '/ForgotPasswordController/sendForgotPasswordNotificationMail', 'ForgotPasswordController::sendForgotPasswordNotificationMail');
+$routes->match(['get', 'post'], '/ForgotPasswordController/sendForgotPasswordNotificationMail', 'ForgotPasswordController::sendForgotPasswordNotificationMail');
+$routes->match(['get', 'post'], '/PasswordEditingController/changePassword', 'PasswordEditingController::changePassword');
+$routes->get("/ForgotPasswordController/ForgotPasswordPage/(:alphanum)", "ForgotPasswordController::ChangeIndex/$1");
 
 $routes->get('/Admin/AdminHome','AdminController::index');
 $routes->get('/Mod/ModHome', 'ModController::index');
@@ -76,13 +82,27 @@ $routes->match(['get', 'post'], '/Mod/SwitchClassController/SwitchStudent', 'Swi
 
 $routes->get("/User/UserLeerpad", "UserController::LeepadUser");
 
+$routes->get("/Admin/mailing", "AdminController::mailingTemplates");
+
+$routes->get("/Mod/form_builder_overview", "FormBuilderController::index");
+$routes->get("/Mod/form_builder/(:alphanum)", 'FormBuilderController::overview/$1');
+$routes->match(['get', 'post'], '/Mod/create_study_path', 'FormBuilderController::create');
+
+$routes->match(['get', 'post'], '/Mod/MakeQuestion', 'FormBuilderController::MakeQuestion');
+$routes->get("/Mod/ReadQuestion", "FormBuilderController::ReadQuestion");
+
+$routes->post('/Admin/editTemplates', 'AdminController::editTemplates');
+
+$routes->post('/User/Activity', 'UserController::Activity');
+
+$routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 
 
 
 
 
 
-
+$routes->get("/User/CharacterViewPage", 'UserController::CharacterViewPage');
 
 
 $routes->get('/Mod/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');

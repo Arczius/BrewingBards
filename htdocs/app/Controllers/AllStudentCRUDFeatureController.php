@@ -5,12 +5,14 @@ use App\Models\getUserLogin;
 use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
 use NewUserPasswordMail;
+use App\Models\getMailingTemplates;
 
 class AllStudentCRUDFeatureController extends Controller
 {
 
     private $UserModel;
     private $UsersClassesModel;
+    private $MailingTemplates;
 
     public function __construct(){
         helper("randomPasswordGen");
@@ -18,6 +20,7 @@ class AllStudentCRUDFeatureController extends Controller
         helper("permLevelCheck");
         $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
+        $this->MailingTemplates = new getMailingTemplates();
     }
     
     // All Index Pages
@@ -100,8 +103,6 @@ class AllStudentCRUDFeatureController extends Controller
 
         if(!$exist){
 
-
-
             //random wachtwoord maken en encryptie
             $genPassword = randomPasswordGen();
             $password = password_hash($genPassword, PASSWORD_DEFAULT);
@@ -116,18 +117,23 @@ class AllStudentCRUDFeatureController extends Controller
             //student aan hun klas linken
             $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
 
+            $TemplateData = $this->MailingTemplates->where('mailingID', 1)->first();
+            $MailContent = $TemplateData['content'];
+            $search = array('{USERNAME}', '{MAIL}', '{PASSWORD}');
+            $replace = array($name,  $mail, $genPassword);
+            $MailContent = str_replace($search, $replace, $MailContent);
 
             helper("NewUserPasswordMail");
 
             $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
-            $mailManager->SendPasswordMail($mail, $name, $genPassword);
+            $mailManager->SendPasswordMail($mail, $name, $MailContent);
+            die();
         }
         else{
             //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
             echo $name." bestaat al en is daarvoor niet aangemaakt<br>";
-            
-        echo "<a href='./back'>terug naar pagina</a>";
         }
+        echo "<a href='./back'>terug naar pagina</a>";
     }
 
     // Create Users From List
@@ -194,11 +200,17 @@ class AllStudentCRUDFeatureController extends Controller
                 //student aan hun klas linken
                 $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
 
+                $TemplateData = $this->MailingTemplates->where('mailingID', 1)->first();
+                $MailContent = $TemplateData['content'];
+                $search = array('{USERNAME}', '{MAIL}', '{PASSWORD}');
+                $replace = array($data["0"],  $mail, $genPassword);
+                $MailContent = str_replace($search, $replace, $MailContent);
+
                 helper("NewUserPasswordMail");
 
                 $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
 
-                $mailManager->SendPasswordMail($mail, $data["0"], $genPassword);
+                $mailManager->SendPasswordMail($mail, $data["0"], $MailContent);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
