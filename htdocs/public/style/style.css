@@ -1047,4 +1047,8 @@ footer {
   border-radius: 5px;
 }
 
+a.table__item__col.adm-tbl-short {
+  width: 100px;
+}
+
 /*# sourceMappingURL=style.css.map */
