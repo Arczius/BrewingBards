@@ -191,17 +191,32 @@ class AdminController extends Controller
 
     public function editTemplates()
     {
-        
-        $data = [
-            'templateName' => '',
-            "mailingID" => $this->request->getPost("mailingID"),
-            "keywords" => '',
-            "content" => $this->request->getPost("mailingContent"), 
-        ];
-        $template =  $this->MailingTemplates->where('mailingID',$data["mailingID"])->first();
-        $data['templateName'] = $template['templateName'];
-        $data['keywords'] = $template['keywords'];
-        $this->MailingTemplates->replace($data);
+        //get form data
+        $holdMailContent = $this->request->getPost("mailingContent");
+        $holdMailId = $this->request->getPost("mailingID");
+        //get mail template form database
+        $template =  $this->MailingTemplates->where('mailingID',$holdMailId)->first();
+        //split the keyword string into array for usage
+        $templateKeywordsArray = explode(", ", $template['keywords']);
+        //check if the keywords are in the content
+        $continue = true;
+        foreach($templateKeywordsArray as $keyword){
+            if(strpos($holdMailContent, $keyword) !== false){
+                echo "Word Found! <br>";
+            } else{
+                echo "Word Not Found! <br>";
+                $continue = false;
+            }         
+        }
+        if($continue){
+          $data = [
+            'templateName' => $template['templateName'],
+            "mailingID" => $holdMailId,
+            "keywords" => $template['keywords'],
+            "content" => $holdMailContent, 
+            ];
+            $this->MailingTemplates->replace($data);  
+        }        
 
         return redirect()->to("/Admin/AdminHome");
     }
