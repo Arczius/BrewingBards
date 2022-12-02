@@ -30,7 +30,7 @@
         
         <br>
         <div class="col-2 float-right txt_right">
-            <a href="" class="ico-h2 alt-dark tooltip">
+            <a href="./UpdateCharacterViewPage/<?php echo $character["CharacterId"]; ?>" class="ico-h2 alt-dark tooltip">
                 <i class='bx bxs-pencil '></i>
                 <span class="tooltiptext">Aanpassen</span>
             </a>
@@ -81,7 +81,7 @@
         </div>
         <br>
         <div class="col-2 float-right txt_right">
-            <a href="" class="ico-h2 tooltip">
+            <a href="./UpdateCharacterViewPage/<?php echo $character["CharacterId"]; ?>" class="ico-h2 tooltip">
                 <i class='bx bxs-pencil'></i>
                 <span class="tooltiptext">Aanpassen</span>
             </a>
@@ -140,7 +140,7 @@
     <?php foreach ($dndRaces as $Race){ ?>
         <option value=<?php Echo $Race['RaceName']?>><?php echo $Race['RaceName'] ?></option>   
 
-    <?php }?>
+    <?php } ?>
     </select>
     <br>
     Karakter Class: <br> <select name="class" id="class">
