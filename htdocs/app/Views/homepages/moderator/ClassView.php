@@ -14,22 +14,26 @@
             <span class="table__item__col col-2">
                 Naam
             </span>
-            <span class="table__item__col col-3">
+            <span class="table__item__col col-4">
                 Mail
+            </span>
+            <span class="table__item__col col-1">
+                Archiveren
             </span>
             <span class="table__item__col col-1">
                 klas veranderen
             </span>
-            <span class="table__item__col col-2">
+            <span class="table__item__col col-1">
                 Aanpassen
             </span>
-            <span class="table__item__col col-2 grow-item">
+            <span class="table__item__col col-1 grow-item">
                 Verwijderen
             </span>
         </div>
 
         <?php
         foreach ($Students as $Student) {
+            if(!$Student["Archive"]){
         ?>
 
             <div class="table__item">
@@ -39,15 +43,17 @@
                 <p class="table__item__col  col-2">
                     <?php echo $Student["Name"]; ?>
                 </p>
-                <p class="table__item__col  col-3">
+                <p class="table__item__col  col-4">
                     <?php echo $Student["Mail"]; ?>
-                </p> 
+                </p>                 
+                <a href="<?php echo base_url(); ?>/Mod/Archive/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bxs-box'></i></a>
                 <a href="<?php echo base_url(); ?>/Mod/SwitchClass/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bx-shuffle'></i></a>
-                <a href="<?php echo base_url(); ?>/Mod/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bx-edit-alt'></i> Studenten Aanpassen</a>
-                <a href="<?php echo base_url(); ?>/Mod/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col col-2 link-item"><i class='bx bxs-trash'></i> Studenten Verwijderen</a>
+                <a href="<?php echo base_url(); ?>/Mod/StudentEdit/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bx-edit-alt'></i></a>
+                <a href="<?php echo base_url(); ?>/Mod/StudentDelete/<?php echo $Student["ID"] ?>" class="table__item__col col-1 link-item"><i class='bx bxs-trash'></i></a>
             </div>
 
         <?php
+            }
         }
         ?>
     </div>
