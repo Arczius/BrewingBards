@@ -80,6 +80,10 @@
                         <b>{PASSWORD}</b><br>
                         Zet het wachtwoord van de ontvanger neer
                     </li>
+                    <li>
+                        <b>{LINK}</b><br>
+                        Zet een link mee terug naar een gewenste pagina
+                    </li>
                 </ul>
             </div>
         </div>

@@ -45,10 +45,6 @@ class ModController extends Controller
         // unsetting the classes variable so it cant be accessed after this point
         $data['classes'];
 
-        
-
-
-
         $data;
     }
 }

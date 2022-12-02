@@ -36,7 +36,10 @@
                     
                     <div class="d-grid">
                          <button type="submit" class="btn btn_info">Log in</button>
-                    </div>     
+                    </div>  
+                    <div class="d-grid">
+                        <a href="<?php echo base_url(); ?>/ForgotPasswordController/index">Wachtwoord vergeten</a>
+                    </div>      
                 </form>
             </div>
               
