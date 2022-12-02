@@ -87,7 +87,9 @@ $routes->match(['get', 'post'], '/Mod/create_study_path', 'FormBuilderController
 $routes->match(['get', 'post'], '/Mod/MakeQuestion', 'FormBuilderController::MakeQuestion');
 $routes->get("/Mod/ReadQuestion", "FormBuilderController::ReadQuestion");
 
+$routes->post('/Admin/editTemplates', 'AdminController::editTemplates');
 
+$routes->post('/User/Activity', 'UserController::Activity');
 
 $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 

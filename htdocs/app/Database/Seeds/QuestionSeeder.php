@@ -11,7 +11,6 @@ class QuestionSeeder extends Seeder
         $data = [
             [
                 'type' => 'text',
-                // textarea of text-input
                 'title' => "ik ben een title",
                 'description' => "Ik ben een description",
                 'required' => false,
@@ -19,7 +18,7 @@ class QuestionSeeder extends Seeder
         ];
 
         foreach($data as $question){
-            $this->db->query("INSERT INTO question (type, title, description, required) VALUES ('$question')");
+            $this->db->table('Question')->insert($question);
         }
     }
 }
