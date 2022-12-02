@@ -39,6 +39,21 @@ class SigninController extends Controller
                         'isLoggedIn' => TRUE,
                         'permissionLevel' => $data["PermissionLevel"],
                     ];
+                    date_default_timezone_set('Europe/Amsterdam');
+                    $time = time();
+                    $currentTime = date('Y-m-d H:i:s', $time);
+
+                    $data = array(
+                        'ID' => $data["ID"],
+                        'Name' => $data['Name'],
+                        'Password' => $data['Password'],
+                        'SchoolUserName' => $data['SchoolUserName'],
+                        'Mail' => $data["Mail"],
+                        'PermissionLevel' => $data["PermissionLevel"],
+                        'archive' => false,
+                        "TimeLastLoggedIn" => $currentTime
+                    );
+                    $this->UserModel->replace($data);
 
                     $this->session->set($ses_data);
                     return redirect()->to('/profile');
