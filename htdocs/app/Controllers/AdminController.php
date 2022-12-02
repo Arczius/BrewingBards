@@ -208,7 +208,7 @@ class AdminController extends Controller
                 $continue = false;
             }         
         }
-        if($continue == true){
+        if($continue){
           $data = [
             'templateName' => $template['templateName'],
             "mailingID" => $holdMailId,
