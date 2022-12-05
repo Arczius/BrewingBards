@@ -103,6 +103,12 @@ $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharact
 
 
 
+$routes->get("/User/UpdateCharacterViewPage/(:alphanum)", 'UpdateCharacterController::index/$1');
+
+
+$routes->post("/user/UpdateCharacter/(:alphanum)", "UpdateCharacterController::updateCharacter/$1");
+
+
 $routes->get("/User/CharacterViewPage", 'UserController::CharacterViewPage');
 
 
