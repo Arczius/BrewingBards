@@ -27,7 +27,7 @@
             </div>
 
             <div class="py-4">
-                <Label class="block font-bold text-xl">Mail Adres</Label>
+                <Label class="block font-bold text-xl">Mail Adres:</Label>
                 <input class="outline-none focus:border-b-gray-400 placeholder:text-xl text-xl bg-gray-200 border-b-gray-300 border-b-2 w-full" placeholder="johndoe@example.com" type="text" name="Mail"  value='<?php echo $moderator["Mail"]?>'>
             </div>
 
