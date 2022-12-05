@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>/favicon.png"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/style/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>/style/style.css"> -->
+    <link rel="stylesheet" href="<?php echo base_url()?>/dist/tailwind.css">
     <script src="<?php echo base_url() ?>/js/switch.js"></script>
     <script src="<?php echo base_url() ?>/js/modal.js"></script>
     <script src="<?php echo base_url() ?>/js/character.js"></script>
