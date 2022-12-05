@@ -1,35 +1,53 @@
-<div class="container block">
-    <h3 class="linebox">Moderator overzicht</h3>
+<div class="block max-w-6xl mx-auto">
 
-    <a href="./mailing" class="btn_default float-right">Mailing templates</a>
-    <br>
-    <br>
-    <div class="table--special table--rounded">
+    <div>
+        <a class="" href="<?php echo base_url()?>/Admin/mailing">Mailing templates</a>
+    </div>
 
-        <div class="table__item">
-            <h4 class="table__item__col adm-tbl-modname">Naam moderator:</h4>
-            <div class="table__item__col adm-tbl-short"><b>Afkorting:</b></div>
-            <div class="table__item__col adm-tbl-mail"><b>E-mail adres:</b></div>
-        </div>
+    <div class="block px-4 md:px-2 lg:px-0 pt-4 md:pt-8 lg:pt-10">
 
-        <?php foreach ($moderators as $moderator) {
-        ?>
-            <div class="table__item">
-                <h4 class="table__item__col adm-tbl-modname"><?php echo $moderator['Name']; ?></h4>
-                <a class="table__item__col adm-tbl-short "><?php echo $moderator['SchoolUserName']; ?></a>
-                <a class="table__item__col adm-tbl-mail" href="mailto:<?php echo $moderator['Mail']; ?>"><?php echo $moderator['Mail']; ?></a>
-                <span class="table__item__col grow-item"></span>
-                <a class="table__item__col link-item txt_right col-1" href="<?php echo base_url() . '/Admin/editModerator/' . $moderator['ID'];?>">Aanpassen</a>
-                <a class="table__item__col link-item txt_right col-1" href="<?php echo base_url() . '/Admin/deleteModerator/' . $moderator['ID'];?>">Verwijder</a>
-            </div>
-        <?php
-        } ?>
+        <table class="table-auto w-full bg-gray-200">
+            <thead class="border-b bg-gray-300">
+                <tr class="w-full">
+                    <th class="pl-4 text-left py-4 text-xl">Naam moderator:</th>
+                    <th class="text-left py-4 text-xl">Afkorting:</th>
+                    <th class="text-left py-4 text-xl">E-mail adres:</th>
+                    <th class="text-left py-4 text-xl pr-4">Overige:</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                    foreach($moderators as $moderator){
+                        ?>
+                        <tr>
+                            <td class="py-4 pl-4"><?php echo $moderator['Name']; ?></td>
+                            <td><?php echo $moderator['SchoolUserName'];?></td>
+                            <td><a href="mailto:<?php echo $moderator['Mail']; ?>" class="hover:underline"><i class='fa-solid fa-envelope' ></i> <?php echo $moderator['Mail']; ?></a></td>
+                            <td class="pr-4">
+                                <div class="flex flex-wrap">
+                                    <a class="flex-grow" href="<?php echo base_url() . '/Admin/editModerator/' . $moderator['ID'];?>">
+                                        <i class='fa-solid fa-pen-to-square'></i>
+                                    </a>
+                                    <a class="flex-grow" href="<?php echo base_url() . '/Admin/deleteModerator/' . $moderator['ID'];?>">
+                                        <i class='fa-solid fa-trash'></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <?php
+                    }
+                ?>
+            </tbody>
+
+        </table>
 
     </div>
 
-        <a class="btn_second" href="./createModPage">
-            nieuwe moderator
-        </a>
+    <a class="btn_second" href="./createModPage">
+        nieuwe moderator
+    </a>
 
 
 
