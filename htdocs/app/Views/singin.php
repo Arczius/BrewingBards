@@ -20,7 +20,7 @@
                 <br>
                 <h2 class="txt_cntr">Inloggen</h2>
                 <br>
-                
+
                 <?php if(session()->getFlashdata('msg')):?>
                     <div class="alert alert-warning">
                        <?= session()->getFlashdata('msg') ?>
@@ -33,16 +33,16 @@
                     <div class="form-group mb-3">
                         <input type="password" name="Password" placeholder="Password" class="form-control" >
                     </div>
-                    
+
                     <div class="d-grid">
                          <button type="submit" class="btn btn_info">Log in</button>
-                    </div>  
+                    </div>
                     <div class="d-grid">
                         <a href="<?php echo base_url(); ?>/ForgotPasswordController/index">Wachtwoord vergeten</a>
-                    </div>      
+                    </div>
                 </form>
             </div>
-              
+
         </div>
     </div>
   </body>
