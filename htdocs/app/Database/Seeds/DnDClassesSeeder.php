@@ -23,7 +23,28 @@ class DnDClassesSeeder extends Seeder
             ],
             [
                 'ClassName' => 'Fighter'
-            ]  
+            ],
+            [
+                'ClassName' => 'Monk'
+            ],
+            [
+                'ClassName' => 'Paladin'
+            ],
+            [
+                'ClassName' => 'Ranger'
+            ],
+            [
+                'ClassName' => 'Rogue'
+            ],
+            [
+                'ClassName' => 'Sorcerer'
+            ],
+            [
+                'ClassName' => 'Warlock'
+            ],
+            [
+                'ClassName' => 'Wizard'
+            ]
         ];
 
 

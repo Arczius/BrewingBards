@@ -13,21 +13,42 @@ class DnDRacesSeeder extends Seeder
                 'RaceName' => 'Human'
             ],
             [
-
                 'RaceName' => 'Elf'
             ],
             [
-
                 'RaceName' => 'Half-Elf'
             ],
             [
-
+                'RaceName' => 'Dwarf'
+            ],
+            [
+                'RaceName' => 'Halfling'
+            ],
+            [
                 'RaceName' => 'Aarakocra'
             ],
             [
-
-                'RaceName' => 'Dwarf'
+                'RaceName' => 'Aasimar'
             ],
+            [
+                'RaceName' => 'Gnome'
+            ],
+            [
+                'RaceName' => 'Dragonborn'
+            ],
+            [
+                'RaceName' => 'Genasi'
+            ],
+            [
+                'RaceName' => 'Goliath'
+            ],
+            [
+                'RaceName' => 'Half-Orc'
+            ],
+            [
+                'RaceName' => 'Tiefling'
+            ]
+            
         ];
         foreach($data as $item){
             $Name = $item['RaceName'];

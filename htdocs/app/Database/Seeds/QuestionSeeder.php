@@ -19,7 +19,12 @@ class QuestionSeeder extends Seeder
         ];
 
         foreach($data as $question){
-            $this->db->query("INSERT INTO question (type, title, description, required) VALUES ('$question')");
+            $type = $question['type'];
+            $title = $question['title'];
+            $description = $question['description'];
+            $requirment = $question['required'];
+
+            $this->db->query("INSERT INTO Question (type, title, description, required) VALUES ('$type', '$title', '$description', '$requirment')");
         }
     }
 }
