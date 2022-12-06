@@ -1,18 +1,3 @@
-<!-- <div class="block">
-    <h3>Moderater account aanpassen</h3>
-    <br>
-<form action="<?php echo base_url(); ?>/Admin/updateModAccount" method="post" class="form--main">
-    <input type="text" name="UserName"  value='<?php echo $moderator["Name"]?>'>
-    <br><br>
-    <input type="email" name="Mail" value="<?php echo $moderator["Mail"]?>">
-    <br><br>
-    <input type="text" name="SchoolUserName" value="<?php echo $moderator["SchoolUserName"]; ?>">
-    <br><br>
-    <input type="hidden" name="ID" value="<?php echo $moderator["ID"]?>">
-    <input type="submit" value="Submit" class="btn_success">
-</form>
-</div> -->
-
 <div class="w-full h-full flex justify-center items-center pt-4 md:pt-8 lg:pt-10">
     <div>
 
@@ -27,7 +12,7 @@
             </div>
 
             <div class="py-4">
-                <Label class="block font-bold text-xl">Mail Adres:</Label>
+                <Label class="block font-bold text-xl">E-mail adres:</Label>
                 <input class="outline-none focus:border-b-gray-400 placeholder:text-xl text-xl bg-gray-200 border-b-gray-300 border-b-2 w-full" placeholder="johndoe@example.com" type="text" name="Mail"  value='<?php echo $moderator["Mail"]?>'>
             </div>
 
