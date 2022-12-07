@@ -98,7 +98,7 @@ $routes->post('/User/Activity', 'UserController::Activity');
 
 $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 
-
+$routes->get("/User/DeleteCharacter/(:alphanum)", "DeleteCharacterController::DeleteCharacter/$1");
 
 
 
