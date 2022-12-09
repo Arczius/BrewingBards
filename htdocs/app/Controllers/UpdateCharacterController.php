@@ -26,9 +26,7 @@ class UpdateCharacterController extends BaseController{
     public function updateCharacter($characterID){
         $characterModel = new \App\Models\getCharacters;
 
-        $character = $characterModel->where("CharacterID", $characterID)->first();
-
-        $characterModel->replace(["CharacterId" => $characterID, "UserId" => rememberUser()["ID"], "CharacterName" => $this->request->getPost("CharacterName"), "CharacterRace" => $this->request->getPost("CharacterRace"), "CharacterClass" => $this->request->getPost("CharacterClass"), "CharacterActivity" => $character["CharacterActivity"]]);
+        $characterModel->update($characterID, ["CharacterName" => $this->request->getPost("CharacterName"), "CharacterRace" => $this->request->getPost("CharacterRace"), "CharacterClass" => $this->request->getPost("CharacterClass")]);
 
         return redirect()->to("/User/CharacterViewPage");
     }
