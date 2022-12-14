@@ -44,9 +44,8 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
-
+        helper(["rememberUser", "permLevelCheck", "scriptSaves"]);
         // Preload any models, libraries, etc, here.
-        helper("rememberUser", "permLevelCheck");
 
         // E.g.: $this->session = \Config\Services::session();
     }

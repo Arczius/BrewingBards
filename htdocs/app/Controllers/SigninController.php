@@ -1,17 +1,12 @@
 <?php 
-namespace App\Controllers;  
+namespace App\Controllers;
 use CodeIgniter\Controller;
-use App\Models\UserModel;
+
   
-class SigninController extends Controller
+class SigninController extends BaseController
 {
-    private $UserModel;
-    private $session;
-    public function __construct()
-    {
-        $this->UserModel = new UserModel();
-        $this->session = session();
-    }
+
+    
     public function index()
     {
         helper(['form']);
@@ -20,9 +15,12 @@ class SigninController extends Controller
   
     public function loginAuth()
     {
+        $thePost = scriptSaves($this->request->getPost());
+        var_dump($UserModel);
+        die();
         //data uit de form halen
-        $Mail = $this->request->getVar('Mail');
-        $Password = $this->request->getVar('Password');
+        $Mail = $thePost["Mail"];
+        $Password = $thePost["Password"];
         //kijken of de mail bestaat in de database
         $data = $this->UserModel->where('Mail', $Mail)->first();
         
