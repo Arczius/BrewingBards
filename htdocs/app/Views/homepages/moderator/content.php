@@ -57,4 +57,5 @@ helper('classLengthReader');
         ?>
     </div>
     <a href="<?php echo base_url(); ?>/Mod/ClassCreate" class="btn_default">Klas toevoegen</a>
+    <a href="<?php echo base_url(); ?>/Mod/ViewArchivedStudents">Gearchiveerde Studenten</a>
 </div>
