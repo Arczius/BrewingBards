@@ -28,8 +28,8 @@
                 <?php endif;?>
                 <form class="form--main" action="<?php echo base_url(); ?>/SigninController/loginAuth" method="post">
                     <div class="form-group mb-3">
-                        <input type="email" name="Mail" placeholder="Email" class="form-control" >
-                    </div>
+                        <input type="email" name="Mail" placeholder="Email" class="form-control" value=<?php echo $_COOKIE["Mail"] ?> >
+                    </div> 
                     <div class="form-group mb-3">
                         <input type="password" name="Password" placeholder="Password" class="form-control" >
                     </div>

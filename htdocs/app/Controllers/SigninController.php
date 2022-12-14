@@ -11,10 +11,12 @@ class SigninController extends Controller
     {
         $this->UserModel = new UserModel();
         $this->session = session();
+        helper("rememberUser", "permLevelCheck");
     }
     public function index()
     {
-        helper(['form']);
+        helper('form');
+        helper('cookie');
         echo view('signin');
     } 
   
@@ -72,6 +74,9 @@ class SigninController extends Controller
 
     public function logout()
     {
+        $usermail = rememberUser()["Mail"];
+
+        setcookie("Mail", $usermail, time() + 1209600000, '/');
         $this->session->destroy();
         return redirect()->to(base_url());
     }
