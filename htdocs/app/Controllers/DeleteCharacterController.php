@@ -14,7 +14,7 @@ class DeleteCharacterController extends BaseController{
     public function DeleteCharacter($deleteID){
         $characterModel = new \App\Models\getCharacters;
 
-        $character = $characterModel->where("CharacterID", $characterID)->first();
+        $character = $characterModel->where("CharacterID", $deleteID)->first();
 
         $characterModel->replace(["CharacterId" => $deleteID, "UserId" => rememberUser()["ID"]
         , "CharacterName" => $character["CharacterName"],

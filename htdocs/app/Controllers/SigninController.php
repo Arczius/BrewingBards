@@ -22,8 +22,7 @@ class SigninController extends Controller
   
     public function loginAuth()
     {
-        var_dump($this->request->getVar('Mail'));
-        die();
+
         //data uit de form halen
         $Mail = $this->request->getVar('Mail');
         $Password = $this->request->getVar('Password');
