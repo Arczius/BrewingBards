@@ -85,7 +85,7 @@ class UserController extends BaseController
 
     public function CharacterViewPage(){
         
-        $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->orderBy('CharacterActivity', 'desc')->findall();
+        $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->where("Archive" , 0)->orderBy('CharacterActivity', 'desc')->findall();
         
         
         $dndClasses = $this->getDnDClassesModel->findall();
