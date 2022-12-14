@@ -35,7 +35,7 @@
                 <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
-            <a href="" class="ico-h2 alt-dark tooltip">
+            <a href="./DeleteCharacter/<?php echo $character["CharacterId"]; ?>" class="ico-h2 alt-dark tooltip">
                 <i class='bx bxs-trash'></i>
                 <span class="tooltiptext">Verwijderen</span>
             </a>
@@ -86,7 +86,7 @@
                 <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
-            <a href="" class="ico-h2 tooltip">
+            <a href="./DeleteCharacter/<?php echo $character["CharacterId"]; ?>" class="ico-h2 tooltip">
                 <i class='bx bxs-trash'></i>
                 <span class="tooltiptext">Verwijderen</span>
             </a>
