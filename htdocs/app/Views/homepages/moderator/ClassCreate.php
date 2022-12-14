@@ -7,6 +7,10 @@
         <div>
             <input type="text" class="form-control" name="className" placeholder="Voer een naam in">
 
+            <input type = "hidden" name="TeacherName" value=<?php echo $user['SchoolUserName']; ?>>
+
+
+
         </div>
 
         <div>
