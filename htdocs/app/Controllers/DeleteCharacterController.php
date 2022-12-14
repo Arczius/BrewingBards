@@ -12,8 +12,18 @@ class DeleteCharacterController extends BaseController{
 
     
     public function DeleteCharacter($deleteID){
-        var_dump($deleteID);
-        $this->getCharactersModel->where("CharacterID", $deleteID)->delete();
+        $characterModel = new \App\Models\getCharacters;
+
+        $character = $characterModel->where("CharacterID", $characterID)->first();
+
+        $characterModel->replace(["CharacterId" => $deleteID, "UserId" => rememberUser()["ID"]
+        , "CharacterName" => $character["CharacterName"],
+         "CharacterRace" => $character["CharacterRace"], 
+         "CharacterClass" =>  $character["CharacterClass"],
+          "CharacterActivity" => $character["CharacterActivity"],
+        "Archive" => true,
+        ]);
+
         return redirect()->back();
         }
 }
