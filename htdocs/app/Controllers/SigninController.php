@@ -2,11 +2,13 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 
-  
-class SigninController extends BaseController
-{
+class SigninController extends BaseController{
+    private $session;
 
-    
+    public function __construct()
+    {
+        $this->session = session();
+    }
     public function index()
     {
         helper(['form']);
@@ -16,14 +18,16 @@ class SigninController extends BaseController
     public function loginAuth()
     {
         $thePost = scriptSaves($this->request->getPost());
-        var_dump($UserModel);
-        die();
+
+
         //data uit de form halen
-        $Mail = $thePost["Mail"];
-        $Password = $thePost["Password"];
+        $Mail = $thePost['Mail'];
+        $Password = $thePost['Password'];
+
+
         //kijken of de mail bestaat in de database
         $data = $this->UserModel->where('Mail', $Mail)->first();
-        
+
         if($data){
             //wachtwoord van database naar een standaard var sturen
             $pass = $data['Password'];
