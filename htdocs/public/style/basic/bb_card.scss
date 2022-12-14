@@ -1,0 +1,36 @@
+.char-card {
+  &__header {
+    h1 {
+      line-height: 1;
+    }
+  }
+
+  &__icons {
+    padding-top: 15px;
+    a, span {
+      margin-right: 0 15px;
+      .alert-icon {
+        position: absolute;
+        font-size: 18px;
+        right: -5px;
+        top: 35px;
+        background: white;
+        height: 18px;
+        width: 18px;
+        border-radius: 100%;
+        &--red{
+            @extend .alert-icon;
+            color: $color_main;
+        }
+        &--yellow{
+            @extend .alert-icon;
+            color: $color_accent;
+        }
+        &--green{
+            @extend .alert-icon;
+            color: $color_succes;
+        }
+      }
+    }
+  }
+}

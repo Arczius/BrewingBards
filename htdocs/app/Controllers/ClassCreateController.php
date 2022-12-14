@@ -3,23 +3,29 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 
 use App\Models\getClasses;
-  
+use App\Models\UserModel;
+use App\Models\getClassesModerators;
 class ClassCreateController extends Controller
 {
     private $ClassesModel;
+    private $UserModel;
+    private $ClassesModerators;
 
     public function __construct(){
         helper("rememberUser");
         $this->ClassesModel = new getClasses();
+        $this->UserModel = new UserModel();
+        $this->ClassesModerators = new getClassesModerators();
     }
 
     public function index()
     {
-
+        $teachers = $this->UserModel->Where("PermissionLevel","2")->findAll();
         $data = [
             'title' => "Klas aanmaken",
             'footerClass' => "block--dark",
             'user' => rememberUser(),
+            'teachers' => $teachers
         ];
 
         $base_view_dir = "homepages/moderator";
@@ -38,15 +44,21 @@ class ClassCreateController extends Controller
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
 
-        echo view("$base_view_dir/ClassCreate");
+        echo view("$base_view_dir/ClassCreate", );
 
+        $data["teachers"];
         $data;
     }
     public function CreateClass()
     {
         $text = $this->request->getVar('className');
-        
+        $teacher = $this->request->getvar('TeacherName');
         $this->ClassesModel->insert(["Name"=>$text]);
+
+        $newclass = $this->ClassesModel->Where("Name","$text")->first();
+        $this->ClassesModerators->insert(['ClassID' => $newclass['ID'], "ModeratorName"=>$teacher]);
+       
+        
 
         return redirect()->to('/profile');
     }

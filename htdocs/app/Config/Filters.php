@@ -24,6 +24,9 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'loginFilter'   => \App\Filters\LoginFilter::class,
+        'adminCheckFilter' => \App\Filters\adminCheckFilter::class,
+        'modCheckFilter'   => \App\Filters\modCheckFilter::class,
+        'userCheckFilter'  => \App\Filters\userCheckFilter::class,
     ];
 
     /**
@@ -37,7 +40,14 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
-            'loginFilter' => ['except' => ['/', 'SigninController/loginAuth']]
+            'loginFilter' => ['except' => [
+            '/', 
+            'SigninController/loginAuth',
+            '/ForgotPasswordController/index',
+            '/ForgotPasswordController/sendForgotPasswordNotificationMail',
+            '/ForgotPasswordController/ForgotPasswordPage/*',
+            '/ForgotPasswordController/forgotChangePassword',
+            ]]
         ],
         'after' => [
             'toolbar',
@@ -70,5 +80,5 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = ['adminCheckFilter' => ['before' => ['Admin/*']], 'modCheckFilter' => ['before' => ['Mod/*']], 'userCheckFilter' => ['before' => ['User/*']]];
 }

@@ -1,7 +1,9 @@
-<div class="block--accent">
+<div class="block">
     <h3>Naar welke klas zou <?php echo "'".$student["Name"]?> ' moeten gaan</h3>
     <br>
-    <form class="form--accent form--rounded" action="<?php echo base_url(); ?>/SwitchClassController/SwitchStudent" method="post" class="form--accent form--rounded">
+
+    <form class="form--accent form--rounded" action="<?php echo base_url(); ?>/Mod/SwitchClassController/SwitchStudent" method="post" class="form--accent form--rounded">
+
         <div>
             <input type="hidden" class="form-control" name="StudentID" value="<?php echo $student["ID"] ?>">
         </div>
