@@ -5,7 +5,6 @@ use CodeIgniter\Controller;
 use App\Models\getClasses;
 use App\Models\getStudents;
 use App\Models\getUsersClasses;
-use App\Models\getClassesModerators;
   
 class DeleteClassController extends Controller
 {
@@ -19,7 +18,6 @@ class DeleteClassController extends Controller
         $this->ClassesModel = new getClasses();
         $this->StudentModel = new getStudents();
         $this->ClassStudentModel = new getUsersClasses();
-        $this->ClassesModerators = new getClassesModerators();
     }
 
     public function Delete($id)
@@ -34,7 +32,7 @@ class DeleteClassController extends Controller
             $this->ClassStudentModel->where("UserID",$student["UserID"])->delete();
         }
         $this->ClassesModel->where("id",$id)->delete();
-        $this->ClassesModerators->where("ClassID",$id)->delete();
+
         return redirect()->to('/profile');
         
     }

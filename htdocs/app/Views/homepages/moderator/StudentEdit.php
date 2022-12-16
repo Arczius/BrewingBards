@@ -1,13 +1,10 @@
-<div class="block">
+<div class="block--accent">
     <h3>Voeg student toe</h3>
     <br>
-
-    <form action="<?php echo base_url(); ?>/Mod/StudentEditController/UpdateUser" method="post" class="form--accent form--rounded">
-
+    <form action="<?php echo base_url(); ?>/StudentEditController/UpdatenUsers" method="post" class="form--accent form--rounded">
         <div>
             <input type="text" name="name" value="<?php echo $HoldID["Name"] ?>"></input>
         </div>
-        <br>
         <div>
             <input type="text" name="schoolUserName" value="<?php echo $HoldID["SchoolUserName"] ?>"></input>
         </div>

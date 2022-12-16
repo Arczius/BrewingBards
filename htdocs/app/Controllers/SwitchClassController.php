@@ -26,7 +26,7 @@ class SwitchClassController extends Controller
     public function index($id)
     {
         $getClassFromUserClass = $this->getClassUserModel->where("UserID",$id)->first();
-
+        permLevelCheck(rememberUser(), 2);
         $data = [
             'title' => "Student aanmaken",
             'footerClass' => "block--dark",
@@ -70,7 +70,7 @@ class SwitchClassController extends Controller
         
         $this->getClassUserModel->replace($data);
 
-        return redirect()->to( base_url().'/Mod/classes/'.$holdForLink);
+        return redirect()->to( base_url().'/classes/'.$holdForLink);
     }
 
     public function Back(){

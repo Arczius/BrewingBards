@@ -3,9 +3,7 @@
 //\\//\\//\\//\\
 
 @import "bb_typo";
-@import "bb_card";
-@import "bb_switch";
-@import "bb_modal";
+
 ///root
 * {
   margin: 0;
@@ -15,7 +13,7 @@
 
 body {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
   padding-bottom: 50px;
 }
 
@@ -26,13 +24,14 @@ body {
   }
 }
 
-.margin-bottom{
-  margin-bottom: 25px;
-}
 
-.half-block {
+.half-block{
   width: 50%;
   display: inline-block;
+}
+
+.allign-right{
+  text-align: right;
 }
 
 .float-right {
@@ -41,6 +40,10 @@ body {
 
 .linebox {
   display: inline-block;
+}
+
+i.bx {
+  color: inherit;
 }
 
 .centered {
@@ -55,9 +58,9 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: 0.3s;
-    width: 140px;
+    width: 130px;
     background-color: $color_second;
-    color: white;
+    color: $color_accent;
     text-align: center;
     border-radius: 5px;
     padding: 5px;
@@ -65,7 +68,7 @@ body {
     z-index: 1;
     bottom: calc(100% + 5px);
     left: 50%;
-    margin-left: -70px;
+    margin-left: -60px;
     &::after {
       content: " ";
       position: absolute;
@@ -77,22 +80,11 @@ body {
       border-color: $color_second transparent transparent transparent;
     }
   }
-  .tooltiptext--bottom {
-    @extend .tooltiptext;
-    bottom: unset;
-    top: calc(100% + 5px);
-    &::after {
-      top: unset;
-      bottom: 100%;
-      border-color: transparent transparent $color_second transparent;
-    }
-  }
-
-  &:hover .tooltiptext,
-  &hover .tooltiptext--bottom {
+  &:hover .tooltiptext {
     opacity: 1;
     visibility: visible;
   }
+
 }
 
 ///container
@@ -113,43 +105,15 @@ body {
   @include template_block($color_main, white, $color_accent);
 }
 
-.block--main-info {
-  @include template_block(white, $color_second, $color_info);
-}
-
 .block--info {
   @include template_block($color_info, white, $color_accent);
-}
-
-.block--dark--alt {
-  @include template_block($color_second, white, $color_main);
-}
-
-.block--disabled {
-  @include template_block(white, lighten($color_second, 25%), $color_second);
-}
-
-.block--flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 footer {
   position: absolute;
   bottom: 0;
-  padding: 10px 25px !important;
+  padding: 10px 25px!important;
   width: 100%;
-}
-
-///border
-
-@include template_border("dark", $color_second);
-@include template_border("info", $color_info);
-@include template_border("disabled", lighten($color_second, 25%));
-
-.border--rounded {
-  border-radius: 5px;
 }
 
 ///tables
@@ -162,14 +126,15 @@ footer {
   }
 }
 
-.table--special,
-.table {
+.table--special, .table {
   margin: 0 0 20px 0;
   @include table(rgba($color_second, 0.2), $color_second, $color_main);
   .table__item {
     background: white;
   }
 }
+
+
 
 .table--rounded {
   .table__item {
@@ -213,17 +178,6 @@ footer {
   }
 }
 
-.col-35 {
-  width: calc((100% / 12) * 3.5);
-}
-.col-38 {
-  width: calc((100% / 12) * 3.8);
-}
-
-.col-58 {
-  width: calc((100% / 12) * 5.8);
-}
-
 ///form
 .form--accent {
   @include form($color_accent, $color_second, white);
@@ -245,9 +199,4 @@ footer {
   textarea {
     border-radius: 5px;
   }
-}
-
-
-a.table__item__col.adm-tbl-short{
-  width: 100px;
 }
