@@ -23,13 +23,13 @@ class Home extends BaseController
             //op basis van welke permissionlevel de user heeft wordt hij naar zijn bestemde pagina gestuurd
             switch ($holdUser["PermissionLevel"]){
                 case 1:
-                    return redirect()->to("/User/UserHome");
+                    return redirect()->to("/UserHome");
                     break;
                 case 2:
-                    return redirect()->to("/Mod/ModHome");
+                    return redirect()->to("/ModHome");
                     break;
                 case 3:
-                    return redirect()->to("/Admin/AdminHome");
+                    return redirect()->to("/AdminHome");
                     break; 
                 default:
                     echo "this wasn't supose to happen";

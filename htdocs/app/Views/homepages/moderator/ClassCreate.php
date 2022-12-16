@@ -1,15 +1,9 @@
-<div class="block">
+<div class="block--accent">
     <h3>Nieuwe klas aanmaken</h3>
     <br>
-
-    <form action="<?php echo base_url(); ?>/Mod/ClassCreateController/CreateClass" method="post" class="form--accent form--rounded">
-
+    <form action="<?php echo base_url(); ?>/ClassCreateController/CreateClass" method="post" class="form--accent form--rounded">
         <div>
             <input type="text" class="form-control" name="className" placeholder="Voer een naam in">
-
-            <input type = "hidden" name="TeacherName" value=<?php echo $user['SchoolUserName']; ?>>
-
-
 
         </div>
 

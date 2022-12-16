@@ -23,29 +23,6 @@
       color: $mix_txt;
     }
   }
-  a.rev {
-    color: $mix_txt;
-    transition: 0.5s;
-    &:hover,
-    &:active {
-      color: $mix_accent;
-    }
-  }
-  a.alt-dark {
-    color: $mix_txt;
-    &:hover,
-    &:active {
-      color: darken($mix_accent, 10%);
-    }
-  }
-
-  a.dark {
-    color: darken($mix_accent, 10%);
-    &:hover,
-    &:active {
-      color: $mix_txt;
-    }
-  }
   .btn_default {
     padding: 5px 10px;
     display: inline-block;
@@ -144,24 +121,5 @@
   textarea {
     resize: vertical;
     min-height: 200px;
-  }
-}
-
-///borders
-@mixin template_border($mix_name: "main", $mix_color: $color_second) {
-  .border--#{$mix_name}{
-    border: solid $mix_color;
-  }
-  .border-top--#{$mix_name}{
-    border-top: solid $mix_color;
-  }
-  .border-bottom--#{$mix_name}{
-    border-bottom: solid $mix_color;
-  }
-  .border-left--#{$mix_name}{
-    border-left: solid $mix_color;
-  }
-  .border-right--#{$mix_name}{
-    border-right: solid $mix_color;
   }
 }

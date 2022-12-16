@@ -41,12 +41,6 @@ class Users extends Migration
                 'type' => 'INT',
                 'constraint' => '11',
             ],
-            'Archive' => [
-                'type' => 'BOOLEAN',
-            ],
-            'TimeLastLoggedIn' => [
-                'type' => 'DATETIME',
-            ],
         ]);
 
         $this->forge->addKey('ID', true, true);

@@ -5,7 +5,7 @@ use App\Models\getUserLogin;
 use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
   
-class vAddSingleStudentController extends Controller
+class AddSingleStudentController extends Controller
 {
 
     private $UserModel;
@@ -49,7 +49,7 @@ class vAddSingleStudentController extends Controller
     }
     public function CreateUser()
     {
-
+        permLevelCheck(rememberUser(), 2);
 
         //data ophalen uit de forms
         $name = $this->request->getVar('Name');
@@ -75,7 +75,7 @@ class vAddSingleStudentController extends Controller
         }
         else{
             //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
-            echo $name." bestaat al en is daarvoor niet aangemaakt<br>";
+            echo $data["0"]." bestaat al en is daarvoor niet aangemaakt<br>";
             
         echo "<a href='./back'>terug naar pagina</a>";
         }
