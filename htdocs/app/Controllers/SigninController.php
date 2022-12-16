@@ -23,6 +23,7 @@ class SigninController extends Controller
     public function loginAuth()
     {
 
+
         //data uit de form halen
         $Mail = $this->request->getVar('Mail');
         $Password = $this->request->getVar('Password');
@@ -77,7 +78,7 @@ class SigninController extends Controller
     {
         $usermail = rememberUser()["Mail"];
 
-        setcookie("Mail", $usermail, time() + 1209600000, '/');
+        setcookie("email", $usermail, time() + 1209600000, '/');
         $this->session->destroy();
         return redirect()->to(base_url());
     }
