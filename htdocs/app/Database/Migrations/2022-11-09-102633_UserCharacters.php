@@ -33,8 +33,12 @@ class UserCharacters extends Migration
             ],
             'CharacterActivity' => [
             'type' => 'BOOLEAN',
-            
+            ],
+            'Archive' => [
+            'type' => 'BOOLEAN',
+        
         ],
+            
         ]);
 
         $this->forge->addKey('CharacterId', true, true);

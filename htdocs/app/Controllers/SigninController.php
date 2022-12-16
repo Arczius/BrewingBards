@@ -22,7 +22,7 @@ class SigninController extends Controller
   
     public function loginAuth()
     {
-        var_dump($this->request->getPost());
+
 
         //data uit de form halen
         $Mail = $this->request->getVar('Mail');
