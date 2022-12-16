@@ -57,7 +57,9 @@ $routes->get('/User/UserHome','UserController::index');
 
 $routes->get('/Mod/StudentCreate/(:alphanum)', 'AllStudentCRUDFeatureController::indexStudentCreate/$1');
 $routes->get('/Mod/ClassCreate', 'ClassCreateController::index');
+$routes->get('/Mod/ViewArchivedStudents', 'ViewArchivedStudentsController::index');
 $routes->get('/Mod/Archive/(:alphanum)', 'AllStudentCRUDFeatureController::ArchiveStudent/$1');
+$routes->get('/Mod/DeArchive/(:alphanum)', 'AllStudentCRUDFeatureController::DeArchiveStudent/$1');
 $routes->match(['get', 'post'], '/Mod/StudentCreateController/CreateUsers', 'AllStudentCRUDFeatureController::CreateUsers');
 $routes->match(['get', 'post'], '/Mod/ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
 
