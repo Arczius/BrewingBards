@@ -1,20 +1,9 @@
 <?php 
 namespace App\Controllers;
-
-use App\Models\getClasses;
-use App\Models\getClassesModerators;
 use CodeIgniter\Controller;
   
-class ModController extends Controller
+class ModController extends BaseController
 {
-    private $ClassesModel;
-    private $ClassesModerators;
-    public function __construct(){
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->ClassesModel = new getClasses();
-        $this->ClassesModerators = new getClassesModerators();
-    }
 
     public function index()
     {

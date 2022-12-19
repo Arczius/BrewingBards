@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
-
 use CodeIgniter\Controller;
 
 class SocialCustomController extends Controller {

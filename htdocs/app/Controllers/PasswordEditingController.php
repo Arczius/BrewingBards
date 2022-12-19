@@ -1,17 +1,12 @@
 <?php
 namespace App\Controllers;
-
-use App\Models\getUserLogin;
 use CodeIgniter\Controller;
 
-class PasswordEditingController extends Controller{
-    private $UserLoginModel;
+class PasswordEditingController extends BaseController{
     private $errorMessages;
     public function __construct()
     {
         helper("randomPasswordGen");
-        helper("rememberUser");
-        $this->UserLoginModel = new getUserLogin();
         $this->errorMessages = [" "," "," "];
     }
 

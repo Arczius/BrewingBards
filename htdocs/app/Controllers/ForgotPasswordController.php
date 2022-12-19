@@ -1,23 +1,13 @@
-<?php 
+<?php
+
 namespace App\Controllers;  
-use App\Models\getClasses;
 use CodeIgniter\Controller;
-use ForgotPasswordMail;
-use App\Models\getUserLogin;
-use App\Models\getMailingTemplates;
-use App\Models\getRequestPasswordChanges;
+
   
-class ForgotPasswordController extends Controller
-{
-    private $UserModel;
-    private $MailingTemplates;
-    private $RequestPasswordChangesModel;
-    public function __construct()
-    {
+class ForgotPasswordController extends BaseController{
+
+    public function __construct(){
         helper("randomPasswordGen");
-        $this->MailingTemplates = new getMailingTemplates();
-        $this->UserModel = new getUserLogin();
-        $this->RequestPasswordChangesModel = new getRequestPasswordChanges();
         helper("ForgotPasswordMail");
     }
     public function index()

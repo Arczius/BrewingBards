@@ -1,26 +1,9 @@
 <?php
 
-namespace App\Controllers;
-use App\Models\getUsersClasses;
-use App\Models\getStudents;
-use App\Models\getClasses;
-use App\Models\getCharacters;
+namespace App\Controllers;  
+use CodeIgniter\Controller;
 
 class CreateCharacterController extends BaseController{
-    private $ClassesModel;
-    private $StudentModel;
-    private $ClassStudentModel;
-    private $getCharactersModel;
-
-    public function __construct(){
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->UsersClassesModel = new getUsersClasses();
-        $this->StudentModel = new getStudents();
-        $this->ClassModel = new getClasses();
-        $this->getCharactersModel = new getCharacters();
-    }
-
     
     public function CreateCharacter()
     {

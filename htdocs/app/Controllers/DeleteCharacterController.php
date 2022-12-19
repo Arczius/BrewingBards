@@ -1,15 +1,9 @@
 <?php
 
-namespace App\Controllers;
-use App\Models\getCharacters;
+namespace App\Controllers;  
+use CodeIgniter\Controller;
 
 class DeleteCharacterController extends BaseController{
-    private $getCharactersModel;
-
-    public function __construct(){
-        $this->getCharactersModel = new getCharacters();
-    }
-
     
     public function DeleteCharacter($deleteID){
         var_dump($deleteID);

@@ -1,28 +1,12 @@
 <?php 
 namespace App\Controllers;
-
-use App\Models\getUserLogin;
-use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
 use NewUserPasswordMail;
-use App\Models\getMailingTemplates;
 
-class AllStudentCRUDFeatureController extends Controller
+
+class AllStudentCRUDFeatureController extends BaseController
 {
 
-    private $UserModel;
-    private $UsersClassesModel;
-    private $MailingTemplates;
-
-    public function __construct(){
-        helper("randomPasswordGen");
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->UserModel = new getUserLogin();
-        $this->UsersClassesModel = new getUsersClasses();
-        $this->MailingTemplates = new getMailingTemplates();
-    }
-    
     // All Index Pages
     // Student Update Form View Builder
     public function indexUpdateUsers($id)
@@ -118,6 +102,8 @@ class AllStudentCRUDFeatureController extends Controller
             $this->UsersClassesModel->insert(["ClassID"=>$class,"UserID"=>$Student["ID"]]);
 
             $TemplateData = $this->MailingTemplates->where('mailingID', 1)->first();
+            var_dump($TemplateData);
+
             $MailContent = $TemplateData['content'];
             $search = array('{USERNAME}', '{MAIL}', '{PASSWORD}');
             $replace = array($name,  $mail, $genPassword);

@@ -1,34 +1,15 @@
 <?php 
 namespace App\Controllers;  
 use CodeIgniter\Controller;
-
-use App\Models\getClasses;
-use App\Models\getStudents;
-use App\Models\getUsersClasses;
-use App\Models\getClassesModerators;
   
-class DeleteClassController extends Controller
+class DeleteClassController extends BaseController
 {
-    private $ClassesModel;
-    private $StudentModel;
-    private $ClassStudentModel;
-
-    public function __construct(){
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->ClassesModel = new getClasses();
-        $this->StudentModel = new getStudents();
-        $this->ClassStudentModel = new getUsersClasses();
-        $this->ClassesModerators = new getClassesModerators();
-    }
-
     public function Delete($id)
     {
         permLevelCheck(rememberUser(), 2);
         
-        $getClassStudents = $this->ClassStudentModel->where("ClassID",$id)->findall();
+        $getClassStudents = $this->UsersClassesModel->where("ClassID",$id)->findall();
 
-        $Students = [];
         foreach($getClassStudents as $student){
             $this->StudentModel->where("id",$student["UserID"])->delete();
             $this->ClassStudentModel->where("UserID",$student["UserID"])->delete();

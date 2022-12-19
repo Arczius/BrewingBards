@@ -1,24 +1,10 @@
 <?php 
-namespace App\Controllers;  
-
-use App\Models\getCharacters;
-use App\Models\getDnDClasses;
-use App\Models\getDnDRaces;
+namespace App\Controllers;
+use CodeIgniter\Controller;
   
 class UserController extends BaseController
 {
-    private $getCharactersModel;
-    private $getDnDClassesModel;
-    private $getDnDRacesModel;
 
-    public function __construct()
-    {
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->getCharactersModel = new getCharacters();
-        $this->getDnDClassesModel = new getDnDClasses();
-        $this->getDnDRacesModel = new getDnDRaces();
-    }
     public function index()
     {
         

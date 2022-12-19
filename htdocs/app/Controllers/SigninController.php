@@ -25,6 +25,7 @@ class SigninController extends BaseController{
         $Password = $thePost['Password'];
 
 
+
         //kijken of de mail bestaat in de database
         $data = $this->UserModel->where('Mail', $Mail)->first();
 

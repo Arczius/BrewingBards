@@ -1,27 +1,11 @@
 <?php 
 namespace App\Controllers;
 
-use App\Models\getStudents;
-use App\Models\getClasses;
-use App\Models\getUsersClasses;
+
 use CodeIgniter\Controller;
   
-class SwitchClassController extends Controller
+class SwitchClassController extends BaseController
 {
-
-    private $getUserModel;
-    private $getClassModel;
-    private $getClassUserModel;
-   
-
-    public function __construct(){
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->getUserModel = new getStudents();
-        $this->getClassModel = new getClasses();
-        $this->getClassUserModel = new getUsersClasses();
-    }
-    
 
     public function index($id)
     {

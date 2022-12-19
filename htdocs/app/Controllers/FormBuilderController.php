@@ -1,24 +1,11 @@
 <?php
 
-namespace App\Controllers;
-
-// use App\Models\getLearningPaths;
-use App\Models\getStudyPaths;
+namespace App\Controllers;  
 use CodeIgniter\Controller;
-use App\Models\getQuestion;
 
 class FormBuilderController extends Controller
 {
     private $base_view_dir = "form_builder";
-    private $StudyPathsModel;
-    private $QuestionModel;
-    public function __construct()
-    {
-        $this->StudyPathsModel = new getStudyPaths();
-        $this->QuestionModel = new getQuestion();
-
-        helper("RememberUser");
-    }
 
     public function index(){
         $data = [

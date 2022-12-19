@@ -1,28 +1,11 @@
 <?php 
 namespace App\Controllers;
-
-use App\Models\getUserLogin;
 use CodeIgniter\Controller;
-use App\Models\getMailingTemplates;
-
-
   
-class AdminController extends Controller
+class AdminController extends BaseController
 {
-    private $UsersModel;
+
     private $BaseAdminViewDirectory = "homepages/admin";
-    private $MailingTemplates;
-
-
-    public function __construct()
-    {
-        helper("randomPasswordGen");
-        helper("rememberUser");
-        helper("permLevelCheck");
-
-        $this->UsersModel = new getUserLogin();
-        $this->MailingTemplates = new getMailingTemplates();
-    }
 
     public function index()
     {
@@ -31,7 +14,7 @@ class AdminController extends Controller
             'footerClass' => "block--main",
             'user' => rememberUser(),
             //finding all users with the moderator permission level
-            'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
+            'moderators' => $this->UserModel->where('PermissionLevel', 2)->findAll(),
         ];
 
         echo view("basic/head", $data);
@@ -59,7 +42,7 @@ class AdminController extends Controller
             'footerClass' => "block--main",
             'user' => rememberUser(),
             //finding all users with the moderator permission level
-            'moderators' => $this->UsersModel->where('PermissionLevel', 2)->findAll(),
+            'moderators' => $this->UserModel->where('PermissionLevel', 2)->findAll(),
         ];
 
         echo view("basic/head", $data);
@@ -95,14 +78,14 @@ class AdminController extends Controller
             $data["SchoolUserName"] = $this->request->getPost("Afkorting");
         }
 
-        $this->UsersModel->insert($data);
+        $this->UserModel->insert($data);
 
         return redirect()->to("/Admin/AdminHome");
     }
 
     public function deleteModerator($id){
         permLevelCheck(rememberUser(), 3);
-        $this->UsersModel->where('id', $id)->delete();
+        $this->UserModel->where('id', $id)->delete();
         return redirect()->to(base_url() . "/profile");
     }
 
@@ -111,7 +94,7 @@ class AdminController extends Controller
             'title' => "Home - Administrator",
             'footerClass' => "block--main",
             'user' => rememberUser(),
-            'moderator' => $this->UsersModel->where('id',$id)->first(),
+            'moderator' => $this->UserModel->where('id',$id)->first(),
         ];
 
         echo view("basic/head", $data);
@@ -135,7 +118,7 @@ class AdminController extends Controller
         $userID = $this->request->getVar('ID');
         $SchoolUserName = $this->request->getVar('SchoolUserName');
 
-        $holdUser = $this->UsersModel->where("ID",$userID)->first();
+        $holdUser = $this->UserModel->where("ID",$userID)->first();
 
         
         $data = array(
@@ -151,7 +134,7 @@ class AdminController extends Controller
             $data['SchoolUserName'] = $SchoolUserName;
         }
         
-        $this->UsersModel->replace($data);
+        $this->UserModel->replace($data);
 
 
         return redirect()->to("/Admin/AdminHome");

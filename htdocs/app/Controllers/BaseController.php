@@ -36,7 +36,7 @@ abstract class BaseController extends Controller
      * @var array
      */
     protected $helpers = ["form", "auth"];
-
+    protected $UserModel;
     /**
      * Constructor.
      */
@@ -45,9 +45,36 @@ abstract class BaseController extends Controller
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
-        helper(["rememberUser", "permLevelCheck", "scriptSaves"]);
+        helper(["rememberUser", "permLevelCheck", "scriptSaves", "randomPasswordGen"]);
         // Preload any models, libraries, etc, here.
+
         $this->UserModel = new \App\Models\UserModel;
+        // Model for users.
+        $this->ClassesModel = new \App\Models\getClasses;
+        // Model for MailingTemplates
+        $this->ClassesModerators = new \App\Models\getClassesModerators;
+        // Model for 
+        $this->UsersClassesModel = new \App\Models\getUsersClasses;
+        // Model for 
+        $this->StudentModel = new \App\Models\getStudents;
+        // Model for 
+        $this->getCharactersModel = new \App\Models\getCharacters;
+        // Model for 
+        $this->UserModel = new \App\Models\getUserLogin;
+        // Model for 
+        $this->MailingTemplates = new \App\Models\getMailingTemplates;
+        // Model for 
+        $this->RequestPasswordChangesModel = new \App\Models\getRequestPasswordChanges;
+        // Model for 
+        $this->StudyPathsModel = new \App\Models\getStudyPaths;
+        // Model for 
+        $this->QuestionModel = new \App\Models\getQuestion;
+        // Model for 
+        $this->getDnDClassesModel = new \App\Models\getDnDClasses;
+        // Model for 
+        $this->getDnDRacesModel = new \App\Models\getDnDRaces;
+        // Model for 
+
         // E.g.: $this->session = \Config\Services::session();
     }
 }

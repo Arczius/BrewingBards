@@ -1,20 +1,12 @@
 <?php 
-namespace App\Controllers;  
+namespace App\Controllers;
 use CodeIgniter\Controller;
-use App\Models\UserModel;
   
-class ChangePasswordController extends Controller
+class ChangePasswordController extends BaseController
 {
-    private $UserModel;
-    private $session;
-    public function __construct()
-    {
-        $this->UserModel = new UserModel();
-        $this->session = session();
-        helper("rememberUser");
-    }
-    public function index()
-    {
+
+    public function index(){
+
         $data = [
             'title' => "Wachtwoord veranderen",
             'footerClass' => "block--dark",

@@ -1,35 +1,20 @@
 <?php
 
-namespace App\Controllers;
-use App\Models\getUsersClasses;
-use App\Models\getStudents;
-use App\Models\getClasses;
+namespace App\Controllers;  
+use CodeIgniter\Controller;
 
-class ClassViewController extends BaseController
-{
-    private $UsersClassesModel;
-    private $StudentModel;
-    private $ClassModel;
-
-    public function __construct(){
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->UsersClassesModel = new getUsersClasses();
-        $this->StudentModel = new getStudents();
-        $this->ClassModel = new getClasses();
-    }
+class ClassViewController extends BaseController{
 
     public function index($id)
     {
         permLevelCheck(rememberUser(), 2);
-        
         $holdArray = [];
         $AllStudents = $this->UsersClassesModel->where("ClassID",$id)->findall();
         foreach($AllStudents as $SingleStudent){
             $Student = $this->StudentModel->where("ID",$SingleStudent["UserID"])->first();
             array_push($holdArray, $Student);
         }
-        $ClassName = $this->ClassModel->where("ID", $id)->first();
+        $ClassName = $this->ClassesModel->where("ID", $id)->first();
         $data = [
             'title' => "klassen Overzicht - Docent",
             'footerClass' => "block--dark",

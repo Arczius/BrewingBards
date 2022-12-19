@@ -2,21 +2,8 @@
 namespace App\Controllers;  
 use CodeIgniter\Controller;
 
-use App\Models\getClasses;
-use App\Models\UserModel;
-use App\Models\getClassesModerators;
-class ClassCreateController extends Controller
+class ClassCreateController extends BaseController
 {
-    private $ClassesModel;
-    private $UserModel;
-    private $ClassesModerators;
-
-    public function __construct(){
-        helper("rememberUser");
-        $this->ClassesModel = new getClasses();
-        $this->UserModel = new UserModel();
-        $this->ClassesModerators = new getClassesModerators();
-    }
 
     public function index()
     {

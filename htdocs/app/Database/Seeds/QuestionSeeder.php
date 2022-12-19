@@ -2,6 +2,7 @@
 
 namespace App\Database\Seeds;
 
+use App\Models\getStudyPaths;
 use CodeIgniter\Database\Seeder;
 
 class QuestionSeeder extends Seeder
@@ -19,7 +20,7 @@ class QuestionSeeder extends Seeder
         ];
 
         foreach($data as $question){
-            $this->db->query("INSERT INTO question (type, title, description, required) VALUES ('$question')");
+            $this->LearningPathModel->insert($question);
         }
     }
 }

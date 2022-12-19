@@ -3,17 +3,8 @@
 namespace App\Controllers;
 use CodeIgniter\Controller;
 
-use App\Models\getClasses;
-
 class UpdateClassController extends BaseController{
-    private $ClassesModel;
 
-    public function __construct()
-    {
-        helper("rememberUser");
-        helper("permLevelCheck");
-        $this->ClassesModel = new getClasses();
-    }
     public function index($id){
         $holdClass = $this->ClassesModel->where("ID",$id)->first();
         permLevelCheck(rememberUser(), 2);

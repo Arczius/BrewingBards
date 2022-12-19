@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers;  
+use CodeIgniter\Controller;
 
 class Home extends BaseController
 {
-
-    public function __construct(){
-        helper("rememberUser");
-    }
 
     public function index()
     {
         return view('singin');
     }
+
     public function homepage()
     {
         //session van de ingelogde persoon wordt opgehaalt
