@@ -6,7 +6,7 @@ use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
 use NewUserPasswordMail;
 use App\Models\getMailingTemplates;
-use App\Models\GetModeratorStudentArchive;
+use App\Models\getModeratorStudentArchive;
 
 class AllStudentCRUDFeatureController extends Controller
 {
@@ -23,7 +23,7 @@ class AllStudentCRUDFeatureController extends Controller
         $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
         $this->MailingTemplates = new getMailingTemplates();
-        $this->ModeratorStudentArchiveModel = new GetModeratorStudentArchive();
+        $this->ModeratorStudentArchiveModel = new getModeratorStudentArchive();
     }
     
     // All Index Pages
