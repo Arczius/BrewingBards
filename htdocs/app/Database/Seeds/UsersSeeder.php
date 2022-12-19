@@ -16,6 +16,7 @@ class UsersSeeder extends Seeder
                 'SchoolUserName' => "99061149",
                 // Admin permission level
                 'PermissionLevel' => "3",
+                'Archive' => 0,
             ],
             [
                 'Name' => "Airto Van Vugt",
@@ -24,6 +25,7 @@ class UsersSeeder extends Seeder
                 'SchoolUserName' => "AVV",
                 // Moderator permission level
                 'PermissionLevel' => "2",
+                'Archive' => 0,
             ],
             [
                 'Name' => "Rowin Bodegom",
@@ -32,6 +34,7 @@ class UsersSeeder extends Seeder
                 'SchoolUserName' => "RB",
                 // Moderator permission level
                 'PermissionLevel' => "2",
+                'Archive' => 0,
             ],
             [
                 'Name' => "Joran Schrievers",
@@ -40,6 +43,7 @@ class UsersSeeder extends Seeder
                 'SchoolUserName' => "99062987",
                 // User permission level
                 'PermissionLevel' => "1",
+                'Archive' => 0,
             ],
             [
                 'Name' => "Sven de Ruijter",
@@ -48,6 +52,7 @@ class UsersSeeder extends Seeder
                 'SchoolUserName' => "99063753",
                 // User permission level
                 'PermissionLevel' => "1",
+                'Archive' => 0,
             ],
         ];
 

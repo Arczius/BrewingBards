@@ -11,15 +11,19 @@ class SigninController extends Controller
     {
         $this->UserModel = new UserModel();
         $this->session = session();
+        helper("rememberUser", "permLevelCheck");
     }
     public function index()
     {
-        helper(['form']);
+        helper('form');
+        helper('cookie');
         echo view('signin');
     } 
   
     public function loginAuth()
     {
+
+
         //data uit de form halen
         $Mail = $this->request->getVar('Mail');
         $Password = $this->request->getVar('Password');
@@ -31,16 +35,35 @@ class SigninController extends Controller
             $pass = $data['Password'];
             //kijken op de wachtworden overeen komen
             $authenticatePassword = Password_verify($Password, $pass);
-            if($authenticatePassword == true){
-                //session aanmaken voor de user
-                $ses_data = [
-                    'id' => $data['ID'],
-                    'isLoggedIn' => TRUE,
-                    'permissionLevel' => $data["PermissionLevel"],
-                ];
-                
-                $this->session->set($ses_data);
-                return redirect()->to('/profile');
+            if($authenticatePassword == true){                
+                if(!$data['Archive']){
+                    //session aanmaken voor de user
+                    $ses_data = [
+                        'id' => $data['ID'],
+                        'isLoggedIn' => TRUE,
+                        'permissionLevel' => $data["PermissionLevel"],
+                    ];
+                    date_default_timezone_set('Europe/Amsterdam');
+                    $time = time();
+                    $currentTime = date('Y-m-d H:i:s', $time);
+
+                    $data = array(
+                        'ID' => $data["ID"],
+                        'Name' => $data['Name'],
+                        'Password' => $data['Password'],
+                        'SchoolUserName' => $data['SchoolUserName'],
+                        'Mail' => $data["Mail"],
+                        'PermissionLevel' => $data["PermissionLevel"],
+                        'archive' => false,
+                        "TimeLastLoggedIn" => $currentTime
+                    );
+                    $this->UserModel->replace($data);
+
+                    $this->session->set($ses_data);
+                    return redirect()->to('/profile');
+                }
+                $this->session->setFlashdata('msg', 'Account is Gearchiveerd');
+                return redirect()->to('/');
             }else{
                 $this->session->setFlashdata('msg', 'Password is incorrect.');
                 return redirect()->to('/');
@@ -53,6 +76,9 @@ class SigninController extends Controller
 
     public function logout()
     {
+        $usermail = rememberUser()["Mail"];
+
+        setcookie("email", $usermail, time() + 1209600000, '/');
         $this->session->destroy();
         return redirect()->to(base_url());
     }

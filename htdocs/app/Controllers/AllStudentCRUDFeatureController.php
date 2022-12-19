@@ -6,6 +6,7 @@ use App\Models\getUsersClasses;
 use CodeIgniter\Controller;
 use NewUserPasswordMail;
 use App\Models\getMailingTemplates;
+use App\Models\GetModeratorStudentArchive;
 
 class AllStudentCRUDFeatureController extends Controller
 {
@@ -13,6 +14,7 @@ class AllStudentCRUDFeatureController extends Controller
     private $UserModel;
     private $UsersClassesModel;
     private $MailingTemplates;
+    private $ModeratorStudentArchiveModel;
 
     public function __construct(){
         helper("randomPasswordGen");
@@ -21,6 +23,7 @@ class AllStudentCRUDFeatureController extends Controller
         $this->UserModel = new getUserLogin();
         $this->UsersClassesModel = new getUsersClasses();
         $this->MailingTemplates = new getMailingTemplates();
+        $this->ModeratorStudentArchiveModel = new GetModeratorStudentArchive();
     }
     
     // All Index Pages
@@ -103,8 +106,6 @@ class AllStudentCRUDFeatureController extends Controller
 
         if(!$exist){
 
-
-
             //random wachtwoord maken en encryptie
             $genPassword = randomPasswordGen();
             $password = password_hash($genPassword, PASSWORD_DEFAULT);
@@ -128,14 +129,14 @@ class AllStudentCRUDFeatureController extends Controller
             helper("NewUserPasswordMail");
 
             $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
-            $mailManager->SendPasswordMail($mail, $name, $genPassword, $MailContent);
+            $mailManager->SendPasswordMail($mail, $name, $MailContent);
+            die();
         }
         else{
             //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
             echo $name." bestaat al en is daarvoor niet aangemaakt<br>";
-            
-        echo "<a href='./back'>terug naar pagina</a>";
         }
+        echo "<a href='./back'>terug naar pagina</a>";
     }
 
     // Create Users From List
@@ -212,7 +213,7 @@ class AllStudentCRUDFeatureController extends Controller
 
                 $mailManager = new NewUserPasswordMail("Social Tavern", "damianvaartmans@gmail.com");
 
-                $mailManager->SendPasswordMail($mail, $data["0"], $genPassword, $MailContent);
+                $mailManager->SendPasswordMail($mail, $data["0"], $MailContent);
             }
             else{
                 //voor het geval dat de user niet bestaat krijg je deze regel tezien en wordt deze user geskipped
@@ -246,6 +247,61 @@ class AllStudentCRUDFeatureController extends Controller
         $this->UserModel->replace($data);
 
         $holdClasses = $this->UsersClassesModel->where("UserID",$userID)->first();
+
+        return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
+    }
+
+    public function ArchiveStudent($StudentID){
+
+        $holdMod = rememberUser();
+
+        $holdUser = $this->UserModel->where("ID", $StudentID)->first();
+
+        $dataArchived = array(
+            "ModeratorID" => $holdMod["ID"],
+            "StudentID" => $holdUser["ID"],
+        );
+
+        $this->ModeratorStudentArchiveModel->insert($dataArchived);
+
+        $data = array(
+            'ID' => $holdUser["ID"],
+            'Name' => $holdUser['Name'],
+            'Password' => $holdUser['Password'],
+            'SchoolUserName' => $holdUser['SchoolUserName'],
+            'Mail' => $holdUser["Mail"],
+            'PermissionLevel' => 1,
+            'archive' => true
+        );
+        
+        $this->UserModel->replace($data);
+
+        $holdClasses = $this->UsersClassesModel->where("UserID",$StudentID)->first();
+
+        return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
+    }
+
+    public function DeArchiveStudent($StudentID){
+
+        $holdMod = rememberUser();
+
+        $holdUser = $this->UserModel->where("ID", $StudentID)->first();
+
+        $this->ModeratorStudentArchiveModel->where("ModeratorID", $holdMod["ID"])->where("StudentID", $holdUser["ID"])->Delete();
+
+        $data = array(
+            'ID' => $holdUser["ID"],
+            'Name' => $holdUser['Name'],
+            'Password' => $holdUser['Password'],
+            'SchoolUserName' => $holdUser['SchoolUserName'],
+            'Mail' => $holdUser["Mail"],
+            'PermissionLevel' => 1,
+            'archive' => false
+        );
+        
+        $this->UserModel->replace($data);
+
+        $holdClasses = $this->UsersClassesModel->where("UserID",$StudentID)->first();
 
         return redirect()->to( base_url().'/Mod/classes/'.$holdClasses['ClassID']);
     }

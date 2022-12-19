@@ -40,7 +40,14 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
-            'loginFilter' => ['except' => ['/', 'SigninController/loginAuth']]
+            'loginFilter' => ['except' => [
+            '/', 
+            'SigninController/loginAuth',
+            '/ForgotPasswordController/index',
+            '/ForgotPasswordController/sendForgotPasswordNotificationMail',
+            '/ForgotPasswordController/ForgotPasswordPage/*',
+            '/ForgotPasswordController/forgotChangePassword',
+            ]]
         ],
         'after' => [
             'toolbar',

@@ -45,7 +45,11 @@ $routes->get('/Home', 'Home::homepage');
 $routes->get('/back', 'ProfileController::index');
 $routes->get('/logout', 'SigninController::logout');
 $routes->get("/ChangePassword/(:alphanum)", "PasswordEditingController::index/$1");
+$routes->get("/ForgotPasswordController/index", "ForgotPasswordController::index");
+$routes->match(['get', 'post'], '/ForgotPasswordController/sendForgotPasswordNotificationMail', 'ForgotPasswordController::sendForgotPasswordNotificationMail');
+$routes->match(['get', 'post'], '/ForgotPasswordController/sendForgotPasswordNotificationMail', 'ForgotPasswordController::sendForgotPasswordNotificationMail');
 $routes->match(['get', 'post'], '/PasswordEditingController/changePassword', 'PasswordEditingController::changePassword');
+$routes->get("/ForgotPasswordController/ForgotPasswordPage/(:alphanum)", "ForgotPasswordController::ChangeIndex/$1");
 
 $routes->get('/Admin/AdminHome','AdminController::index');
 $routes->get('/Mod/ModHome', 'ModController::index');
@@ -53,6 +57,9 @@ $routes->get('/User/UserHome','UserController::index');
 
 $routes->get('/Mod/StudentCreate/(:alphanum)', 'AllStudentCRUDFeatureController::indexStudentCreate/$1');
 $routes->get('/Mod/ClassCreate', 'ClassCreateController::index');
+$routes->get('/Mod/ViewArchivedStudents', 'ViewArchivedStudentsController::index');
+$routes->get('/Mod/Archive/(:alphanum)', 'AllStudentCRUDFeatureController::ArchiveStudent/$1');
+$routes->get('/Mod/DeArchive/(:alphanum)', 'AllStudentCRUDFeatureController::DeArchiveStudent/$1');
 $routes->match(['get', 'post'], '/Mod/StudentCreateController/CreateUsers', 'AllStudentCRUDFeatureController::CreateUsers');
 $routes->match(['get', 'post'], '/Mod/ClassCreateController/CreateClass', 'ClassCreateController::CreateClass');
 
@@ -93,16 +100,18 @@ $routes->post('/User/Activity', 'UserController::Activity');
 
 $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharacter');
 
+$routes->get("/User/DeleteCharacter/(:alphanum)", "DeleteCharacterController::DeleteCharacter/$1");
 
 
 
+
+$routes->get("/User/UpdateCharacterViewPage/(:alphanum)", 'UpdateCharacterController::index/$1');
+
+
+$routes->post("/user/UpdateCharacter/(:alphanum)", "UpdateCharacterController::updateCharacter/$1");
 
 
 $routes->get("/User/CharacterViewPage", 'UserController::CharacterViewPage');
-
-
-
-
 
 
 $routes->get('/Mod/ClassesEdit/(:alphanum)', 'UpdateClassController::index/$1');

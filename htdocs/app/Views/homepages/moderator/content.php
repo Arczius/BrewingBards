@@ -11,6 +11,9 @@ helper('classLengthReader');
                 Klasnaam
             </span>
             <span class="table__item__col col-1 link-item tooltip">
+                docent
+            </span>
+            <span class="table__item__col col-1 link-item tooltip">
                 Aantal <i class='bx bx-info-circle'></i>
                 <span class="tooltiptext">Studenten aantal</span>
             </span>
@@ -20,7 +23,6 @@ helper('classLengthReader');
         </div>
 
 
-
         <?php
         foreach ($classes as $class) {
         ?>
@@ -28,6 +30,15 @@ helper('classLengthReader');
                 <a href="<?php echo base_url(); ?>/Mod/classes/<?php echo $class['ID'] ?>" class="table__item__col link-item col-3">
                     <i class='bx bxs-show'></i> <?php echo $class['Name']; ?>
                 </a>
+                <P>
+                    <?php 
+                    foreach($classmods as $classmod){
+                         if($class['ID'] === $classmod['ClassID']){
+                             Echo $classmod['ModeratorName'];
+                        }
+                    }
+                    ?>
+                </p>
 
 
                 <span class="table__item__col col-1">
@@ -46,4 +57,5 @@ helper('classLengthReader');
         ?>
     </div>
     <a href="<?php echo base_url(); ?>/Mod/ClassCreate" class="btn_default">Klas toevoegen</a>
+    <a href="<?php echo base_url(); ?>/Mod/ViewArchivedStudents">Gearchiveerde Studenten</a>
 </div>

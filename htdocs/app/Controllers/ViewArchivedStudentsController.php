@@ -5,27 +5,37 @@ use CodeIgniter\Controller;
 use App\Models\getClasses;
 use App\Models\UserModel;
 use App\Models\getClassesModerators;
-class ClassCreateController extends Controller
+use App\Models\GetModeratorStudentArchive;
+
+class ViewArchivedStudentsController extends Controller
 {
     private $ClassesModel;
     private $UserModel;
     private $ClassesModerators;
+    private $ModeratorStudentArchiveModel;
 
     public function __construct(){
         helper("rememberUser");
         $this->ClassesModel = new getClasses();
         $this->UserModel = new UserModel();
-        $this->ClassesModerators = new getClassesModerators();
+        $this->ModeratorStudentArchiveModel = new GetModeratorStudentArchive();
     }
 
     public function index()
     {
-        $teachers = $this->UserModel->Where("PermissionLevel","2")->findAll();
+        $moderator =  rememberUser();
+        $holdStudentIDs = $this->ModeratorStudentArchiveModel->where("ModeratorID", $moderator["ID"])->FindAll();
+        $holdStudents = [];
+        foreach($holdStudentIDs as $studentID){
+            $getStudent = $this->UserModel->where("ID", $studentID["StudentID"])->First();
+            array_push($holdStudents, $getStudent);
+        }
+
         $data = [
-            'title' => "Klas aanmaken",
+            'title' => "Gearchiveerde studenten",
             'footerClass' => "block--dark",
-            'user' => rememberUser(),
-            'teachers' => $teachers
+            'Students' => $holdStudents,
+            'user' => $moderator,
         ];
 
         $base_view_dir = "homepages/moderator";
@@ -44,22 +54,8 @@ class ClassCreateController extends Controller
         // unsetting the user variable so it cant be accessed after this point
         $data['user'];
 
-        echo view("$base_view_dir/ClassCreate", );
+        echo view("$base_view_dir/ArchiveStudents", );
 
-        $data["teachers"];
         $data;
-    }
-    public function CreateClass()
-    {
-        $text = $this->request->getVar('className');
-        $teacher = $this->request->getvar('TeacherName');
-        $this->ClassesModel->insert(["Name"=>$text]);
-
-        $newclass = $this->ClassesModel->Where("Name","$text")->first();
-        $this->ClassesModerators->insert(['ClassID' => $newclass['ID'], "ModeratorName"=>$teacher]);
-       
-        
-
-        return redirect()->to('/profile');
     }
 }

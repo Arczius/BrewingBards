@@ -38,7 +38,7 @@ class UpdateClassController extends BaseController{
      $newClassName = $this->request->getVar('className');
      $classID = $this->request->getVar('classID');
 
-     $holdClass = $this->ClassesModel->where("ID",$classID)->first();
+     $holdClass = $this->ClassesModel->where("ID", $classID)->first();
 
      $data = array(
         'ID' => $classID,
