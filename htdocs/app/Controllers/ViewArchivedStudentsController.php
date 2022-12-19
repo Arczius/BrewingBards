@@ -5,7 +5,7 @@ use CodeIgniter\Controller;
 use App\Models\getClasses;
 use App\Models\UserModel;
 use App\Models\getClassesModerators;
-use App\Models\GetModeratorStudentArchive;
+use App\Models\getModeratorStudentArchive;
 
 class ViewArchivedStudentsController extends Controller
 {
@@ -18,7 +18,7 @@ class ViewArchivedStudentsController extends Controller
         helper("rememberUser");
         $this->ClassesModel = new getClasses();
         $this->UserModel = new UserModel();
-        $this->ModeratorStudentArchiveModel = new GetModeratorStudentArchive();
+        $this->ModeratorStudentArchiveModel = new getModeratorStudentArchive();
     }
 
     public function index()
