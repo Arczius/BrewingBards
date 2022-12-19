@@ -21,6 +21,7 @@ class CreateSeeder extends Seeder
             'DnDRaces',
             'StudyPaths',            
             'MailingTemplate',
+            'StudyPathQuestion',
             'Question',
         ];
 
