@@ -31,9 +31,6 @@ class UserController extends BaseController
         ];
 
 
-
-
-
         echo view("basic/head", $data);
         // unsetting the title variable so it cant be accessed after this point
         $data['title'];
@@ -85,11 +82,35 @@ class UserController extends BaseController
 
     public function CharacterViewPage(){
         
-        $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->where("Archive" , 0)->orderBy('CharacterActivity', 'desc')->findall();
-        
-        
+        $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->where("Archive" , 0)->orderBy('CharacterActivity', 'desc')->findall();    
         $dndClasses = $this->getDnDClassesModel->findall();
         $dndRaces = $this->getDnDRacesModel->findall();
+
+
+
+        if(count($characters,0) < "1")
+        {
+            $RandomClassnumber = rand(0, count($dndClasses, 0));
+            $RandomRacenumber = rand(0, count($dndRaces, 0));
+            
+            if($RandomClassnumber == count($dndClasses) ){
+                --$RandomClassnumber;
+            };
+            if($RandomRacenumber == count($dndRaces) ){
+                --$RandomRacenumber;
+            };
+
+            $RandomClass = $dndClasses[$RandomClassnumber];
+            $RandomRace = $dndRaces[$RandomRacenumber];
+            $data = [
+                "UserId" => rememberUser()["ID"],
+                "CharacterName" => rememberUser()["Name"],
+                "CharacterRace" => $RandomRace["RaceName"],
+                "CharacterClass" => $RandomClass["ClassName"],
+                "CharacterActivity" => true
+            ];
+            $this->getCharactersModel->insert($data);
+        };
 
         $base_view_dir = "homepages/user";
         $data = [
@@ -126,6 +147,7 @@ class UserController extends BaseController
     {
         $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->findall();
 
+        if(count($characters,0) < "1"){
         foreach($characters as $character){
             if($character["CharacterActivity"] == true ){ 
 
@@ -140,6 +162,8 @@ class UserController extends BaseController
 
         $characters["CharacterActivity"] = true;
         $this->getCharactersModel->replace($characters);
+        }
+        
         
     }
 

@@ -14,18 +14,18 @@
 <!-- flex holder -->
 <div class="block--main-info block--flex">
 
-
-
     <!-- card item -->
     <?php foreach ($characters as $character){ ?>
     <?php if($character["CharacterActivity"] ==  true) { ?> 
     <div class="block--main-info  border--rounded border--dark col-38 char-card">
         <div class="col-12 border-bottom--dark">
+
             <?php if($character["CharacterActivity"] ==  true) { ?> 
             <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
             <?php } else{ ?>
             <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
             <?php } ?> 
+
         </div>
         
         <br>
