@@ -35,10 +35,13 @@
                 <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
+            <?php if($character["CharacterActivity"] ==  false) { ?> 
             <a href="./DeleteCharacter/<?php echo $character["CharacterId"]; ?>" class="ico-h2 alt-dark tooltip">
-                <i class='bx bxs-trash'></i>
-                <span class="tooltiptext">Verwijderen</span>
+            <i class='bx bxs-trash'></i>
+            <span class="tooltiptext">Verwijderen</span>
             </a>
+            <?php } else{ ?>
+            <?php } ?> 
             <br>
             <a href="" class="ico-h2 alt-dark tooltip">
                 <i class='bx bx-download'></i>
