@@ -14,18 +14,18 @@
 <!-- flex holder -->
 <div class="block--main-info block--flex">
 
-
-
     <!-- card item -->
     <?php foreach ($characters as $character){ ?>
     <?php if($character["CharacterActivity"] ==  true) { ?> 
     <div class="block--main-info  border--rounded border--dark col-38 char-card">
         <div class="col-12 border-bottom--dark">
+
             <?php if($character["CharacterActivity"] ==  true) { ?> 
             <i class='bx ico-h2 switch-btn' data-toggle="true" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
             <?php } else{ ?>
             <i class='bx ico-h2 switch-btn' data-toggle="false" data-name="Activity-<?php echo $character["CharacterId"]?>" onclick="ChangeActivity(<?php echo $character["CharacterId"]?>)"></i>
             <?php } ?> 
+
         </div>
         
         <br>
@@ -35,10 +35,13 @@
                 <span class="tooltiptext">Aanpassen</span>
             </a>
             <br>
+            <?php if($character["CharacterActivity"] ==  false) { ?> 
             <a href="./DeleteCharacter/<?php echo $character["CharacterId"]; ?>" class="ico-h2 alt-dark tooltip">
-                <i class='bx bxs-trash'></i>
-                <span class="tooltiptext">Verwijderen</span>
+            <i class='bx bxs-trash'></i>
+            <span class="tooltiptext">Verwijderen</span>
             </a>
+            <?php } else{ ?>
+            <?php } ?> 
             <br>
             <a href="" class="ico-h2 alt-dark tooltip">
                 <i class='bx bx-download'></i>

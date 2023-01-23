@@ -12,6 +12,9 @@ class DeleteCharacterController extends BaseController{
 
     
     public function DeleteCharacter($deleteID){
+        $characters = $this->getCharactersModel->where("UserId", rememberUser()["ID"])->findall();
+
+        if(count($characters,0) < "1"){
         $characterModel = new \App\Models\getCharacters;
 
         $character = $characterModel->where("CharacterID", $deleteID)->first();
@@ -23,7 +26,7 @@ class DeleteCharacterController extends BaseController{
           "CharacterActivity" => $character["CharacterActivity"],
         "Archive" => true,
         ]);
-
+        }
         return redirect()->back();
         }
 }
