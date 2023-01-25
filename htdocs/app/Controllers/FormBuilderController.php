@@ -145,4 +145,38 @@ class FormBuilderController extends Controller
         echo view("$this->base_view_dir/ReadQuestion/index", $data);
     }
 
+    public function SelectQuestion($id){
+        $questions = $this->QuestionModel->findAll();
+
+        $data = [
+            'title' => "Select een vraag",
+            'user' => rememberUser(),
+            'footerClass' => "block--dark",
+        ];
+
+        echo view("basic/head", $data);
+        echo view("basic/footer", $data);
+        echo view("homepages/moderator/header", $data);
+        $data['questions'] = $questions;
+        $data['id'] = $id;
+
+        echo view("$this->base_view_dir/LinkQuestion/index", $data );
+    }
+
+    public function LinkQuestion(){
+        $questions = $this->QuestionModel->findAll();
+
+        $data = [
+            'title' => "alle vragen",
+            'user' => rememberUser(),
+            'footerClass' => "block--dark",
+        ];
+
+        echo view("basic/head", $data);
+        echo view("basic/footer", $data);
+        echo view("homepages/moderator/header", $data);
+        $data['questions'] = $questions;
+
+        echo view("$this->base_view_dir/ReadQuestion/index", $data);
+    }
 }

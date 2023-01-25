@@ -90,6 +90,7 @@ $routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 $routes->get("/Mod/form_builder_overview", "FormBuilderController::index");
 $routes->get("/Mod/form_builder/(:alphanum)", 'FormBuilderController::overview/$1');
 $routes->match(['get', 'post'], '/Mod/create_study_path', 'FormBuilderController::create');
+$routes->get("/Mod/SelectQuestion/(:alphanum)", 'FormBuilderController::SelectQuestion/$1');
 
 $routes->match(['get', 'post'], '/Mod/MakeQuestion', 'FormBuilderController::MakeQuestion');
 $routes->get("/Mod/ReadQuestion", "FormBuilderController::ReadQuestion");

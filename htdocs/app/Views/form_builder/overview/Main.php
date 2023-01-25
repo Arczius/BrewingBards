@@ -1,4 +1,5 @@
 <div class="block">
+    <a href="<?php echo base_url(); ?>/Mod/SelectQuestion/<?php echo $StudyPath['ID']; ?>" class="btn_default">Link Vragen</a>
     <h2>
         <?php echo $StudyPath['Name']; ?>
     </h2>
