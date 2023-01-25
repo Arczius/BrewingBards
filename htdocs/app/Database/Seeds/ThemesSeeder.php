@@ -13,7 +13,6 @@ class ThemesSeeder extends Seeder
             'popping',
             'neon',
             'jungle',
-
         ];
 
         foreach($data as $item){

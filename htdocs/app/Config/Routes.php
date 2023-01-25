@@ -90,6 +90,7 @@ $routes->get("/Admin/mailing", "AdminController::mailingTemplates");
 $routes->get("/Mod/form_builder_overview", "FormBuilderController::index");
 $routes->get("/Mod/form_builder/(:alphanum)", 'FormBuilderController::overview/$1');
 $routes->match(['get', 'post'], '/Mod/create_study_path', 'FormBuilderController::create');
+$routes->get("/Mod/SelectQuestion/(:alphanum)", 'FormBuilderController::SelectQuestion/$1');
 
 $routes->match(['get', 'post'], '/Mod/MakeQuestion', 'FormBuilderController::MakeQuestion');
 $routes->get("/Mod/ReadQuestion", "FormBuilderController::ReadQuestion");
@@ -102,8 +103,8 @@ $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharact
 
 $routes->get("/User/DeleteCharacter/(:alphanum)", "DeleteCharacterController::DeleteCharacter/$1");
 
-
-
+$routes->match(['get', 'post'], '/Mod/LinkQuestion', 'FormBuilderController::LinkQuestion');
+$routes->get("/Mod/RemoveLinkedQuestion/(:alphanum)/(:alphanum)", 'FormBuilderController::RemoveLinkedQuestion/$1/$2');
 
 $routes->get("/User/UpdateCharacterViewPage/(:alphanum)", 'UpdateCharacterController::index/$1');
 
