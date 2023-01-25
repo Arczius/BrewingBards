@@ -103,8 +103,8 @@ $routes->post("/User/CreateCharacter", 'CreateCharacterController::CreateCharact
 
 $routes->get("/User/DeleteCharacter/(:alphanum)", "DeleteCharacterController::DeleteCharacter/$1");
 
-
-
+$routes->match(['get', 'post'], '/Mod/LinkQuestion', 'FormBuilderController::LinkQuestion');
+$routes->get("/Mod/RemoveLinkedQuestion/(:alphanum)/(:alphanum)", 'FormBuilderController::RemoveLinkedQuestion/$1/$2');
 
 $routes->get("/User/UpdateCharacterViewPage/(:alphanum)", 'UpdateCharacterController::index/$1');
 
